@@ -7,7 +7,6 @@ public interface DriveOI {
 	
 	public double getFODMag();
 	public double getFODAngle();
-	public double getElevatorMove();
 
 	public boolean isOverriddenByDrive();
 	

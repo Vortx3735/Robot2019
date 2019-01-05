@@ -69,17 +69,6 @@ public class Drive extends Subsystem {
 			}
 		}
 	};
-	
-	public static BooleanSetting isLimiting = new BooleanSetting("Elevator Drive Limiting", false, false){
-		@Override
-		public void valueChanged(boolean val) {
-			if(Robot.drive != null) {
-				Robot.drive.defCommand.setIsLimiting(val);
-				System.out.println("Elevator Drive Limiting = " + val);
-
-			}
-		}
-	};
 
 
 	public Drive() {
@@ -91,7 +80,6 @@ public class Drive extends Subsystem {
 		l1.setFMaxV(maxV);
 		r1.setFMaxV(maxV);
 		brakeEnabled.setIsListening(true);
-		isLimiting.setIsListening(true);
 		initSensors();
 		setEnableBrake(true);
 	}
@@ -432,23 +420,6 @@ public class Drive extends Subsystem {
     	return 0;
     }
 
-    public void switchDirection(){
-		if(switched){
-			l1 = new VortxTalon(RobotMap.Drive.leftTrain, "Left Drive");
-			r1 = new VortxTalon(RobotMap.Drive.rightTrain, "Right Drive");
-			switched = false;
-			
-			initSensors();
-			setEnableBrake(true);
-		}else{
-			r1 = new VortxTalon(RobotMap.Drive.leftTrain, "Left Drive");
-			l1 = new VortxTalon(RobotMap.Drive.rightTrain, "Right Drive");
-			switched = true;
-			
-			initSensors();
-			setEnableBrake(true);
-		}
-    }
     
     /******************************************
      * PID driving 

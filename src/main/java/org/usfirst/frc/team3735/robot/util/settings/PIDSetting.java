@@ -1,10 +1,9 @@
 package org.usfirst.frc.team3735.robot.util.settings;
 
-import org.usfirst.frc.team3735.robot.commands.elevator.BlankPID;
-
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
+import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class PIDSetting extends PIDController{
@@ -73,4 +72,30 @@ public class PIDSetting extends PIDController{
 	
 	
 	
+}
+
+class BlankPID implements PIDSource, PIDOutput{
+	public BlankPID() {
+	}
+
+	@Override
+	public void pidWrite(double output) {
+
+	}
+
+	@Override
+	public void setPIDSourceType(PIDSourceType pidSource) {
+
+	}
+
+	@Override
+	public PIDSourceType getPIDSourceType() {
+		return null;
+	}
+
+	@Override
+	public double pidGet() {
+		return 0;
+	}
+	 
 }

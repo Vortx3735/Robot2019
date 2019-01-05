@@ -28,14 +28,7 @@ public class DDxDrive extends Command {
 		}
 	};
 	
-	//create this function and replace maxA with it for limited driving
-	private Func maxAEle = new Func() {
-		@Override
-		public double getValue() {
-			double h = Robot.elevator.getPosition();
-			return .2;
-		}
-	};
+
 	
 	private Setting maxJ = new Setting("Max Jerk", 100, false){
 		@Override
@@ -69,13 +62,6 @@ public class DDxDrive extends Command {
 
     }
     
-    public void setIsLimiting(boolean b) {
-    	if(b) {
-        	move = new JerkLimiter(0, new Range(maxAEle), new Range(maxJ));
-    	}else {
-        	move = new JerkLimiter(0, new Range(maxA), new Range(maxJ));
-    	}
-    }
 
     // Called just before this Command runs the first time
     protected void initialize() {

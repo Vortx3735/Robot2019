@@ -12,9 +12,6 @@ public class EndAll extends Command {
 
     public EndAll() {
         requires(Robot.drive);
-        requires(Robot.elevator);
-        requires(Robot.pivot);
-        requires(Robot.cubeIntake);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
