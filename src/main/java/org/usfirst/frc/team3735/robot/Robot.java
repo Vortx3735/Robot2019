@@ -68,7 +68,7 @@ public class Robot extends VortxIterative {
 	
 	public static GTAOI oi;
 	
-	
+	//test101
 	public static SideChooser sideChooser;
 	public static AutoChooser autoChooser;
 	
