@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3735.robot;
 
-import static org.junit.Assume.assumeNoException;
-
 import org.usfirst.frc.team3735.robot.commands.auto.*;
 import org.usfirst.frc.team3735.robot.settings.Dms;
 import org.usfirst.frc.team3735.robot.settings.Waypoints;
