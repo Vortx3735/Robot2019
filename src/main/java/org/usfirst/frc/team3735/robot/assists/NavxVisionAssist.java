@@ -44,8 +44,4 @@ public class NavxVisionAssist extends ComAssist{
 		Robot.drive.setVisionAssist(0);
 	}
 	
-//doy mun fuh = ???
-//sing chow em = hello
-//em depp
-	
 }
