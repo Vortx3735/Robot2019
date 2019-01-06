@@ -67,12 +67,13 @@ public class Robot extends VortxIterative {
 	
 	@Override
 	public void robotInit() {
-		drive = new Drive();
-		navigation = new Navigation();
+		//drive = new Drive();
+		//navigation = new Navigation();
 		vision = new Vision();
 
 		oi = new GTAOI(); //MUST be instantiated after the subsystems
 			
+
 		autoLogic = new Autonomous();
 		 
 		sideChooser = new SideChooser();
