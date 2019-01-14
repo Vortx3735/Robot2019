@@ -32,10 +32,9 @@ public class TurnTo extends Command{
     	this(new Func(){
 			@Override
 			public double getValue() {
-				return VortxMath.navLimit(Robot.navigation.getYaw() + (Robot.vision.getRelativeCX() * Robot.vision.dpp.getValue()) );
+				return VortxMath.navLimit(Robot.navigation.getYaw());
 			}
     	});
-    	requires(Robot.vision);
     }
 	
 	public TurnTo(Location loc) {

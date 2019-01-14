@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3735.robot.Robot;
 
 //import org.usfirst.frc.team3735.robot.Robot.Side;
-import org.usfirst.frc.team3735.robot.settings.Dms;
 import org.usfirst.frc.team3735.robot.settings.Waypoints;
 import org.usfirst.frc.team3735.robot.util.PIDCtrl;
 import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
@@ -197,7 +196,7 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 	
 	public void resetPosition() {
 
-		resetPosition(Robot.autoLogic.getStartingPosition());
+		//resetPosition(Robot.autoLogic.getStartingPosition());
 
 	}
 

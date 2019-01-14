@@ -11,7 +11,7 @@ public class DriveOverride extends ComTrigger{
 
 	@Override
 	public boolean get() {
-		return Robot.oi.isOverriddenByDrive();
+		return false;// Robot.oi.isOverriddenByDrive();
 	}
 	
 	@Override
