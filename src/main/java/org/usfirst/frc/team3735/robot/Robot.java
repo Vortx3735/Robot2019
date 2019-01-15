@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3735.robot.subsystems.Climbing;
 import org.usfirst.frc.team3735.robot.subsystems.Drive;
 import org.usfirst.frc.team3735.robot.subsystems.Hatch;
 import org.usfirst.frc.team3735.robot.subsystems.Intake;
@@ -33,6 +34,7 @@ public class Robot extends TimedRobot {
 	public static Intake intake;
 	public static Jevois vision;
 	public static Hatch hatch;
+	public static Climbing climbing;
 	public static Navigation navigation;
 	public static OI oi;
 
@@ -48,10 +50,11 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		drive = new Drive();
-		intake = new Intake();
-		hatch = new Hatch();
-		navigation = new Navigation();
-		vision = new Jevois();
+		//intake = new Intake();
+		//hatch = new Hatch();
+		climbing = new Climbing();
+		//navigation = new Navigation();
+		//vision = new Jevois();
 		oi = new OI();
 		
 

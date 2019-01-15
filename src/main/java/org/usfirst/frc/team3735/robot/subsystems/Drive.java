@@ -23,7 +23,6 @@ import org.usfirst.frc.team3735.robot.util.settings.Setting;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 
 /**
@@ -77,8 +76,8 @@ public class Drive extends Subsystem {
 		l1.setInchesPerTick(Constants.Drive.InchesPerTick);
 		r1.setInchesPerTick(Constants.Drive.InchesPerTick);
 				
-		l1.setFMaxV(maxV);
-		r1.setFMaxV(maxV);
+		//l1.setFMaxV(maxV);
+		//r1.setFMaxV(maxV);
 		brakeEnabled.setIsListening(true);
 		initSensors();
 		setEnableBrake(true);
