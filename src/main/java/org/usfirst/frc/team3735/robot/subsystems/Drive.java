@@ -117,8 +117,14 @@ public class Drive extends Subsystem {
 
 
 	public void initSensors() {
-		l1.initSensor(FeedbackDevice.CTRE_MagEncoder_Relative, true);
-		r1.initSensor(FeedbackDevice.CTRE_MagEncoder_Relative, true);
+		l1.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);	
+		l1.setSelectedSensorPosition(0);
+		l1.setSensorPhase(true);
+		
+		
+		r1.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		r1.setSelectedSensorPosition(0);
+		r1.setSensorPhase(true);
 
 	}
 	
@@ -306,11 +312,11 @@ public class Drive extends Subsystem {
 	 *********************************/
 
 	public double getLeftPosition() {
-		return l1.getSelectedSensorPosition(0) * Constants.Drive.InchesPerTick;
+		return l1.getSelectedSensorPosition(0) * Constants.Drive.InchesPerTick *-1;
 	}
 
 	public double getRightPosition() {
-		return r1.getSelectedSensorPosition(0) * Constants.Drive.InchesPerTick;
+		return r1.getSelectedSensorPosition(0) * Constants.Drive.InchesPerTick *-1;
 	}
 	
 	/*
