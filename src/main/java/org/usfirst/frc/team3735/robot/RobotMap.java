@@ -16,8 +16,8 @@ package org.usfirst.frc.team3735.robot;
 public class RobotMap {
 	public static class Drive{
 
-		public static int[] leftTrain =  {3,6};
-		public static int[] rightTrain = {1,8};
+		public static int[] leftTrain =  {1,8};
+		public static int[] rightTrain = {-3,-6};
 		
 		public static int topMotor = 2; //8
 
@@ -27,20 +27,12 @@ public class RobotMap {
 		public static int leftMotor = 4;
 		public static int rightMotor = 5;
 
-		public static int leftSol = 0;//4;
-		public static int rightSol = 0;//6;
+		public static int leftSol = 4;//4;
+		public static int rightSol = 6;//6;
 	}
 
 	public static class Hatch {
-		public static int solenoid = 0;//5;
+		public static int solenoid = 5;//5;
 	}
 
-	public static class  Climbing {
-		public static int solenoidL1 = 4;
-		public static int solenoidL2 = 5;
-		public static int solenoidR1 = 6;
-		public static int solenoidR2 = 7;
-
-
-	}
 }

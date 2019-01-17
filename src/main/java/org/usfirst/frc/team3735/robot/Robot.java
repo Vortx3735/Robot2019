@@ -50,9 +50,9 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		drive = new Drive();
-		//intake = new Intake();
-		//hatch = new Hatch();
-		climbing = new Climbing();
+		intake = new Intake();
+		hatch = new Hatch();
+		//climbing = new Climbing();
 		//navigation = new Navigation();
 		//vision = new Jevois();
 		oi = new OI();
