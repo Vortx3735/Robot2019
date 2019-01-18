@@ -1,6 +1,6 @@
-package org.usfirst.frc.team3735.robot.commands.hatch;
+package frc.robot.commands.hatch;
 
-import org.usfirst.frc.team3735.robot.Robot;
+import frc.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 //

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3735.robot.subsystems;
+package frc.robot.subsystems;
 
 
 
@@ -8,17 +8,14 @@ import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.commands.drive.DDxDrive;
-import org.usfirst.frc.team3735.robot.commands.drive.ExpDrive;
-import org.usfirst.frc.team3735.robot.settings.Constants;
-import org.usfirst.frc.team3735.robot.settings.Dms;
-import org.usfirst.frc.team3735.robot.RobotMap;
-import org.usfirst.frc.team3735.robot.util.PIDCtrl;
-import org.usfirst.frc.team3735.robot.util.hardware.VortxTalon;
-import org.usfirst.frc.team3735.robot.util.settings.BooleanSetting;
-import org.usfirst.frc.team3735.robot.util.settings.PIDSetting;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
+import frc.robot.Robot;
+import frc.robot.commands.drive.DDxDrive;
+import frc.robot.settings.Constants;
+import frc.robot.settings.Dms;
+import frc.robot.RobotMap;
+import frc.robot.util.hardware.VortxTalon;
+import frc.robot.util.settings.BooleanSetting;
+import frc.robot.util.settings.Setting;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;

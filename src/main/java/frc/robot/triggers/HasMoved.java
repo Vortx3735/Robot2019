@@ -1,10 +1,10 @@
-package org.usfirst.frc.team3735.robot.triggers;
+package frc.robot.triggers;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.settings.Constants;
-import org.usfirst.frc.team3735.robot.util.calc.Integrator;
-import org.usfirst.frc.team3735.robot.util.cmds.ComTrigger;
-import org.usfirst.frc.team3735.robot.util.settings.Func;
+import frc.robot.Robot;
+import frc.robot.settings.Constants;
+import frc.robot.util.calc.Integrator;
+import frc.robot.util.cmds.ComTrigger;
+import frc.robot.util.settings.Func;
 
 
 public class HasMoved extends ComTrigger{
