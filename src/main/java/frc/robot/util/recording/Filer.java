@@ -1,9 +1,4 @@
-package org.usfirst.frc.team3735.robot.util.recording;
-
-import java.io.File;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Scanner;
+package frc.robot.util.recording;
 
 public class Filer {
 	

@@ -1,8 +1,8 @@
-package org.usfirst.frc.team3735.robot.util.motion;
+package frc.robot.util.motion;
 
+import frc.robot.util.motion.MotionProfile.ColumnsFromFile;
+import frc.robot.util.motion.exceptions.ColumnValueMismatchException;
 import org.apache.commons.csv.CSVRecord;
-import org.usfirst.frc.team3735.robot.util.motion.MotionProfile.ColumnsFromFile;
-import org.usfirst.frc.team3735.robot.util.motion.exceptions.ColumnValueMismatchException;
 
 public class MotionData {
 

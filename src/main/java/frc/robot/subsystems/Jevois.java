@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3735.robot.subsystems;
+package frc.robot.subsystems;
 
 import edu.wpi.cscore.MjpegServer;
 import edu.wpi.cscore.UsbCamera;
@@ -29,6 +29,7 @@ public class Jevois {
 	UsbCamera visionCam = null;
 	MjpegServer camServer = null;
 
+	//TODO: have the jevois run in its own thread so it doesn't interfere with normal robot procedures.
 	public Jevois() {
 		//ConnectJeVois and Check if we are connected
 		connectJeVois();

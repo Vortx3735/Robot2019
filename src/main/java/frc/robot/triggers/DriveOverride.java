@@ -1,7 +1,6 @@
-package org.usfirst.frc.team3735.robot.triggers;
+package frc.robot.triggers;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.cmds.ComTrigger;
+import frc.robot.util.cmds.ComTrigger;
 
 public class DriveOverride extends ComTrigger{
 	

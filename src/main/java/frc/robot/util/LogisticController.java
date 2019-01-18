@@ -1,7 +1,6 @@
-package org.usfirst.frc.team3735.robot.util;
+package frc.robot.util;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.settings.Func;
+import frc.robot.util.settings.Func;
 
 public class LogisticController{
 	

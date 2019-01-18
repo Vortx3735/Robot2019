@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3735.robot.util.motion.exceptions;
+package frc.robot.util.motion.exceptions;
 
 
 public class ColumnValueMismatchException extends Exception {

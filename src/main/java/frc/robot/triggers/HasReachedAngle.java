@@ -1,8 +1,8 @@
-package org.usfirst.frc.team3735.robot.triggers;
+package frc.robot.triggers;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
-import org.usfirst.frc.team3735.robot.util.cmds.ComTrigger;
+import frc.robot.Robot;
+import frc.robot.util.calc.VortxMath;
+import frc.robot.util.cmds.ComTrigger;
 
 public class HasReachedAngle extends ComTrigger{
 	

@@ -1,11 +1,11 @@
-package org.usfirst.frc.team3735.robot.commands.drive.movedistance;
+package frc.robot.commands.drive.movedistance;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.triggers.HasMoved;
-import org.usfirst.frc.team3735.robot.util.calc.DDxLimiter;
-import org.usfirst.frc.team3735.robot.util.calc.Range;
-import org.usfirst.frc.team3735.robot.util.cmds.VortxCommand;
-import org.usfirst.frc.team3735.robot.util.settings.Func;
+import frc.robot.Robot;
+import frc.robot.triggers.HasMoved;
+import frc.robot.util.calc.DDxLimiter;
+import frc.robot.util.calc.Range;
+import frc.robot.util.cmds.VortxCommand;
+import frc.robot.util.settings.Func;
 
 
 /**

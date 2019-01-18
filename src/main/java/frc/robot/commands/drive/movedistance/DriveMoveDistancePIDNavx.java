@@ -1,10 +1,10 @@
-package org.usfirst.frc.team3735.robot.commands.drive.movedistance;
+package frc.robot.commands.drive.movedistance;
 
-import org.usfirst.frc.team3735.robot.settings.Constants;
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Robot;
+import frc.robot.settings.Constants;
+import frc.robot.util.calc.VortxMath;
 
 /**
  *

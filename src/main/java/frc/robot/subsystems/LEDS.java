@@ -1,10 +1,10 @@
-package org.usfirst.frc.team3735.robot.subsystems;
+package frc.robot.subsystems;
 
 
 //import org.usfirst.frc.team3735.robot.settings.RobotMap;
 
 //import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-//import org.usfirst.frc.team3735.robot.settings.Constants;
+//import Constants;
 
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Timer;

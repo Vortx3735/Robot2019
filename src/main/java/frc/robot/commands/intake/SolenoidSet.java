@@ -5,11 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3735.robot.commands.intake;
-
-import org.usfirst.frc.team3735.robot.Robot;
+package frc.robot.commands.intake;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
 public class SolenoidSet extends Command {
   boolean setPos;

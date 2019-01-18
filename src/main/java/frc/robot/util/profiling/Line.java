@@ -1,7 +1,7 @@
-package org.usfirst.frc.team3735.robot.util.profiling;
+package frc.robot.util.profiling;
 
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
-import org.usfirst.frc.team3735.robot.util.recording.Filer;
+import frc.robot.util.calc.VortxMath;
+import frc.robot.util.recording.Filer;
 
 public class Line {
 	

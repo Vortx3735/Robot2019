@@ -1,6 +1,9 @@
-package org.usfirst.frc.team3735.robot.util.motion;
+package frc.robot.util.motion;
 
 
+import frc.robot.util.motion.exceptions.MissingColumnException;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,12 +12,7 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Map;
-
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.usfirst.frc.team3735.robot.util.motion.exceptions.MissingColumnException;
 
 public class MotionProfile implements ProfileName, ProfileSource {
 

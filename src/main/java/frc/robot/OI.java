@@ -5,13 +5,13 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3735.robot;
+package frc.robot;
 
 
-import org.usfirst.frc.team3735.robot.commands.hatch.HatchSet;
-import org.usfirst.frc.team3735.robot.commands.intake.IntakeMotorSet;
-import org.usfirst.frc.team3735.robot.commands.intake.SolenoidSet;
-import org.usfirst.frc.team3735.robot.util.oi.XboxController;
+import frc.robot.commands.hatch.HatchSet;
+import frc.robot.commands.intake.IntakeMotorSet;
+import frc.robot.commands.intake.SolenoidSet;
+import frc.robot.util.oi.XboxController;
 
 /**
  * This class is the glue that binds the controls on the physical operator

@@ -1,11 +1,9 @@
-package org.usfirst.frc.team3735.robot.util.hardware;
-
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
+package frc.robot.util.hardware;
 
 import com.kauailabs.navx.frc.AHRS;
-
 import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.util.calc.VortxMath;
 
 public class VortxAhrs extends AHRS{
 

@@ -1,6 +1,6 @@
-package org.usfirst.frc.team3735.robot.util.calc;
+package frc.robot.util.calc;
 
-import org.usfirst.frc.team3735.robot.util.settings.Func;
+import frc.robot.util.settings.Func;
 
 public class Range {
 	

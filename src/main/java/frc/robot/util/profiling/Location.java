@@ -1,8 +1,8 @@
-package org.usfirst.frc.team3735.robot.util.profiling;
+package frc.robot.util.profiling;
+
+import frc.robot.util.recording.Filer;
 
 import java.util.ArrayList;
-
-import org.usfirst.frc.team3735.robot.util.recording.Filer;
 
 public class Location{
 	public double x,y;

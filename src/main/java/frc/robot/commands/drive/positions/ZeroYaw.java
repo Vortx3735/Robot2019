@@ -1,8 +1,7 @@
-package org.usfirst.frc.team3735.robot.commands.drive.positions;
-
-import org.usfirst.frc.team3735.robot.Robot;
+package frc.robot.commands.drive.positions;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
+import frc.robot.Robot;
 
 /**
  *

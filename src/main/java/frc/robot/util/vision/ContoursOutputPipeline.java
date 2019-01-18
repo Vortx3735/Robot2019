@@ -1,8 +1,8 @@
-package org.usfirst.frc.team3735.robot.util.vision;
-
-import java.util.ArrayList;
+package frc.robot.util.vision;
 
 import org.opencv.core.MatOfPoint;
+
+import java.util.ArrayList;
 
 public interface ContoursOutputPipeline {
 	

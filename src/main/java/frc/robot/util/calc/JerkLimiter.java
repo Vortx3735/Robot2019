@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3735.robot.util.calc;
+package frc.robot.util.calc;
 
 public class JerkLimiter {
 	public double value;

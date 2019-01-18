@@ -1,27 +1,22 @@
-package org.usfirst.frc.team3735.robot.commands.drive.recorder;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Formatter;
-import java.util.HashMap;
-import java.util.Scanner;
-
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.calc.Average;
-import org.usfirst.frc.team3735.robot.util.calc.RollingAverage;
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
-import org.usfirst.frc.team3735.robot.util.motion.MotionProfile;
-import org.usfirst.frc.team3735.robot.util.motion.MotionSet;
-import org.usfirst.frc.team3735.robot.util.motion.exceptions.MissingColumnException;
-import org.usfirst.frc.team3735.robot.util.profiling.Line;
-import org.usfirst.frc.team3735.robot.util.profiling.Ray;
-import org.usfirst.frc.team3735.robot.util.recording.DriveState;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
-import org.usfirst.frc.team3735.robot.util.settings.StringSetting;
+package frc.robot.commands.drive.recorder;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Robot;
+import frc.robot.util.calc.Average;
+import frc.robot.util.calc.VortxMath;
+import frc.robot.util.motion.MotionProfile;
+import frc.robot.util.motion.MotionSet;
+import frc.robot.util.motion.exceptions.MissingColumnException;
+import frc.robot.util.profiling.Ray;
+import frc.robot.util.recording.DriveState;
+import frc.robot.util.settings.Setting;
+import frc.robot.util.settings.StringSetting;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  *

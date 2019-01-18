@@ -1,10 +1,10 @@
-package org.usfirst.frc.team3735.robot.assists;
+package frc.robot.assists;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
-import org.usfirst.frc.team3735.robot.util.cmds.ComAssist;
-import org.usfirst.frc.team3735.robot.util.profiling.Location;
-import org.usfirst.frc.team3735.robot.util.settings.Func;
+import frc.robot.Robot;
+import frc.robot.util.calc.VortxMath;
+import frc.robot.util.cmds.ComAssist;
+import frc.robot.util.profiling.Location;
+import frc.robot.util.settings.Func;
 
 public class NavxAssist extends ComAssist{
 	

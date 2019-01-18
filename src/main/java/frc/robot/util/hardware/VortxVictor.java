@@ -1,15 +1,14 @@
-package org.usfirst.frc.team3735.robot.util.hardware;
-import org.usfirst.frc.team3735.robot.util.settings.PIDSetting;
+package frc.robot.util.hardware;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard; 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.util.settings.PIDSetting;
 
 public class VortxVictor extends WPI_VictorSPX{
 	
-	private PIDSetting setting; 
+	private PIDSetting setting;
 	private String name;
 	
 	double ticksPerInch = 1;

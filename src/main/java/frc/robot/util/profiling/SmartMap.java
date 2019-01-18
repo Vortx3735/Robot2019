@@ -1,8 +1,8 @@
-package org.usfirst.frc.team3735.robot.util.profiling;
-
-import java.util.ArrayList;
+package frc.robot.util.profiling;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+
+import java.util.ArrayList;
 
 public class SmartMap {
 	

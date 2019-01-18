@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3735.robot.util.motion;
+package frc.robot.util.motion;
 
 public interface ProfileSource {
 	

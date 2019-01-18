@@ -1,9 +1,7 @@
-package org.usfirst.frc.team3735.robot.triggers;
-
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.cmds.ComTrigger;
+package frc.robot.triggers;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.util.cmds.ComTrigger;
 
 public class TimeOut extends ComTrigger{
 	

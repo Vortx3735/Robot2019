@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5b0e60ec-2054-4609-9613-82d8917ca1b1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/Autonomous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/Autonomous.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/OI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/OI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/RobotMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/RobotMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/assists/NavxAssist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/assists/NavxAssist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/EndAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/EndAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/Wait.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/Wait.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/auto/UnknownStraight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/auto/UnknownStraight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/DDxDrive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/DDxDrive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/DriveSetPID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/DriveSetPID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/ExpDrive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/ExpDrive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/RecordAverageSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/RecordAverageSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/TurnTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/TurnTo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/DriveExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/DriveExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/DriveMoveDistancePID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/DriveMoveDistancePID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/DriveMoveDistancePIDNavx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/DriveMoveDistancePIDNavx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/DriveRaw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/DriveRaw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/MoveDDx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/MoveDDx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/MoveSine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/MoveSine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/SinusoidalProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/movedistance/SinusoidalProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/positions/ResetPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/positions/ResetPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/positions/SetToLastPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/positions/SetToLastPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/positions/ZeroYaw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/positions/ZeroYaw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/recorder/RecordProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/recorder/RecordProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/recorder/SendPreProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/recorder/SendPreProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/recorder/SendProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/recorder/SendProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/simple/DriveAddSensitiveLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/simple/DriveAddSensitiveLeft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/simple/DriveAddSensitiveRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/simple/DriveAddSensitiveRight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/simple/DriveBrake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/simple/DriveBrake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/simple/DriveBrakeUntilStopped.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/drive/simple/DriveBrakeUntilStopped.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/hatch/HatchSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/hatch/HatchSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/intake/IntakeMotorSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/intake/IntakeMotorSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/intake/SolenoidSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/intake/SolenoidSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/ois/GTAOI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/ois/GTAOI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/ois/WheelOI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/ois/WheelOI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/settings/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/settings/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/settings/Dms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/settings/Dms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/settings/Waypoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/settings/Waypoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Climbing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Climbing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Drive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Drive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Hatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Hatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Intake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Intake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Jevois.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Jevois.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/LEDS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/LEDS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Navigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Navigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Vision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/subsystems/Vision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/Bumped.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/Bumped.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/DriveOverride.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/DriveOverride.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/HasPassedWaypoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/HasPassedWaypoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/HasReachedAngle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/HasReachedAngle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/HasReachedHeight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/HasReachedHeight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/HasReachedSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/HasReachedSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/LocationProximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/LocationProximity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/TimeOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/triggers/TimeOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/LogisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/LogisticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/PIDCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/PIDCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/bases/VortxIterative.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/bases/VortxIterative.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/AccLimiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/AccLimiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/Average.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/Average.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/DDxLimiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/DDxLimiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/Integrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/Integrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/JerkLimiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/JerkLimiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/Range.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/Range.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/RollingAverage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/RollingAverage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/TrapProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/TrapProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/VortxMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/calc/VortxMath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/choosers/AutoChooser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/choosers/AutoChooser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/choosers/DoNothing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/choosers/DoNothing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/choosers/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/choosers/Side.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/choosers/SideChooser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/choosers/SideChooser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/cmds/ComAssist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/cmds/ComAssist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/cmds/ComTrigger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/cmds/ComTrigger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/cmds/VortxCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/cmds/VortxCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/hardware/VortxAhrs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/hardware/VortxAhrs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/hardware/VortxTalon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/hardware/VortxTalon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/hardware/VortxVictor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/hardware/VortxVictor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/MotionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/MotionData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/MotionProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/MotionProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/MotionSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/MotionSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/ProfileName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/ProfileName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/ProfileSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/ProfileSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/exceptions/ColumnValueMismatchException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/exceptions/ColumnValueMismatchException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/exceptions/MissingColumnException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/motion/exceptions/MissingColumnException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/ChineseBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/ChineseBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/DriveOI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/DriveOI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/GraphiteJoystick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/GraphiteJoystick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/GraysWheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/GraysWheel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/JoystickPOVButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/JoystickPOVButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/JoystickTriggerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/JoystickTriggerButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/XboxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/oi/XboxController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/Ray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/SmartMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/profiling/SmartMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/DataRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/DataRecorder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/DriveState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/DriveState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/Filer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/Filer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/RecordableCantalon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/RecordableCantalon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/RecordableDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/recording/RecordableDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/settings/BooleanSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/settings/BooleanSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/settings/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/settings/Setting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/settings/StringSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/settings/StringSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/vision/ContoursOutputPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/vision/ContoursOutputPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/util/vision/VisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/util/vision/VisionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/CenterSwitchLeft_left_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/CenterSwitchLeft_right_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/CenterSwitchLeft_source_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/CenterSwitchRight_left_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/CenterSwitchRight_right_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/CenterSwitchRight_source_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/LeftScaleLeft_left_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/LeftScaleLeft_right_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/LeftScaleLeft_source_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/LeftScaleRight_left_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/LeftScaleRight_right_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/LeftScaleRight_source_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/RightScaleLeft_left_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/RightScaleLeft_right_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/RightScaleLeft_source_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/RightScaleRight_left_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/RightScaleRight_right_detailed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/RightScaleRight_source_detailed.csv" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/bin/default/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1778796356">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1905" />
+    <option name="width" value="1950" />
+    <option name="height" value="2175" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Robot2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Robot2019" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Robot2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Robot2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Robot2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Robot2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Robot2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Robot2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Robot2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Robot2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="robot" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547847390322" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5b0e60ec-2054-4609-9613-82d8917ca1b1" name="Default Changelist" comment="" />
+      <created>1547846974457</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547846974457</updated>
+      <workItem from="1547846982005" duration="716000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="716000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-6" y="-6" width="1549" height="877" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24949698" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.2568306" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/frc/robot/Autonomous.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/frc/robot/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

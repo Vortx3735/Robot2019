@@ -1,9 +1,8 @@
-package org.usfirst.frc.team3735.robot.commands.drive;
-
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
+package frc.robot.commands.drive;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import frc.robot.util.settings.Setting;
 
 /**
  *

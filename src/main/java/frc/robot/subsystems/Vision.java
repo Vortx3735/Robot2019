@@ -1,13 +1,11 @@
-package org.usfirst.frc.team3735.robot.subsystems;
-
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
-import org.usfirst.frc.team3735.robot.util.vision.VisionHandler;
+package frc.robot.subsystems;
 
 import edu.wpi.cscore.AxisCamera;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.util.settings.Setting;
 
 public class Vision extends Subsystem {
 	
@@ -100,9 +98,7 @@ public static int tick = 0;
     }
 
 	@Override
-	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
+	protected void initDefaultCommand() {		
 	}
 
 }

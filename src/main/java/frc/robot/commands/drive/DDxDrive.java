@@ -1,13 +1,11 @@
-package org.usfirst.frc.team3735.robot.commands.drive;
-
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.subsystems.Drive;
-import org.usfirst.frc.team3735.robot.util.calc.JerkLimiter;
-import org.usfirst.frc.team3735.robot.util.calc.Range;
-import org.usfirst.frc.team3735.robot.util.settings.Func;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
+package frc.robot.commands.drive;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import frc.robot.subsystems.Drive;
+import frc.robot.util.calc.JerkLimiter;
+import frc.robot.util.calc.Range;
+import frc.robot.util.settings.Setting;
 
 /**
  *

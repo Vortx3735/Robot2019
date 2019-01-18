@@ -1,19 +1,15 @@
-package org.usfirst.frc.team3735.robot.util.hardware;
-import org.usfirst.frc.team3735.robot.util.settings.PIDSetting;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
+package frc.robot.util.hardware;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.FollowerType;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard; 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.util.settings.PIDSetting;
 
 public class VortxTalon extends WPI_TalonSRX{
 	
-	private PIDSetting setting; 
+	private PIDSetting setting;
 	private String name;
 	private int timer = 0;
 	

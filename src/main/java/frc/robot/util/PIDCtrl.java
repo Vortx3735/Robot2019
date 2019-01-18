@@ -1,13 +1,11 @@
-package org.usfirst.frc.team3735.robot.util;
-
-import org.usfirst.frc.team3735.robot.util.settings.Func;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
+package frc.robot.util;
 
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
-import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.util.settings.Func;
+import frc.robot.util.settings.Setting;
 
 public class PIDCtrl extends PIDController{
 

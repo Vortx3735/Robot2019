@@ -1,9 +1,8 @@
-package org.usfirst.frc.team3735.robot.util.choosers;
+package frc.robot.util.choosers;
 
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class AutoChooser extends SendableChooser<Command> {
 	

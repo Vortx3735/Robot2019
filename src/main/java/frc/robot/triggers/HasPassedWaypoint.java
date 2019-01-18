@@ -1,9 +1,9 @@
-package org.usfirst.frc.team3735.robot.triggers;
+package frc.robot.triggers;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.cmds.ComTrigger;
-import org.usfirst.frc.team3735.robot.util.profiling.Line;
-import org.usfirst.frc.team3735.robot.util.profiling.Location;
+import frc.robot.Robot;
+import frc.robot.util.cmds.ComTrigger;
+import frc.robot.util.profiling.Line;
+import frc.robot.util.profiling.Location;
 
 public class HasPassedWaypoint extends ComTrigger{
 	

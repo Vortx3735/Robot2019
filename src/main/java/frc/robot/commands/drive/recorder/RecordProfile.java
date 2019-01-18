@@ -1,15 +1,11 @@
-package org.usfirst.frc.team3735.robot.commands.drive.recorder;
-
-import java.util.Formatter;
-
-import javax.tools.JavaFileObject;
-
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.profiling.Position;
-import org.usfirst.frc.team3735.robot.util.recording.DriveState;
-import org.usfirst.frc.team3735.robot.util.settings.StringSetting;
+package frc.robot.commands.drive.recorder;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import frc.robot.util.recording.DriveState;
+import frc.robot.util.settings.StringSetting;
+
+import java.util.Formatter;
 
 /**
  *

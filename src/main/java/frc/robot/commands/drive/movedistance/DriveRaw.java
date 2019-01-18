@@ -1,9 +1,7 @@
-package org.usfirst.frc.team3735.robot.commands.drive.movedistance;
+package frc.robot.commands.drive.movedistance;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.cmds.VortxCommand;
-
-import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import frc.robot.util.cmds.VortxCommand;
 
 /**
  *

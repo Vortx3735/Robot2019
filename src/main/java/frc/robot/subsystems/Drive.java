@@ -1,25 +1,19 @@
 package frc.robot.subsystems;
 
 
-
-import edu.wpi.first.wpilibj.PIDOutput;
-import edu.wpi.first.wpilibj.PIDSource;
-import edu.wpi.first.wpilibj.PIDSourceType;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import frc.robot.Robot;
-import frc.robot.commands.drive.DDxDrive;
-import frc.robot.settings.Constants;
-import frc.robot.settings.Dms;
-import frc.robot.RobotMap;
-import frc.robot.util.hardware.VortxTalon;
-import frc.robot.util.settings.BooleanSetting;
-import frc.robot.util.settings.Setting;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Robot;
+import frc.robot.RobotMap;
+import frc.robot.commands.drive.DDxDrive;
+import frc.robot.settings.Constants;
+import frc.robot.settings.Dms;
+import frc.robot.util.hardware.VortxTalon;
+import frc.robot.util.settings.BooleanSetting;
+import frc.robot.util.settings.Setting;
 
 
 /**
@@ -32,8 +26,6 @@ public class Drive extends Subsystem {
 	private VortxTalon l1;
 	private VortxTalon r1;
 	
-	private boolean switched = false;
-
 	private static int iZone = 2;
 	private static double maxV = 160;
 

@@ -1,19 +1,18 @@
-package org.usfirst.frc.team3735.robot.util.vision;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.Point;
-import org.opencv.core.Rect;
-import org.opencv.imgproc.Imgproc;
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
+package frc.robot.util.vision;
 
 import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.vision.VisionPipeline;
 import edu.wpi.first.wpilibj.vision.VisionThread;
+import frc.robot.util.calc.VortxMath;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.Point;
+import org.opencv.core.Rect;
+import org.opencv.imgproc.Imgproc;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class VisionHandler {
 

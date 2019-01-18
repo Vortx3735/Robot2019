@@ -1,15 +1,12 @@
-package org.usfirst.frc.team3735.robot.commands.drive.positions;
+package frc.robot.commands.drive.positions;
+
+import edu.wpi.first.wpilibj.command.InstantCommand;
+import frc.robot.Robot;
+import frc.robot.util.recording.DriveState;
+import frc.robot.util.settings.StringSetting;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.recording.DriveState;
-import org.usfirst.frc.team3735.robot.util.settings.StringSetting;
-
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.InstantCommand;
 
 /**
  *

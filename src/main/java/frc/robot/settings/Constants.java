@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3735.robot.settings;
+package frc.robot.settings;
 
 public class Constants {
 	

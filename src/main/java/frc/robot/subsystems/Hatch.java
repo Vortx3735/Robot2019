@@ -1,10 +1,9 @@
-package org.usfirst.frc.team3735.robot.subsystems;
+package frc.robot.subsystems;
 
-
-import org.usfirst.frc.team3735.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 public class Hatch extends Subsystem {
 

@@ -1,13 +1,11 @@
-package org.usfirst.frc.team3735.robot.commands.drive.movedistance;
+package frc.robot.commands.drive.movedistance;
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.subsystems.Drive;
-import org.usfirst.frc.team3735.robot.triggers.HasMoved;
-import org.usfirst.frc.team3735.robot.triggers.HasReachedSpeed;
-import org.usfirst.frc.team3735.robot.triggers.TimeOut;
-import org.usfirst.frc.team3735.robot.util.cmds.VortxCommand;
-
-import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import frc.robot.subsystems.Drive;
+import frc.robot.triggers.HasMoved;
+import frc.robot.triggers.HasReachedSpeed;
+import frc.robot.triggers.TimeOut;
+import frc.robot.util.cmds.VortxCommand;
 
 /**
  *

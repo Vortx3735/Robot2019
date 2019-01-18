@@ -1,20 +1,16 @@
-package org.usfirst.frc.team3735.robot.ois;
-
-import org.usfirst.frc.team3735.robot.assists.NavxAssist;
-import org.usfirst.frc.team3735.robot.commands.drive.DriveSetPID;
-import org.usfirst.frc.team3735.robot.commands.drive.movedistance.MoveDDx;
-import org.usfirst.frc.team3735.robot.commands.drive.positions.ResetPosition;
-import org.usfirst.frc.team3735.robot.commands.drive.positions.SetToLastPosition;
-import org.usfirst.frc.team3735.robot.commands.drive.recorder.RecordProfile;
-
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
-import org.usfirst.frc.team3735.robot.util.oi.DriveOI;
-import org.usfirst.frc.team3735.robot.util.oi.XboxController;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
+package frc.robot.ois;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.assists.NavxAssist;
+import frc.robot.commands.drive.movedistance.MoveDDx;
+import frc.robot.commands.drive.positions.ResetPosition;
+import frc.robot.commands.drive.positions.SetToLastPosition;
+import frc.robot.commands.drive.recorder.RecordProfile;
+import frc.robot.util.calc.VortxMath;
+import frc.robot.util.oi.DriveOI;
+import frc.robot.util.oi.XboxController;
 
-public class GTAOI implements DriveOI{
+public class GTAOI implements DriveOI {
 
 	public XboxController main;
 	public XboxController co;

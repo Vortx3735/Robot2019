@@ -1,9 +1,6 @@
-package org.usfirst.frc.team3735.robot.commands.drive.movedistance;
+package frc.robot.commands.drive.movedistance;
 
-import org.usfirst.frc.team3735.robot.assists.NavxAssist;
-import org.usfirst.frc.team3735.robot.triggers.HasMoved;
-
-import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.assists.NavxAssist;
 
 /**
  *	this is a shortcut class for simple moving a distance

@@ -1,12 +1,10 @@
-package org.usfirst.frc.team3735.robot.commands.drive;
+package frc.robot.commands.drive;
 
-import org.usfirst.frc.team3735.robot.Robot;
-
-import org.usfirst.frc.team3735.robot.subsystems.Navigation;
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
-import org.usfirst.frc.team3735.robot.util.profiling.Location;
-import org.usfirst.frc.team3735.robot.util.settings.Func;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import frc.robot.util.calc.VortxMath;
+import frc.robot.util.profiling.Location;
+import frc.robot.util.settings.Func;
 
 /**
  *

@@ -1,16 +1,15 @@
-package org.usfirst.frc.team3735.robot.util.motion;
+package frc.robot.util.motion;
+
+import frc.robot.subsystems.Drive;
+import frc.robot.util.calc.VortxMath;
+import frc.robot.util.motion.exceptions.ColumnValueMismatchException;
+import frc.robot.util.profiling.Position;
+import frc.robot.util.recording.DriveState;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.function.Consumer;
-
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-import org.usfirst.frc.team3735.robot.subsystems.Drive;
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
-import org.usfirst.frc.team3735.robot.util.motion.exceptions.ColumnValueMismatchException;
-import org.usfirst.frc.team3735.robot.util.profiling.Position;
-import org.usfirst.frc.team3735.robot.util.recording.DriveState;
 
 public class MotionSet implements Iterable<MotionData> {
 	
@@ -64,12 +63,11 @@ public class MotionSet implements Iterable<MotionData> {
 	
 	public ArrayList<DriveState> list(){
 		ArrayList<DriveState> arr = new ArrayList<>();
-		Iterator<MotionData> it = iterator();
 	
 		for (MotionData d : this)
 		{
 			arr.add(new DriveState(
-					new Position(d.getCenterX(), d.getCenterY(), d.getHeading()), 
+					new Position(d.getCenterX(), d.getCenterY(), d.getHeading()),
 					d.getLeftV(), 
 					d.getRightV()));
 		}
@@ -104,7 +102,7 @@ public class MotionSet implements Iterable<MotionData> {
 		{
 			arr.add(new DriveState(
 					new Position(d.getCenterX(), d.getCenterY(), VortxMath.reverseYaw(d.getHeading())), 
-					Drive.speedToPercent(-d.getRightV()), 
+					Drive.speedToPercent(-d.getRightV()),
 					Drive.speedToPercent(-d.getLeftV())));
 		}
 		

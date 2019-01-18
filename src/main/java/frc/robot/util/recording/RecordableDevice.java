@@ -1,7 +1,4 @@
-package org.usfirst.frc.team3735.robot.util.recording;
-
-import java.util.ArrayList;
-import java.util.Formatter;
+package frc.robot.util.recording;
 
 public interface RecordableDevice {
 

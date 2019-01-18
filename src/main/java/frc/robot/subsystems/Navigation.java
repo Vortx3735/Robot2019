@@ -1,7 +1,6 @@
-package org.usfirst.frc.team3735.robot.subsystems;
+package frc.robot.subsystems;
 
 import com.kauailabs.navx.frc.AHRS;
-
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.PIDOutput;
@@ -10,18 +9,17 @@ import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Robot;
+import frc.robot.settings.Waypoints;
+import frc.robot.util.PIDCtrl;
+import frc.robot.util.calc.VortxMath;
+import frc.robot.util.hardware.VortxAhrs;
+import frc.robot.util.profiling.Location;
+import frc.robot.util.profiling.Position;
+import frc.robot.util.profiling.Ray;
+import frc.robot.util.settings.Setting;
 
-import org.usfirst.frc.team3735.robot.Robot;
-
-//import org.usfirst.frc.team3735.robot.Robot.Side;
-import org.usfirst.frc.team3735.robot.settings.Waypoints;
-import org.usfirst.frc.team3735.robot.util.PIDCtrl;
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
-import org.usfirst.frc.team3735.robot.util.hardware.VortxAhrs;
-import org.usfirst.frc.team3735.robot.util.profiling.Location;
-import org.usfirst.frc.team3735.robot.util.profiling.Position;
-import org.usfirst.frc.team3735.robot.util.profiling.Ray;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
+//import Robot.Side;
 
 
 public class Navigation extends Subsystem implements PIDSource, PIDOutput {

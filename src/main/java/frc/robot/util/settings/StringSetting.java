@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3735.robot.util.settings;
+package frc.robot.util.settings;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 

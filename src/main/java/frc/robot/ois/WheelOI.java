@@ -1,15 +1,12 @@
-package org.usfirst.frc.team3735.robot.ois;
+package frc.robot.ois;
 
-import org.usfirst.frc.team3735.robot.commands.drive.simple.DriveAddSensitiveLeft;
-import org.usfirst.frc.team3735.robot.commands.drive.simple.DriveAddSensitiveRight;
+import frc.robot.util.oi.DriveOI;
+import frc.robot.util.oi.GraphiteJoystick;
+import frc.robot.util.oi.GraysWheel;
+import frc.robot.util.oi.XboxController;
+import frc.robot.util.settings.Setting;
 
-import org.usfirst.frc.team3735.robot.util.oi.DriveOI;
-import org.usfirst.frc.team3735.robot.util.oi.GraphiteJoystick;
-import org.usfirst.frc.team3735.robot.util.oi.GraysWheel;
-import org.usfirst.frc.team3735.robot.util.oi.XboxController;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
-
-public class WheelOI implements DriveOI{
+public class WheelOI implements DriveOI {
 
 	GraysWheel wheel;
 	GraphiteJoystick stick;

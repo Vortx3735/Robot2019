@@ -1,10 +1,8 @@
-package org.usfirst.frc.team3735.robot.settings;
+package frc.robot.settings;
 
-import java.util.ArrayList;
-
-import org.usfirst.frc.team3735.robot.util.profiling.Location;
-import org.usfirst.frc.team3735.robot.util.profiling.Position;
-import org.usfirst.frc.team3735.robot.util.recording.DriveState;
+import frc.robot.util.profiling.Location;
+import frc.robot.util.profiling.Position;
+import frc.robot.util.recording.DriveState;
 
 public class Waypoints {
 

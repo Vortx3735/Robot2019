@@ -5,17 +5,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3735.robot.util.bases;
+package frc.robot.util.bases;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-
-import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
+import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * IterativeRobot implements a specific type of Robot Program framework, extending the RobotBase

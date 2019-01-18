@@ -1,10 +1,9 @@
-package org.usfirst.frc.team3735.robot.triggers;
-
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.util.cmds.ComTrigger;
-import org.usfirst.frc.team3735.robot.util.settings.Func;
+package frc.robot.triggers;
 
 import edu.wpi.first.wpilibj.Timer;
+import frc.robot.Robot;
+import frc.robot.util.cmds.ComTrigger;
+import frc.robot.util.settings.Func;
 
 public class Bumped extends ComTrigger{
 	

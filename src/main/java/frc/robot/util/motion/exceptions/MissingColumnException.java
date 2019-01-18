@@ -1,6 +1,4 @@
-package org.usfirst.frc.team3735.robot.util.motion.exceptions;
-
-import java.nio.file.Path;
+package frc.robot.util.motion.exceptions;
 
 public class MissingColumnException extends Exception {
 

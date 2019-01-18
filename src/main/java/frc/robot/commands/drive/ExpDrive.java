@@ -1,18 +1,11 @@
-package org.usfirst.frc.team3735.robot.commands.drive;
+package frc.robot.commands.drive;
 
 
-import org.usfirst.frc.team3735.robot.Robot;
-import org.usfirst.frc.team3735.robot.settings.Constants;
-import org.usfirst.frc.team3735.robot.subsystems.Drive;
-import org.usfirst.frc.team3735.robot.util.calc.VortxMath;
-import org.usfirst.frc.team3735.robot.util.cmds.VortxCommand;
-import org.usfirst.frc.team3735.robot.util.settings.Setting;
-
-
-
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Robot;
+import frc.robot.settings.Constants;
+import frc.robot.subsystems.Drive;
+import frc.robot.util.settings.Setting;
 
 /**
  *

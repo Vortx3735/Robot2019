@@ -1,8 +1,8 @@
-package org.usfirst.frc.team3735.robot.util.settings;
-
-import java.util.ArrayList;
+package frc.robot.util.settings;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import java.util.ArrayList;
 
 
 public class Setting extends Func{
