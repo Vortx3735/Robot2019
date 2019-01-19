@@ -1,2 +1,6 @@
 # Robot2019
+
+![Build Status](https://codebuild.us-east-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiNmUwZFM5alRSQjFQSS9KWGp4SmErZ0l4YjgzVHZQVlp2TFN0T1VpTDZndy8vbzNKZytkcWloK0pHc3crVG1Gam4xeU9VOVVMRlQvQ3dQZ1p0azJKZk1rPSIsIml2UGFyYW1ldGVyU3BlYyI6IkpXQmJkekZIWTdaSmpOOGciLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master "Build Status")
+
+
 VorTX 3735 Deep Space Code
