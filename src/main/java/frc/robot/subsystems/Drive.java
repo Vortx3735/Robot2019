@@ -100,7 +100,6 @@ public class Drive extends Subsystem {
 		//setEnableBrake(false);
 
 		this.setNavxAssist(0);
-		this.setVisionAssist(0);
 	}
 
 
@@ -273,11 +272,13 @@ public class Drive extends Subsystem {
     public void setRightTurn(double turn){
     	rightAddTurn = turn;
     }
-	public void setVisionAssist(double error) {
-		visionAssist = (error * Vision.dpp.getValue()/180.0) * Navigation.navVisCo.getValue();
-	}	
+	
 	public void setNavxAssist(double error) {
 		this.navxAssist = (error/180.0) * Navigation.navCo.getValue();
+	}
+
+	public void setJevoisAssist(double error) {
+		
 	}
 
 	

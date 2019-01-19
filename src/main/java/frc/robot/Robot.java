@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.*;
+import frc.robot.util.Jevois;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,7 +24,7 @@ public class Robot extends TimedRobot {
 	public static Drive drive;
 	public static Autonomous autoLogic;
 	public static Intake intake;
-	public static Jevois vision;
+	public static Jevois jevois;
 	public static Hatch hatch;
 	public static Climbing climbing;
 	public static Navigation navigation;
@@ -45,11 +46,9 @@ public class Robot extends TimedRobot {
 		hatch = new Hatch();
 		//climbing = new Climbing();
 		//navigation = new Navigation();
-		//vision = new Jevois();
+		//jevois = Jevois();
 		oi = new OI();
 		
-
-		//vision = new Jevois();
 		//autoLogic = new Autonomous();
 		
 
