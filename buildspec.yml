@@ -6,4 +6,6 @@ run-as: root
 phases:
   build:
     commands:
+      - ls -l $CODEBUILD_SRC_DIR
+      - chmod +x $CODEBUILD_SRC_DIR/gradlew
       - $CODEBUILD_SRC_DIR/gradlew
