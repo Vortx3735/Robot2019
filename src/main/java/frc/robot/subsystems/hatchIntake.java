@@ -6,10 +6,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 //Hatch intake
-public class hatchIntake extends Subsystem {
+public class HatchIntake extends Subsystem {
 
 	Solenoid solenoid;
-	public hatchIntake()
+	public HatchIntake()
 	{
 		super();
 		solenoid = new Solenoid(RobotMap.Hatch.solenoid);

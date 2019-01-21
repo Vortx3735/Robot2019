@@ -27,7 +27,7 @@ public class Robot extends TimedRobot {
 
 	public static BallIntake intake;
 	public static Jevois vision;
-	public static hatchIntake hatch;
+	public static HatchIntake hatch;
 	public static Jevois jevois;
 	public static Navigation navigation;
 	public static OI oi;
@@ -47,7 +47,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		drive = new Drive();
 		intake = new BallIntake();
-		hatch = new hatchIntake();
+		hatch = new HatchIntake();
 		elevator = new Elevator();
 		endgame = new EndGame();
 		//navigation = new Navigation();
