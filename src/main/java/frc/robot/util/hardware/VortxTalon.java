@@ -12,7 +12,7 @@ public class VortxTalon extends WPI_TalonSRX{
 	private PIDSetting setting;
 	private String name;
 	private int timer = 0;
-	
+		
 	//We update each synchronisly, so that we can only multiply, which is faster
 	double ticksPerInch = 1;
 	double inchesPerTick = 1;
@@ -139,11 +139,12 @@ public class VortxTalon extends WPI_TalonSRX{
 	}
 	
 	public double getPosition() {
-		return super.getSelectedSensorPosition(0) * inchesPerTick;
+		return super.getSelectedSensorPosition(0) * inchesPerTick; //return inches
 	}
 	
+	//@return: speed in in/m
 	public double getSpeed() {
-		return super.getSelectedSensorVelocity(0) * inchesPerTick * 10.0;
+		return super.getSelectedSensorVelocity(0) * inchesPerTick; //returns
 	}
 	
 	public void log() {

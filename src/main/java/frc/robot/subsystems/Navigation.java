@@ -32,10 +32,9 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 	private static Setting outputExponent = new Setting("Nav Output Exponent", 1, false);
     public static Setting actingI = 		new Setting("Nav Acting I Value", 0.004, false);
     
-//    public static Setting hInitialOffset =	new Setting("Horizontal Offset", 0);
+//    public static Setting InitialOffset =	new Setting("Horizontal Offset", 0);
     
 	public static Setting navCo = 			new Setting("Nav Assist Coeffecient", 7, false);
-	public static Setting navVisCo = 		new Setting("Nav Vision Assist Coeffecient", 5, false);
 
 	
 	Position pos = new Position(0,0,0);
@@ -57,7 +56,7 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
     	controller.setInputRange(-180, 180);
     	controller.setContinuous();
     	controller.setAbsoluteTolerance(3);
-    	SmartDashboard.putData("Nav Turning Controller", controller);
+    	SmartDashboard.putData("Turning Controller", controller);
     	
 		curLeft = Robot.drive.getLeftPosition();
     	curRight = Robot.drive.getRightPosition();
@@ -143,10 +142,6 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
     	table.getEntry("Yaw").setDoubleArray(new double[]{pos.yaw});
 
     }
-    
-    
- 
-
 
 	@Override
 	public void setPIDSourceType(PIDSourceType pidSource) {
@@ -191,12 +186,6 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 	public void debugLog() {
 		
 	}
-	
-	public void resetPosition() {
-
-		//resetPosition(Robot.autoLogic.getStartingPosition());
-
-	}
 
 	public synchronized void resetPosition(Position p) {
 		Robot.drive.resetEncodersPositions();
@@ -206,6 +195,10 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 		prevRight = 0;
 		
 		System.out.println("Reseting Position...");
+	}
+
+	public synchronized void resetPosition() {
+		
 	}
 	
 	public synchronized Position getPosition() {

@@ -48,6 +48,8 @@ public class RobotMap {
 	{
 		public static int solEndLeft = 2;
 		public static int solEndRight = 3;
+
+		public static int winch = 7;
 	}
 
 }

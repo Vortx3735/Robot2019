@@ -18,8 +18,9 @@ public class Jevois {
 	double cy;
 	double area;
 	
+	//Thread rununing
+	Thread nThread;
 
-	//TODO: have the jevois run in its own thread so it doesn't interfere with normal robot procedures.
 	public Jevois() {
 		setUp();
 	} 
@@ -71,30 +72,41 @@ public class Jevois {
 		return visionPort.readString();
 	}
 
-	public double getTheta() {
+	//TODO: Figure out values to pass
+	public void refresh() {
 		String s = getData();
+		String[] parts = s.split(" ");
+		cx = Double.parseDouble(parts[0]);
+	}
+
+	public void sleep(int millis) {
 		try {
-			return Double.parseDouble(s);
-		} catch (Exception e) {
+			nThread.sleep(millis);
+		} catch (InterruptedException e) {
 			e.printStackTrace();
-			System.out.println("Jevois did not recive a double");
-			return -1.0;
 		}
 	}
 
 	private void setUp() {
-		connectJeVois();
-		sendCmd("ping");
-		System.out.println(getData());
-
-		Thread nThread = new Thread(new Runnable(){
+		try {
+			connectJeVois();
+			sendCmd("ping");
+			System.out.println(getData());
+	
+			nThread = new Thread(new Runnable(){
+			
+				@Override
+				public void run() {
+					sleep(30);
+					refresh();
+				}
+			});
+			nThread.start();
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Was not able to start jevois");
+		}
 		
-			@Override
-			public void run() {
-				
-			}
-		});
-		nThread.start();
 	}
 
 }

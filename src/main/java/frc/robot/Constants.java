@@ -5,7 +5,6 @@ public class Constants {
 	public static final double dt = .05; //seconds
 	
 	public class Drive {
-		public static final double InchesPerRotation = 18;
 
 		public static final double maxVelocity = 1.5; //m/s
 		public static final double maxAccel = 2; //m/s^2
@@ -13,6 +12,9 @@ public class Constants {
 		public static final double wheelBase = 0.5; //m
 		public static final double wheelDiam = .2; //m
 		public static final int ticksPerRotation = 1023;
+		public static final double InchesPerRotation = 18;
+
+
 		//54.7725 ticks per inch
 		public static final double InchesPerTick = .018257337;//.018718924;	//in inches (jamal)
 

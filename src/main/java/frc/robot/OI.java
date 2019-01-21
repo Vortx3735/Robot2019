@@ -11,6 +11,7 @@ package frc.robot;
 import frc.robot.commands.elevator.ElevatorSet;
 
 import frc.robot.commands.endGame.SetEndGame;
+import frc.robot.commands.endGame.SetWinchSpeed;
 import frc.robot.commands.hatch.HatchSet;
 import frc.robot.commands.intake.BallIntakeMotorSet;
 
@@ -37,6 +38,9 @@ public class OI {
 		//main.pov0.whenPressed(new elevatorSet(0.2));
 		main.pov90.whenPressed(new SetEndGame(true));
 		main.pov270.whenPressed(new SetEndGame(false));
+
+		main.start.whileHeld(new SetWinchSpeed(0.25));
+		main.back.whenPressed(new SetWinchSpeed(0.0));
 		
 	}
 	//
@@ -48,6 +52,10 @@ public class OI {
 	public double getDriveTurn() {
 		return  main.getLeftX();
 		//return main.getRightX();
+	}
+
+	public double getWinchSpeed() {
+		return main.getLeftY();
 	}
 	
 	public double getFODMag() {
