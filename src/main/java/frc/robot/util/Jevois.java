@@ -1,9 +1,5 @@
-package frc.robot.subsystems;
+package frc.robot.util;
 
-import edu.wpi.cscore.MjpegServer;
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.cscore.VideoMode.PixelFormat;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.SerialPort;
 
 public class Jevois {
@@ -14,27 +10,18 @@ public class Jevois {
 	// Serial Port Constants 
 	static final int BAUD_RATE = 115200;
 	
-	// MJPG Streaming Constants 
-	static final int MJPG_STREAM_PORT = 5805;
-
-	// JeVois Program Selection Constants - must align with JeVois .cfg files
-	static final int MAPPING_WIDTH_PXL_1 = 320;
-	static final int MAPPING_HEIGHT_PXL_1 = 240;
-	static final int MAPPING_FRMRT_FPS_1 = 30;
-	
 	// Serial port used for getting target data from JeVois 
 	SerialPort visionPort = null;
+
+	// Values to be updating
+	double cx;
+	double cy;
+	double area;
 	
-	// USBCam and server used for broadcasting a webstream of what is seen 
-	UsbCamera visionCam = null;
-	MjpegServer camServer = null;
 
 	//TODO: have the jevois run in its own thread so it doesn't interfere with normal robot procedures.
 	public Jevois() {
-		//ConnectJeVois and Check if we are connected
-		connectJeVois();
-		sendCmd("ping");
-		startCameraStream();
+		setUp();
 	} 
     
 	/*
@@ -68,33 +55,6 @@ public class Jevois {
 		}
 	}
 
-	
-    /**
-     * Open an Mjpeg streamer from the JeVois camera
-     */
-	public void startCameraStream(){
-		try{
-			System.out.print("Starting JeVois Cam Stream...");
-			visionCam = new UsbCamera("VisionProcCam", JEVOIS_CAM_NUMBER);
-			visionCam.setVideoMode(PixelFormat.kMJPEG, MAPPING_WIDTH_PXL_1, MAPPING_HEIGHT_PXL_1, MAPPING_FRMRT_FPS_1); 
-			camServer = new MjpegServer("VisionCamServer", MJPG_STREAM_PORT);
-			camServer.setSource(visionCam);
-			System.out.println("Vision Cam Stream Opened!!");
-		} catch (Exception e) {
-			DriverStation.reportError("Cannot start camera stream from JeVois", false);
-            e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * Cease the operation of the camera stream. Unknown if needed.
-	 */
-	public void stopCameraStream(){
-			camServer.free();
-			visionCam.free();
-		
-	}
-	
 	/**
 	 * Sends a command over serial to JeVois and returns immediately.
      * @param cmd String of the command to send (ex: "ping")
@@ -106,5 +66,35 @@ public class Jevois {
         System.out.println("wrote " +  bytes + "/" + (cmd.length()+1) + " bytes, cmd: " + cmd);
 	    return bytes;
 	};   
+
+	public String getData() {
+		return visionPort.readString();
+	}
+
+	public double getTheta() {
+		String s = getData();
+		try {
+			return Double.parseDouble(s);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Jevois did not recive a double");
+			return -1.0;
+		}
+	}
+
+	private void setUp() {
+		connectJeVois();
+		sendCmd("ping");
+		System.out.println(getData());
+
+		Thread nThread = new Thread(new Runnable(){
+		
+			@Override
+			public void run() {
+				
+			}
+		});
+		nThread.start();
+	}
 
 }

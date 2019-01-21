@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.RobotMap.GroundHatch;
 import frc.robot.subsystems.*;
+import frc.robot.util.Jevois;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,9 +24,15 @@ import frc.robot.subsystems.*;
 public class Robot extends TimedRobot {
 	public static Drive drive;
 	public static Autonomous autoLogic;
+<<<<<<< HEAD
 	public static ballIntake intake;
 	public static Jevois vision;
 	public static hatchIntake hatch;
+=======
+	public static Intake intake;
+	public static Jevois jevois;
+	public static Hatch hatch;
+>>>>>>> master
 	public static Climbing climbing;
 	public static Navigation navigation;
 	public static OI oi;
@@ -52,11 +59,9 @@ public class Robot extends TimedRobot {
 		endgame = new endGame();
 		//climbing = new Climbing();
 		//navigation = new Navigation();
-		//vision = new Jevois();
+		//jevois = Jevois();
 		oi = new OI();
 		
-
-		//vision = new Jevois();
 		//autoLogic = new Autonomous();
 		
 
