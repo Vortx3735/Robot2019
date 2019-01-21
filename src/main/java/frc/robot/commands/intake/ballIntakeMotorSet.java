@@ -6,9 +6,9 @@ import frc.robot.Robot;
 /**
  *
  */
-public class IntakeMotorSet extends Command {
+public class BallIntakeMotorSet extends Command {
 	double speed = 0;
-    public IntakeMotorSet(double d) {
+    public BallIntakeMotorSet(double d) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 		speed=d;
@@ -21,7 +21,7 @@ public class IntakeMotorSet extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.intake.setMotor(speed);
+        Robot.intake.setIntake(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,7 +31,7 @@ public class IntakeMotorSet extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.intake.setMotor(0);
+        Robot.intake.setIntake(0);
     }
 
     // Called when another command which requires one or more of the same

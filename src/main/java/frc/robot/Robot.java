@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.robot.RobotMap.GroundHatch;
 import frc.robot.subsystems.*;
 import frc.robot.util.Jevois;
 
@@ -23,12 +24,15 @@ import frc.robot.util.Jevois;
 public class Robot extends TimedRobot {
 	public static Drive drive;
 	public static Autonomous autoLogic;
-	public static Intake intake;
+
+	public static BallIntake intake;
+	public static Jevois vision;
+	public static hatchIntake hatch;
 	public static Jevois jevois;
-	public static Hatch hatch;
-	public static Climbing climbing;
 	public static Navigation navigation;
 	public static OI oi;
+	public static Elevator elevator;
+	public static EndGame endgame;
 
 	Command m_autonomousCommand;
 
@@ -42,9 +46,10 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		drive = new Drive();
-		intake = new Intake();
-		hatch = new Hatch();
-		//climbing = new Climbing();
+		intake = new BallIntake();
+		hatch = new hatchIntake();
+		elevator = new Elevator();
+		endgame = new EndGame();
 		//navigation = new Navigation();
 		//jevois = Jevois();
 		oi = new OI();

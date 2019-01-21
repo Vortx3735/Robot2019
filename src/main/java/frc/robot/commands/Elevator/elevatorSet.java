@@ -5,30 +5,27 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake;
+package frc.robot.commands.Elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class SolenoidSet extends Command {
-  boolean setPos;
-  public SolenoidSet(boolean b) {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    setPos = b;
-    requires(Robot.intake);
+public class elevatorSet extends Command {
+  double speed; 
+  public elevatorSet(double d) {
+    requires(Robot.elevator);
+    speed = d;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.intake.setSolonoid(setPos);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    
+    Robot.elevator.setElevator(speed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -40,6 +37,7 @@ public class SolenoidSet extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.elevator.setElevator(0);
   }
 
   // Called when another command which requires one or more of the same

@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.drive.DDxDrive;
-import frc.robot.settings.Constants;
+import frc.robot.Constants;
 import frc.robot.settings.Dms;
 import frc.robot.util.hardware.VortxTalon;
 import frc.robot.util.settings.BooleanSetting;
