@@ -24,15 +24,11 @@ import frc.robot.util.Jevois;
 public class Robot extends TimedRobot {
 	public static Drive drive;
 	public static Autonomous autoLogic;
-<<<<<<< HEAD
+
 	public static ballIntake intake;
 	public static Jevois vision;
 	public static hatchIntake hatch;
-=======
-	public static Intake intake;
 	public static Jevois jevois;
-	public static Hatch hatch;
->>>>>>> master
 	public static Climbing climbing;
 	public static Navigation navigation;
 	public static OI oi;
