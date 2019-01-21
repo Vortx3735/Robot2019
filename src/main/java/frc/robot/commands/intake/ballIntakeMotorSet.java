@@ -6,9 +6,9 @@ import frc.robot.Robot;
 /**
  *
  */
-public class ballIntakeMotorSet extends Command {
+public class BallIntakeMotorSet extends Command {
 	double speed = 0;
-    public ballIntakeMotorSet(double d) {
+    public BallIntakeMotorSet(double d) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 		speed=d;

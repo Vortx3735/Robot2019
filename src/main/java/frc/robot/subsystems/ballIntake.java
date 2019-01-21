@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 
-public class ballIntake extends Subsystem {
+public class BallIntake extends Subsystem {
 	TalonSRX talIntake;
 	Solenoid solIntake;
 	int talval = 0;
 	int solval = 0;
-	public ballIntake()
+	public BallIntake()
 	{
 		talIntake = new TalonSRX(8);
 		

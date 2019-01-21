@@ -2,7 +2,7 @@ package frc.robot.commands.drive.movedistance;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.settings.Constants;
+import frc.robot.Constants;
 import frc.robot.util.calc.VortxMath;
 
 /**

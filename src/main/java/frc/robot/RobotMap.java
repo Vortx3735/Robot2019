@@ -27,12 +27,10 @@ public class RobotMap {
 		public static int leftMotor = 4;
 		public static int rightMotor = 5;
 
-		public static int leftSol = 4;//4;
-		public static int rightSol = 6;//6;
 	}
 
 	public static class Hatch {
-		public static int solenoid = 5;//5;
+		public static int solenoid = 4;
 	}
 
 	public static class GroundHatch

@@ -25,16 +25,14 @@ public class Robot extends TimedRobot {
 	public static Drive drive;
 	public static Autonomous autoLogic;
 
-	public static ballIntake intake;
+	public static BallIntake intake;
 	public static Jevois vision;
 	public static hatchIntake hatch;
 	public static Jevois jevois;
-	public static Climbing climbing;
 	public static Navigation navigation;
 	public static OI oi;
 	public static Elevator elevator;
-	
-	public static endGame endgame;
+	public static EndGame endgame;
 
 	Command m_autonomousCommand;
 
@@ -48,12 +46,10 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		drive = new Drive();
-		intake = new ballIntake();
+		intake = new BallIntake();
 		hatch = new hatchIntake();
 		elevator = new Elevator();
-	
-		endgame = new endGame();
-		//climbing = new Climbing();
+		endgame = new EndGame();
 		//navigation = new Navigation();
 		//jevois = Jevois();
 		oi = new OI();

@@ -10,9 +10,9 @@ package frc.robot;
 
 import frc.robot.commands.Elevator.elevatorSet;
 
-import frc.robot.commands.endGame.setEndGame;
+import frc.robot.commands.endGame.SetEndGame;
 import frc.robot.commands.hatch.HatchSet;
-import frc.robot.commands.intake.ballIntakeMotorSet;
+import frc.robot.commands.intake.BallIntakeMotorSet;
 
 import frc.robot.util.oi.XboxController;
 
@@ -29,22 +29,15 @@ public class OI {
 		main = new XboxController(0);
 		co = new XboxController(1);
 		main.rb.get();
-		main.a.whileHeld(new ballIntakeMotorSet(0.5));
-		main.b.whileHeld(new ballIntakeMotorSet(-0.5));
-		main.x.whileHeld(new ballIntakeMotorSet(0.0));
+		main.a.whileHeld(new BallIntakeMotorSet(0.5));
+		main.b.whileHeld(new BallIntakeMotorSet(-0.5));
+		main.x.whileHeld(new BallIntakeMotorSet(0.0));
 		main.lb.whenPressed(new HatchSet(true));
 		main.rb.whenPressed(new HatchSet(false));
 		//main.pov0.whenPressed(new elevatorSet(0.2));
-		main.pov90.whenPressed(new setEndGame(true));
-		main.pov270.whenPressed(new setEndGame(false));
+		main.pov90.whenPressed(new SetEndGame(true));
+		main.pov270.whenPressed(new SetEndGame(false));
 		
-		
-
-		
-	
-		
-		
-
 	}
 	//
 	public double getDriveMove() {

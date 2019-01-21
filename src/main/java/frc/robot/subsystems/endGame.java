@@ -14,12 +14,11 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class endGame extends Subsystem {
+public class EndGame extends Subsystem {
   Solenoid solLeft;
   Solenoid solRight;
 
-  public endGame()
-  {
+  public EndGame() {
     solLeft = new Solenoid(RobotMap.endGame.solEndLeft);
     solRight = new Solenoid(RobotMap.endGame.solEndRight);
   }

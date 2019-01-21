@@ -3,7 +3,7 @@ package frc.robot.commands.drive;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.settings.Constants;
+import frc.robot.Constants;
 import frc.robot.subsystems.Drive;
 import frc.robot.util.settings.Setting;
 

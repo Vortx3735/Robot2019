@@ -1,7 +1,7 @@
 package frc.robot.triggers;
 
 import frc.robot.Robot;
-import frc.robot.settings.Constants;
+import frc.robot.Constants;
 import frc.robot.util.calc.Integrator;
 import frc.robot.util.cmds.ComTrigger;
 import frc.robot.util.settings.Func;
