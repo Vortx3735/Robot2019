@@ -5,17 +5,15 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
-public class Hatch extends Subsystem {
+//Hatch intake
+public class hatchIntake extends Subsystem {
 
 	Solenoid solenoid;
-	public Hatch()
+	public hatchIntake()
 	{
 		super();
 		solenoid = new Solenoid(RobotMap.Hatch.solenoid);
 	}
-	
-//
-	
 	public void setSolenoid(boolean b)
 	{
 		solenoid.set(b);
