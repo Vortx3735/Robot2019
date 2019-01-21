@@ -8,7 +8,7 @@
 package frc.robot;
 
 
-import frc.robot.commands.Elevator.elevatorSet;
+import frc.robot.commands.elevator.ElevatorSet;
 
 import frc.robot.commands.endGame.SetEndGame;
 import frc.robot.commands.hatch.HatchSet;

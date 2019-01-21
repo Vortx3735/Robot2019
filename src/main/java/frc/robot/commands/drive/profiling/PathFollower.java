@@ -10,6 +10,7 @@ import jaci.pathfinder.Waypoint;
 import jaci.pathfinder.followers.EncoderFollower;
 import jaci.pathfinder.modifiers.TankModifier;
 
+
 public class PathFollower extends VortxCommand {
 
     public Trajectory leftTraj;

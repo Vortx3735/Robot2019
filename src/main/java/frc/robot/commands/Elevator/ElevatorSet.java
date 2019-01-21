@@ -10,9 +10,9 @@ package frc.robot.commands.elevator;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class elevatorSet extends Command {
+public class ElevatorSet extends Command {
   double speed; 
-  public elevatorSet(double d) {
+  public ElevatorSet(double d) {
     requires(Robot.elevator);
     speed = d;
   }
