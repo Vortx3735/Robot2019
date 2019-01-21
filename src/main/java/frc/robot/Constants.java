@@ -10,6 +10,8 @@ public class Constants {
 		public static final double maxAccel = 2; //m/s^2
 		public static final double maxJerk = 60; //m/s^3
 		public static final double wheelBase = 0.5; //m
+		public static final double wheelDiam = .2; //m
+		public static final int ticksPerRotation = 1023;
 	}
 
 	public class Jevois {

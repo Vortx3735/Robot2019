@@ -308,6 +308,14 @@ public class Drive extends Subsystem {
 	public double getRightPosition() {
 		return r1.getSelectedSensorPosition(0) * Constants.Drive.InchesPerTick *-1;
 	}
+
+	public double getLeftTicks() {
+		return l1.getSelectedSensorPosition(0);
+	}
+
+	public double getRightTicks() {
+		return r1.getSelectedSensorPosition(0);
+	}
 	
 	/*
 	 * 	The return value is in units per 100ms for all sensor types. 
