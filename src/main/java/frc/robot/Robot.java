@@ -10,9 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.RobotMap.GroundHatch;
+import frc.robot.commands.drive.profiling.PathFollower;
 import frc.robot.subsystems.*;
 import frc.robot.util.Jevois;
+import jaci.pathfinder.Waypoint;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -48,13 +49,13 @@ public class Robot extends TimedRobot {
 		drive = new Drive();
 		intake = new BallIntake();
 		hatch = new HatchIntake();
-		elevator = new Elevator();
+		//elevator = new Elevator();
 		endgame = new EndGame();
 		//navigation = new Navigation();
 		//jevois = Jevois();
 		oi = new OI();
 		
-		//autoLogic = new Autonomous();
+		autoLogic = new Autonomous();
 		
 
 
@@ -93,7 +94,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		System.out.println("Autonomous Started");
-		//autoLogic.startCommand();
+		autoLogic.startCommand();
 	}
 
 	/**
@@ -102,7 +103,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		//drive.log();
+		drive.log();
 	}
 
 	@Override

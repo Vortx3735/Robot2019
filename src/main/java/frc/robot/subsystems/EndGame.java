@@ -41,6 +41,5 @@ public class EndGame extends Subsystem {
   }
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new SetWinchSpeed(Robot.oi.getWinchSpeed()));
   }
 }

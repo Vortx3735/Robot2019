@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.drive.DDxDrive;
+import frc.robot.commands.drive.ExpDrive;
 import frc.robot.Constants;
 import frc.robot.settings.Dms;
 import frc.robot.util.hardware.VortxTalon;
@@ -76,7 +77,7 @@ public class Drive extends Subsystem {
 	 * Default Command For Driving
 	 *******************************/
 	public void initDefaultCommand() {
-		setDefaultCommand(new DDxDrive());
+		setDefaultCommand(new ExpDrive());
 	}
 
 	/*******************************
@@ -105,12 +106,12 @@ public class Drive extends Subsystem {
 
 
 	public void initSensors() {
-		l1.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);	
+		l1.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);	
 		l1.setSelectedSensorPosition(0);
 		l1.setSensorPhase(true);
 		
 		
-		r1.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		r1.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
 		r1.setSelectedSensorPosition(0);
 		r1.setSensorPhase(true);
 

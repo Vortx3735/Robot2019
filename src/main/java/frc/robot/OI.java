@@ -8,6 +8,7 @@
 package frc.robot;
 
 
+import frc.robot.commands.auto.MeterStraight;
 import frc.robot.commands.endGame.SetEndGame;
 import frc.robot.commands.endGame.SetWinchSpeed;
 import frc.robot.commands.hatch.HatchSet;
@@ -50,10 +51,6 @@ public class OI {
 	public double getDriveTurn() {
 		return  main.getLeftX();
 		//return main.getRightX();
-	}
-
-	public double getWinchSpeed() {
-		return main.getLeftY();
 	}
 	
 	public double getFODMag() {
