@@ -1,15 +1,18 @@
 package frc.robot;
 
 import frc.robot.commands.auto.MeterStraight;
+import edu.wpi.first.wpilibj.command.Command;
 
 public class Autonomous {
 
-	public Autonomous() {
+	private Command firstCommand;
 
+	public Autonomous() {
+		firstCommand = new MeterStraight();
 	}
 
 	public void startCommand() {
-		new MeterStraight();
+		firstCommand.start();
 	}
 
 	public void cancel() {

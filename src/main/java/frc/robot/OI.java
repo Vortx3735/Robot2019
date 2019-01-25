@@ -29,8 +29,8 @@ public class OI {
 		main = new XboxController(0);
 		co = new XboxController(1);
 		main.rb.get();
-		main.a.whileHeld(new BallIntakeMotorSet(0.5));
-		main.b.whileHeld(new BallIntakeMotorSet(-0.5));
+		main.a.whileHeld(new BallIntakeMotorSet(0.75));
+		main.b.whileHeld(new BallIntakeMotorSet(-0.75));
 		main.x.whileHeld(new BallIntakeMotorSet(0.0));
 		main.lb.whenPressed(new HatchSet(true));
 		main.rb.whenPressed(new HatchSet(false));
@@ -41,6 +41,7 @@ public class OI {
 		main.start.whileHeld(new SetWinchSpeed(0.25));
 		main.back.whenPressed(new SetWinchSpeed(0.0));
 		
+
 	}
 	//
 	public double getDriveMove() {
