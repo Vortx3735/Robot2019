@@ -8,13 +8,14 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.commands.drive.profiling.PathFollower;
 import frc.robot.subsystems.*;
 import frc.robot.util.Jevois;
-import jaci.pathfinder.Waypoint;
-
+import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.I2C;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
 	public static OI oi;
 	public static Elevator elevator;
 	public static EndGame endgame;
+
 
 	Command m_autonomousCommand;
 
@@ -115,6 +117,7 @@ public class Robot extends TimedRobot {
 		// if (m_autonomousCommand != null) {
 		// 	m_autonomousCommand.cancel();
 		// }
+		
 	}
 //
 	/**
@@ -122,6 +125,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+
 		Scheduler.getInstance().run();
 		drive.log();
 	}
