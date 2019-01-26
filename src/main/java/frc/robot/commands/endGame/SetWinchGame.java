@@ -10,9 +10,9 @@ package frc.robot.commands.endGame;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class SetEndGame extends Command {
+public class SetWinchGame extends Command {
   boolean bol;
-  public SetEndGame(boolean bool) {
+  public SetWinchGame(boolean bool) {
     requires(Robot.endgame);
     bol = bool;
   }

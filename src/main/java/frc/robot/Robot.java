@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
 	public static Navigation navigation;
 	public static OI oi;
 	public static Elevator elevator;
-	public static EndGame endgame;
+	public static Winch endgame;
 	public static ArduinoCo arduinoCo;
 	public static SerialPort sp = new SerialPort(9600, Port.kUSB);
 
@@ -53,7 +53,7 @@ public class Robot extends TimedRobot {
 		intake = new BallIntake();
 		hatch = new HatchIntake();
 		//elevator = new Elevator();
-		endgame = new EndGame();
+		endgame = new Winch();
 		arduinoCo = new ArduinoCo();
 		//navigation = new Navigation();
 		//jevois = Jevois();

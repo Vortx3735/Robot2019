@@ -34,7 +34,7 @@ public class RobotMap {
 		public static int rightElev = 1;
 	}
 
-	public static class endGame
+	public static class Winch
 	{
 		public static int solEndLeft = 2;
 		public static int solEndRight = 3;
