@@ -35,7 +35,8 @@ public class Robot extends TimedRobot {
 	public static OI oi;
 	public static Elevator elevator;
 	public static EndGame endgame;
-
+	public static ArduinoCo arduinoCo;
+	public static SerialPort sp = new SerialPort(9600, Port.kUSB);
 
 	Command m_autonomousCommand;
 
@@ -53,6 +54,7 @@ public class Robot extends TimedRobot {
 		hatch = new HatchIntake();
 		elevator = new Elevator();
 		endgame = new EndGame();
+		arduinoCo = new ArduinoCo();
 		//navigation = new Navigation();
 		//jevois = Jevois();
 		oi = new OI();
@@ -125,7 +127,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-
+		arduinoCo.update();
+		System.out.println("Distance is: "+arduinoCo.getDistance());
 		Scheduler.getInstance().run();
 		drive.log();
 	}
