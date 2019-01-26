@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.Winch.SetWinchSpeed;
+import frc.robot.commands.endGame.SetWinchSpeed;
 import frc.robot.util.hardware.VortxTalon;
 
 /**

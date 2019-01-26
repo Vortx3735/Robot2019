@@ -9,8 +9,8 @@ package frc.robot;
 
 
 import frc.robot.commands.auto.MeterStraight;
-import frc.robot.commands.Winch.SetWinchGame;
-import frc.robot.commands.Winch.SetWinchSpeed;
+import frc.robot.commands.endGame.SetWinchGame;
+import frc.robot.commands.endGame.SetWinchSpeed;
 import frc.robot.commands.hatch.HatchSet;
 import frc.robot.commands.intake.BallIntakeMotorSet;
 
