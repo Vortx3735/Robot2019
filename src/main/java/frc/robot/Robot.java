@@ -36,13 +36,9 @@ public class Robot extends TimedRobot {
 	public static Navigation navigation;
 	public static OI oi;
 	public static Elevator elevator;
-<<<<<<< HEAD
-	public static Winch Winch;
-=======
-	public static EndGame endgame;
+	public static Winch endgame;
 	public static ArduinoCo arduinoCo;
 	public static SerialPort sp = new SerialPort(9600, Port.kUSB);
->>>>>>> master
 
 	public static UsbCamera camera1;
 	
@@ -57,12 +53,8 @@ public class Robot extends TimedRobot {
 		intake = new BallIntake();
 		hatch = new HatchIntake();
 		//elevator = new Elevator();
-<<<<<<< HEAD
-		Winch = new Winch();
-=======
-		endgame = new EndGame();
+		endgame = new Winch();
 		arduinoCo = new ArduinoCo();
->>>>>>> master
 		//navigation = new Navigation();
 		//jevois = Jevois();
 		oi = new OI();

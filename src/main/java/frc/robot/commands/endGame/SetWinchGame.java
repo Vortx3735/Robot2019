@@ -12,7 +12,7 @@ import frc.robot.Robot;
 
 public class SetWinchGame extends Command {
   boolean bol;
-  public SetEndGame(boolean bool) {
+  public SetWinchGame(boolean bool) {
     requires(Robot.endgame);
     bol = bool;
   }
