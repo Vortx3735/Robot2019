@@ -9,8 +9,8 @@ package frc.robot;
 
 
 import frc.robot.commands.auto.MeterStraight;
-import frc.robot.commands.endGame.SetEndGame;
-import frc.robot.commands.endGame.SetWinchSpeed;
+import frc.robot.commands.Winch.SetWinchGame;
+import frc.robot.commands.Winch.SetWinchSpeed;
 import frc.robot.commands.hatch.HatchSet;
 import frc.robot.commands.intake.BallIntakeMotorSet;
 
@@ -35,8 +35,8 @@ public class OI {
 		main.lb.whenPressed(new HatchSet(true));
 		main.rb.whenPressed(new HatchSet(false));
 		//main.pov0.whenPressed(new elevatorSet(0.2));
-		main.pov90.whenPressed(new SetEndGame(true));
-		main.pov270.whenPressed(new SetEndGame(false));
+		main.pov90.whenPressed(new SetWinchGame(true));
+		main.pov270.whenPressed(new SetWinchGame(false));
 
 		main.start.whileHeld(new SetWinchSpeed(0.25));
 		main.back.whenPressed(new SetWinchSpeed(0.0));

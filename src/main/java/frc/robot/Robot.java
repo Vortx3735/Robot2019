@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
 	public static Navigation navigation;
 	public static OI oi;
 	public static Elevator elevator;
-	public static EndGame endgame;
+	public static Winch Winch;
 
 	public static UsbCamera camera1;
 
@@ -52,7 +52,7 @@ public class Robot extends TimedRobot {
 		intake = new BallIntake();
 		hatch = new HatchIntake();
 		//elevator = new Elevator();
-		endgame = new EndGame();
+		Winch = new Winch();
 		//navigation = new Navigation();
 		//jevois = Jevois();
 		oi = new OI();
