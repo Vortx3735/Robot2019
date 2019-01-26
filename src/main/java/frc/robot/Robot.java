@@ -15,6 +15,8 @@ import frc.robot.commands.drive.profiling.PathFollower;
 import frc.robot.subsystems.*;
 import frc.robot.util.Jevois;
 import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.I2C;
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -36,10 +38,8 @@ public class Robot extends TimedRobot {
 	public static Elevator elevator;
 	public static EndGame endgame;
 
+	public static UsbCamera camera1;
 
-	Command m_autonomousCommand;
-
-	
 	
 
 	/**
@@ -58,12 +58,11 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 		
 		autoLogic = new Autonomous();
-		
 
 
-		
-		//m_chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
+		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
+		camera1.setResolution(320, 240);
+		camera1.setFPS(15);
 	}
 
 	/**

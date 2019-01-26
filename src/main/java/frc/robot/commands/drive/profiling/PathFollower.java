@@ -55,11 +55,13 @@ public class PathFollower extends VortxCommand {
 
         System.out.println("Set trajectories");
 
-        requires(Robot.drive);
+        requires(Robot.drive);            
+        
+    }
 
-        while(!lFollower.isFinished()||!rFollower.isFinished()) {
-            System.out.println("While loop iterated");
-            i++;
+    @Override
+    protected void execute () {
+        System.out.println("Execute was called");
             left = lFollower.calculate((int)(Math.round(Robot.drive.getLeftTicks()))); 
             right = rFollower.calculate((int)(Math.round(Robot.drive.getRightTicks()))); 
 
@@ -71,15 +73,6 @@ public class PathFollower extends VortxCommand {
             turn = 0.8 * (-1.0/80) * angleDifference;
 
             Robot.drive.setLeftRight(left+turn, right-turn);
-        }
-        
-    }
-
-    @Override
-    protected void execute () {
-        System.out.println("Execute was called");
-        
-        
     }
 
     

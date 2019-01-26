@@ -45,12 +45,14 @@ public class OI {
 	}
 	//
 	public double getDriveMove() {
-		return (main.getRightTrigger() - main.getLeftTrigger());
+		double move = main.getRightTrigger() - main.getLeftTrigger();
+		return Math.copySign((move*move), move);
 		//return main.getLeftY();
 	}
 
 	public double getDriveTurn() {
-		return  main.getLeftX();
+		double turn = main.getLeftX();
+		return  Math.copySign((turn*turn), turn);
 		//return main.getRightX();
 	}
 	
