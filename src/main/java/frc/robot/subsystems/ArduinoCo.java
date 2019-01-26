@@ -16,14 +16,34 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ArduinoCo extends Subsystem {
 
-  public static SerialPort sp = new SerialPort(9600, Port.kUSB);
+  int distance;
+  Thread nThread;
+  public static SerialPort sp;
 
-  public int getDistance(){
-    sp.writeString("get");
-    int dist = Integer.parseInt(sp.readString());
-		System.out.println("dist:"+ dist );
-    return dist;
+  public ArduinoCo() {
+    sp = new SerialPort(9600, Port.kUSB);
+    System.out.println("Constructor called");
   }
+
+  public int getDistance() {
+    return distance;
+  }
+
+  public void update() {
+    // System.out.println("Update was called");
+    try {
+      if (sp.getBytesReceived() > 0) {
+        String[] input = sp.readString().trim().split("\n");
+
+        if (!input.equals("")) {
+          distance = Integer.parseInt(input[input.length - 1]);
+        }
+      }
+    } catch (NumberFormatException e) {
+    }
+
+  }
+
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
