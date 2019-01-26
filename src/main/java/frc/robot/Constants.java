@@ -6,17 +6,19 @@ public class Constants {
 	
 	public class Drive {
 
+		//TODO: testing on these values
 		public static final double maxVelocity = 1.5; //m/s
 		public static final double maxAccel = 2; //m/s^2
-		public static final double maxJerk = 60; //m/s^3
+		public static final double maxJerk = 40; //m/s^3
 		public static final double wheelBase = 0.5; //m
-		public static final double wheelDiam = .2; //m
-		public static final int ticksPerRotation = 1023;
-		public static final double InchesPerRotation = 18;
+		public static final double wheelDiam = 0.1016; //m  //4 in to m
+		public static final int ticksPerRotation = 4096; //4096 for mag encoder
+		public static final double InchesPerRotation = 4*Math.PI;
 
 
 		//54.7725 ticks per inch
-		public static final double InchesPerTick = .018257337;//.018718924;	//in inches (jamal)
+		public static final double InchesPerTick = InchesPerRotation/ticksPerRotation;
+		//.018257337;//.018718924;	//in inches (jamal)
 
 		//exp drive
 		public static final double moveReactivity = 1;	//(0,1] (least reactive, most reactive]

@@ -11,11 +11,13 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.RobotMap.GroundHatch;
+import frc.robot.commands.drive.profiling.PathFollower;
 import frc.robot.subsystems.*;
 import frc.robot.util.Jevois;
-import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.I2C;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -38,9 +40,7 @@ public class Robot extends TimedRobot {
 	public static ArduinoCo arduinoCo;
 	public static SerialPort sp = new SerialPort(9600, Port.kUSB);
 
-	Command m_autonomousCommand;
-
-	
+	public static UsbCamera camera1;
 	
 
 	/**
@@ -52,20 +52,19 @@ public class Robot extends TimedRobot {
 		drive = new Drive();
 		intake = new BallIntake();
 		hatch = new HatchIntake();
-		elevator = new Elevator();
+		//elevator = new Elevator();
 		endgame = new EndGame();
 		arduinoCo = new ArduinoCo();
 		//navigation = new Navigation();
 		//jevois = Jevois();
 		oi = new OI();
 		
-		//autoLogic = new Autonomous();
-		
+		autoLogic = new Autonomous();
 
 
-		
-		//m_chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
+		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
+		camera1.setResolution(320, 240);
+		camera1.setFPS(15);
 	}
 
 	/**
@@ -98,7 +97,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		System.out.println("Autonomous Started");
-		//autoLogic.startCommand();
+		autoLogic.startCommand();
 	}
 
 	/**
@@ -107,7 +106,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		//drive.log();
+		drive.log();
 	}
 
 	@Override

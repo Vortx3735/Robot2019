@@ -16,32 +16,22 @@ package frc.robot;
 public class RobotMap {
 	public static class Drive{
 
-		public static int[] leftTrain =  {2,3};
+		public static int[] leftTrain =  {2,3}; //values for kitbot
 		public static int[] rightTrain = {-10,-11};
-		
-		
-
 	}
 
 	public static class Intake {
-		public static int leftMotor = 4;
-		public static int rightMotor = 5;
+		public static int topMotor = 8;
 
 	}
 
 	public static class Hatch {
 		public static int solenoid = 4;
 	}
-
-	public static class GroundHatch
-	{
-		public static int GroundValue = 7; //7
-		public static int solChannel = 1; //1
-	}
 	
 	public static class elevator {
-		public static int leftElev= 3;//5;
-		public static int rightElev = 4;
+		public static int leftElev= 9;//5;
+		public static int rightElev = 1;
 	}
 
 	public static class endGame

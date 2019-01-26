@@ -8,6 +8,7 @@
 package frc.robot;
 
 
+import frc.robot.commands.auto.MeterStraight;
 import frc.robot.commands.endGame.SetEndGame;
 import frc.robot.commands.endGame.SetWinchSpeed;
 import frc.robot.commands.hatch.HatchSet;
@@ -28,8 +29,8 @@ public class OI {
 		main = new XboxController(0);
 		co = new XboxController(1);
 		main.rb.get();
-		main.a.whileHeld(new BallIntakeMotorSet(0.5));
-		main.b.whileHeld(new BallIntakeMotorSet(-0.5));
+		main.a.whileHeld(new BallIntakeMotorSet(0.75));
+		main.b.whileHeld(new BallIntakeMotorSet(-0.75));
 		main.x.whileHeld(new BallIntakeMotorSet(0.0));
 		main.lb.whenPressed(new HatchSet(true));
 		main.rb.whenPressed(new HatchSet(false));
@@ -40,20 +41,19 @@ public class OI {
 		main.start.whileHeld(new SetWinchSpeed(0.25));
 		main.back.whenPressed(new SetWinchSpeed(0.0));
 		
+
 	}
 	//
 	public double getDriveMove() {
-		return (main.getRightTrigger() - main.getLeftTrigger());
+		double move = main.getRightTrigger() - main.getLeftTrigger();
+		return Math.copySign((move*move), move);
 		//return main.getLeftY();
 	}
 
 	public double getDriveTurn() {
-		return  main.getLeftX();
+		double turn = main.getLeftX();
+		return  Math.copySign((turn*turn), turn);
 		//return main.getRightX();
-	}
-
-	public double getWinchSpeed() {
-		return main.getLeftY();
 	}
 	
 	public double getFODMag() {

@@ -2,6 +2,7 @@ package frc.robot.commands.drive.profiling;
 
 import frc.robot.Robot;
 import frc.robot.Constants.PathFinder;
+import edu.wpi.first.wpilibj.Encoder;
 import frc.robot.Constants;
 import frc.robot.util.cmds.VortxCommand;
 import jaci.pathfinder.Pathfinder;
@@ -13,9 +14,6 @@ import jaci.pathfinder.modifiers.TankModifier;
 
 public class PathFollower extends VortxCommand {
 
-    public Trajectory leftTraj;
-    public Trajectory rightTraj;
-
     public EncoderFollower lFollower;
     public EncoderFollower rFollower;
 
@@ -26,6 +24,8 @@ public class PathFollower extends VortxCommand {
     public double angleDifference;
     public double turn;
 
+
+    private int i=0;
 
     //@param: array of waypoint that have (x,y,0)
     public PathFollower(Waypoint[] waypoints) {
@@ -43,45 +43,44 @@ public class PathFollower extends VortxCommand {
         // Do something with the new Trajectories...
         Trajectory leftTraj = modifier.getLeftTrajectory();
         Trajectory rightTraj = modifier.getRightTrajectory();
-        //pass trajectories
-        this.leftTraj = leftTraj;
-        this.rightTraj = rightTraj;
 
-        lFollower.setTrajectory(leftTraj);
-        rFollower.setTrajectory(rightTraj);
+        lFollower = new EncoderFollower(leftTraj);
+        rFollower = new EncoderFollower(rightTraj);
 
         lFollower.configureEncoder((int)(Math.round(Robot.drive.getLeftTicks())), Constants.Drive.ticksPerRotation, Constants.Drive.wheelDiam);
         rFollower.configureEncoder((int)(Math.round(Robot.drive.getRightTicks())), Constants.Drive.ticksPerRotation, Constants.Drive.wheelDiam);
 
-        requires(Robot.drive);
+        lFollower.configurePIDVA(0, 0, 0, 1/Constants.Drive.maxVelocity, 0);
+        rFollower.configurePIDVA(0, 0, 0, 1/Constants.Drive.maxVelocity, 0);
+
+        System.out.println("Set trajectories");
+
+        requires(Robot.drive);            
         
     }
-    
-    public void setPIDVA(double kp, double ki, double kd, double kv, double ka) {
-        lFollower.configurePIDVA(kp, ki, kd, kv, ka);
-        rFollower.configurePIDVA(kp, ki, kd, kv, ka);
-    }   
 
-    public void followPath () {
-        while(!lFollower.isFinished()||!rFollower.isFinished()) {
+    @Override
+    protected void execute () {
+        System.out.println("Execute was called");
             left = lFollower.calculate((int)(Math.round(Robot.drive.getLeftTicks()))); 
             right = rFollower.calculate((int)(Math.round(Robot.drive.getRightTicks()))); 
 
-            angle = Robot.navigation.getYaw();
+            System.out.println(i + " Left: " + left + " Right: " + right);
+            angle = 0;// Robot.navigation.getYaw();
             desiredAngle = Pathfinder.r2d(lFollower.getHeading());
             angleDifference = Pathfinder.boundHalfDegrees(desiredAngle - angle);
 
             turn = 0.8 * (-1.0/80) * angleDifference;
 
             Robot.drive.setLeftRight(left+turn, right-turn);
-        }
     }
 
     
 
     @Override
     protected boolean isFinished() {
-        return false;
+        System.out.println("Is finished is called");
+        return !lFollower.isFinished()||!rFollower.isFinished();
     }
 
 }
