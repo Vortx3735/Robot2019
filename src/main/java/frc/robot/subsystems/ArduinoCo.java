@@ -22,7 +22,6 @@ public class ArduinoCo extends Subsystem {
 
   public ArduinoCo() {
     sp = new SerialPort(9600, Port.kUSB);
-    System.out.println("Constructor called");
   }
 
   public int getDistance() {
