@@ -77,7 +77,7 @@ public class Drive extends Subsystem {
 	 * Default Command For Driving
 	 *******************************/
 	public void initDefaultCommand() {
-		setDefaultCommand(new ExpDrive());
+		setDefaultCommand(new DDxDrive());
 	}
 
 	/*******************************
