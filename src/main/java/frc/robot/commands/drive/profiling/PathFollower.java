@@ -1,8 +1,6 @@
 package frc.robot.commands.drive.profiling;
 
 import frc.robot.Robot;
-import frc.robot.Constants.PathFinder;
-import edu.wpi.first.wpilibj.Encoder;
 import frc.robot.Constants;
 import frc.robot.util.cmds.VortxCommand;
 import jaci.pathfinder.Pathfinder;

@@ -8,12 +8,8 @@ public class HasReachedHeight extends ComTrigger{
 	private Double targetSpeed;
 	private boolean isLessThan = true;
 	
-	public HasReachedHeight(Double spd){
-		this.targetSpeed = spd;
-	}
-	
 	public HasReachedHeight(double spd){
-		this(new Double(spd));
+		this.targetSpeed = spd;
 	}
 
 	@Override

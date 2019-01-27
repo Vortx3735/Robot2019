@@ -1,9 +1,6 @@
 package frc.robot.commands.auto;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.Constants;
-import frc.robot.Robot;
 import frc.robot.commands.drive.profiling.PathFollower;
 import jaci.pathfinder.Waypoint;
 

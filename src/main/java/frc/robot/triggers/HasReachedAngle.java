@@ -11,15 +11,12 @@ public class HasReachedAngle extends ComTrigger{
 	private Double deltaAngle;
 	private boolean isRelative;
 
-	public HasReachedAngle(Double angle){
+	
+	public HasReachedAngle(double angle){
 		this(angle, false);
 	}
 	
-	public HasReachedAngle(double angle){
-		this(new Double(angle));
-	}
-	
-	public HasReachedAngle(Double angle, boolean isRelative){
+	public HasReachedAngle(double angle, boolean isRelative){
 		this.isRelative = isRelative;
 		if(isRelative){
 			this.deltaAngle = angle;
@@ -29,10 +26,6 @@ public class HasReachedAngle extends ComTrigger{
 
 	}
 	
-	public HasReachedAngle(double angle, boolean isRelative){
-		this(new Double(angle), isRelative);
-	}
-
 	@Override
 	public void initialize() {
 		startAngle = Robot.navigation.getYaw();
