@@ -6,6 +6,4 @@ run-as: root
 phases:
   build:
     commands:
-      - chmod +x $CODEBUILD_SRC_DIR/gradlew
-      - $CODEBUILD_SRC_DIR/gradlew --status
-      - $CODEBUILD_SRC_DIR/gradlew wpi build
+      - build_frc_targets wpi build 
