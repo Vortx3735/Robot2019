@@ -38,7 +38,7 @@ public class OI {
 		main.pov90.whenPressed(new SetWinchGame(true));
 		main.pov270.whenPressed(new SetWinchGame(false));
 
-		main.start.whileHeld(new SetWinchSpeed(0.25));
+		main.start.whileHeld(new SetWinchSpeed(1.0));
 		main.back.whenPressed(new SetWinchSpeed(0.0));
 		
 

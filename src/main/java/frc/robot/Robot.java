@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
 	public static Elevator elevator;
 	public static Winch endgame;
 	public static ArduinoCo arduinoCo;
-	public static SerialPort sp = new SerialPort(9600, Port.kUSB);
+	//public static SerialPort sp = new SerialPort(9600, Port.kUSB);
 
 	public static UsbCamera camera1;
 	
@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
 		hatch = new HatchIntake();
 		//elevator = new Elevator();
 		endgame = new Winch();
-		arduinoCo = new ArduinoCo();
+		//arduinoCo = new ArduinoCo();
 		//navigation = new Navigation();
 		//jevois = Jevois();
 		oi = new OI();
@@ -126,8 +126,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		arduinoCo.update();
-		System.out.println("Distance is: "+arduinoCo.getDistance());
+		//arduinoCo.update();
+		//System.out.println("Distance is: "+arduinoCo.getDistance());
 		Scheduler.getInstance().run();
 		drive.log();
 	}

@@ -28,6 +28,8 @@ public class PathFollower extends VortxCommand {
     //@param: array of waypoint that have (x,y,0)
     public PathFollower(Waypoint[] waypoints) {
 
+        long startTime = System.currentTimeMillis();
+
         //FitMethod fit, int samples, double dt, double max_velocity, double max_acceleration, double max_jerk
         Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, //Fit method
         Trajectory.Config.SAMPLES_HIGH //How many samples to use to refine the path (higher = smoother, lower = faster)
@@ -51,7 +53,9 @@ public class PathFollower extends VortxCommand {
         lFollower.configurePIDVA(0, 0, 0, 1/Constants.Drive.maxVelocity, 0);
         rFollower.configurePIDVA(0, 0, 0, 1/Constants.Drive.maxVelocity, 0);
 
-        System.out.println("Set trajectories");
+        long timeTake = System.currentTimeMillis()-startTime;
+
+        System.out.println("Set trajectories in " + timeTake  + " second");
 
         requires(Robot.drive);            
         
@@ -68,7 +72,7 @@ public class PathFollower extends VortxCommand {
             desiredAngle = Pathfinder.r2d(lFollower.getHeading());
             angleDifference = Pathfinder.boundHalfDegrees(desiredAngle - angle);
 
-            turn = 0.8 * (-1.0/80) * angleDifference;
+            turn = 0;//0.8 * (-1.0/80) * angleDifference;
 
             Robot.drive.setLeftRight(left+turn, right-turn);
     }
