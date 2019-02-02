@@ -34,7 +34,7 @@ public class ArduinoCo extends Subsystem {
       if (sp.getBytesReceived() > 0) {
         String[] input = sp.readString().trim().split("\n");
 
-        if (!input.equals("")) {
+        if (!input[0].equals("")) {
           distance = Integer.parseInt(input[input.length - 1]);
         }
       }
