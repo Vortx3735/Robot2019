@@ -5,20 +5,22 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.util.hardware.VortxTalon;
+
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 
 
 public class BallIntake extends Subsystem {
 	//TODO: use VorTXTalon and rename
-	TalonSRX talIntake;
+	VortxTalon talIntake;
 
 	Solenoid solIntake;
 	int talval = 0;
 	int solval = 0;
 	public BallIntake()
 	{
-		talIntake = new TalonSRX(RobotMap.Intake.topMotor);
+		talIntake = new VortxTalon(RobotMap.Intake.topMotor);
 		//talIntake.setEnableBrake(true);
 		talIntake.setNeutralMode(NeutralMode.Brake);
 		
