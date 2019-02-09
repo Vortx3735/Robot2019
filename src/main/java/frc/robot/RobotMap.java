@@ -16,8 +16,8 @@ package frc.robot;
 public class RobotMap {
 	public static class Drive{
 
-		public static int[] leftTrain =  {2,3}; //values for kitbot
-		public static int[] rightTrain = {-10,-11};
+		public static int[] leftTrain =  {3,4,5}; //values for Robot2019
+		public static int[] rightTrain = {7,8,9};
 	}
 
 	public static class Intake {
