@@ -12,12 +12,12 @@ public class HatchSet extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         this.b=b;
-    	requires(Robot.hatch);
+    	requires(Robot.hatchintake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.hatch.setSolenoid(b);
+        Robot.hatchintake.setSolenoid(b);
     }
 
     // Called repeatedly when this Command is scheduled to run
