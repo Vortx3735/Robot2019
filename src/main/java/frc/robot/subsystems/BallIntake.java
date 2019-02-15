@@ -4,6 +4,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.util.hardware.VortxTalon;
 
@@ -29,9 +30,13 @@ public class BallIntake extends Subsystem {
 	{
 		talIntake.set(ControlMode.PercentOutput, d);
 		
-		
-
 	}
+	
+	public void log()
+	{
+		SmartDashboard.putNumber("BallIntakeSpeed", talIntake.get());
+	}
+
 	
 
 	@Override

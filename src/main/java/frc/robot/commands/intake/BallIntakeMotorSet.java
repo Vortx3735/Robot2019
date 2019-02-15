@@ -12,7 +12,7 @@ public class BallIntakeMotorSet extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 		speed=d;
-    	requires(Robot.intake);
+    	requires(Robot.ballintake);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class BallIntakeMotorSet extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.intake.setIntake(speed);
+        Robot.ballintake.setIntake(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,7 +31,7 @@ public class BallIntakeMotorSet extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.intake.setIntake(0);
+        Robot.ballintake.setIntake(0);
     }
 
     // Called when another command which requires one or more of the same

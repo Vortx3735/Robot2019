@@ -29,9 +29,9 @@ public class Robot extends TimedRobot {
 	public static Drive drive;
 	public static Autonomous autoLogic;
 
-	public static BallIntake intake;
+	public static BallIntake ballintake;
 	public static Jevois vision;
-	public static HatchIntake hatch;
+	public static HatchIntake hatchintake;
 	public static Jevois jevois;
 	public static Navigation navigation;
 	public static OI oi;
@@ -50,8 +50,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		drive = new Drive();
-		intake = new BallIntake();
-		hatch = new HatchIntake();
+		ballintake = new BallIntake();
+		hatchintake = new HatchIntake();
 		//elevator = new Elevator();
 		endgame = new Winch();
 		//arduinoCo = new ArduinoCo();
@@ -66,7 +66,14 @@ public class Robot extends TimedRobot {
 		camera1.setResolution(320, 240);
 		camera1.setFPS(15);
 	}
-
+	@Override 
+	public void robotPeriodic() {
+		//only reads and prints the values to smartdashboard
+		drive.log();
+		ballintake.log();
+		hatchintake.log();
+		endgame.log();
+	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
 	 * You can use it to reset any subsystem information you want to clear when
@@ -129,7 +136,8 @@ public class Robot extends TimedRobot {
 		//arduinoCo.update();
 		//System.out.println("Distance is: "+arduinoCo.getDistance());
 		Scheduler.getInstance().run();
-		drive.log();
+
+
 	}
 
 	/**
