@@ -5,17 +5,18 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.endGame;
+package frc.robot.commands.winch;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class SetWinchSpeed extends Command {
-  double speed;
+public class SetWinchSolenoids extends Command {
 
-  public SetWinchSpeed(double speed) {
+  boolean bol;
+  
+  public SetWinchSolenoids(boolean bool) {
     requires(Robot.endgame);
-    this.speed = speed;
+    bol = bool;
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +27,7 @@ public class SetWinchSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.endgame.setMotorSpeed(speed);
+    Robot.endgame.setEnd(bol);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,13 +39,11 @@ public class SetWinchSpeed extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.endgame.setMotorSpeed(0.0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.endgame.setMotorSpeed(0.0);
   }
 }
