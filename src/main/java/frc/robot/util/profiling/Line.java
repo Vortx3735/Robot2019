@@ -1,7 +1,6 @@
 package frc.robot.util.profiling;
 
 import frc.robot.util.calc.VortxMath;
-import frc.robot.util.recording.Filer;
 
 public class Line {
 	
@@ -81,7 +80,5 @@ public class Line {
 		return m * x + b;
 	}
 	
-	public String toString() {
-		return Filer.make("lineM", m, 3) + Filer.make("lineB", b, 3);
-	}
+
 }

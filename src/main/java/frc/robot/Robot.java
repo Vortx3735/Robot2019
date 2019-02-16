@@ -8,16 +8,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.SerialPort.Port;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.commands.drive.profiling.PathFollower;
 import frc.robot.subsystems.*;
-import frc.robot.util.Jevois;
-import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.wpilibj.I2C;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -30,9 +24,7 @@ public class Robot extends TimedRobot {
 	public static Autonomous autoLogic;
 
 	public static BallIntake ballintake;
-	public static Jevois vision;
 	public static HatchIntake hatchintake;
-	public static Jevois jevois;
 	public static Navigation navigation;
 	public static OI oi;
 	public static Elevator elevator;
@@ -52,10 +44,10 @@ public class Robot extends TimedRobot {
 		drive = new Drive();
 		ballintake = new BallIntake();
 		hatchintake = new HatchIntake();
-		//elevator = new Elevator();
+		elevator = new Elevator();
 		endgame = new Winch();
 		//arduinoCo = new ArduinoCo();
-		//navigation = new Navigation();
+		navigation = new Navigation();
 		//jevois = Jevois();
 		oi = new OI();
 		
@@ -133,8 +125,6 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		//arduinoCo.update();
-		//System.out.println("Distance is: "+arduinoCo.getDistance());
 		Scheduler.getInstance().run();
 
 

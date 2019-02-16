@@ -13,10 +13,6 @@ public class LogisticController{
 	Func startingPower;
 	Func maxPower;	
 	
-	private double constantForce = 0;
-	
-
-	
 	public LogisticController(Func maxPower, Func startingPower) {
 		this.maxPower = maxPower;
 		this.startingPower = startingPower;
@@ -34,10 +30,6 @@ public class LogisticController{
 	
 	public void initProfileStretched(double startingPos, double endPos) {
 		initProfile(endPos - (endPos-startingPos) * 1.1, endPos);
-	}
-	
-	public void setConstantForce(double d) {
-		constantForce = d;
 	}
 	
 	public double getOutput(double currentPos) {

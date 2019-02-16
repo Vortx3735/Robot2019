@@ -5,16 +5,13 @@ import frc.robot.util.cmds.ComTrigger;
 
 public class HasReachedSpeed extends ComTrigger{
 	
-	private Double targetSpeed;
+	private double targetSpeed;
 	private boolean isLessThan = true;
 	
-	public HasReachedSpeed(Double spd){
+	public HasReachedSpeed(double spd){
 		this.targetSpeed = spd;
 	}
-	
-	public HasReachedSpeed(double spd){
-		this(new Double(spd));
-	}
+
 
 	@Override
 	public void initialize() {

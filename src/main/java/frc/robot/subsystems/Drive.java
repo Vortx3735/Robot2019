@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.drive.DDxDrive;
-import frc.robot.commands.drive.ExpDrive;
 import frc.robot.Constants;
 import frc.robot.settings.Dms;
 import frc.robot.util.hardware.VortxTalon;
@@ -47,7 +46,6 @@ public class Drive extends Subsystem {
 	public static Setting scaledMaxMove = new Setting("Scaled Max Move", Constants.Drive.scaledMaxMove, false);
 	public static Setting scaledMaxTurn = new Setting("Scaled Max Turn", Constants.Drive.scaledMaxTurn, false);
 	
-	private DDxDrive defCommand;
 	public static BooleanSetting brakeEnabled = new BooleanSetting("Brake Mode On", false, false){
 		@Override
 		public void valueChanged(boolean val) {

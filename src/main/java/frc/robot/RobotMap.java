@@ -29,9 +29,8 @@ public class RobotMap {
 		public static int solenoid = 4;
 	}
 	
-	public static class elevator {
-		public static int leftElev= 9;//5;
-		public static int rightElev = 1;
+	public static class Elevator {
+		public static int[] elevatorMotors = {0,0};
 	}
 
 	public static class Winch

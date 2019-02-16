@@ -49,4 +49,8 @@ public class Constants {
 	public class PathFinder {
 
 	}
+
+	public class Elevator {
+		public static final double ticksPerInch = 0.0;
+	}
 }

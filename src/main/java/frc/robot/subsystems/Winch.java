@@ -5,15 +5,14 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.endGame.SetWinchSpeed;
 import frc.robot.util.hardware.VortxTalon;
 
 /**
  * Add your docs here.
  */
 public class Winch extends Subsystem {
+
   Solenoid solLeft;
   Solenoid solRight;
   VortxTalon motor;
@@ -24,8 +23,7 @@ public class Winch extends Subsystem {
     motor = new VortxTalon(RobotMap.Winch.winch);
   }
 
-  public void setEnd(boolean bol)
-  {
+  public void setEnd(boolean bol) {
     solLeft.set(bol);
     solRight.set(bol);
   }
@@ -34,13 +32,14 @@ public class Winch extends Subsystem {
     motor.set(ControlMode.PercentOutput, d);
   }
 
-  public void log()
-  {
+  public void log() {
     
     SmartDashboard.putNumber("WinchPullySpeed",motor.get());
    
   }
   @Override
   public void initDefaultCommand() {
+
   }
+  
 }

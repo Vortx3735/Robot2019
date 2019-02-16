@@ -1,7 +1,6 @@
 package frc.robot.util.profiling;
 
 import frc.robot.util.calc.VortxMath;
-import frc.robot.util.recording.Filer;
 
 public class Ray extends Line{
 	public double yaw;
@@ -52,7 +51,5 @@ public class Ray extends Line{
 		
 	}
 	
-	public String toString() {
-		return Filer.make("LYaw", yaw, 2) + super.toString();
-	}
+
 }

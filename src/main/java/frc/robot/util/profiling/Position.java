@@ -1,6 +1,5 @@
 package frc.robot.util.profiling;
 
-import frc.robot.util.recording.Filer;
 
 public class Position extends Location {
 	public double yaw;
@@ -15,18 +14,6 @@ public class Position extends Location {
 		this.yaw = yaw;
 	}
 	
-	public String toString() {
-		return Filer.make("Yaw", yaw, 1) + super.toString();
-	}
-	
-	public static Position fromString(String s) {
-		 return new Position(
-				 Location.fromString(s), 
-				 Filer.getDouble("Yaw", s)
-		 );
-	}
-	
 
-	
 	
 }

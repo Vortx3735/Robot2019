@@ -8,12 +8,11 @@
 package frc.robot;
 
 
-import frc.robot.commands.auto.MeterStraight;
 import frc.robot.commands.endGame.SetWinchGame;
 import frc.robot.commands.endGame.SetWinchSpeed;
 import frc.robot.commands.hatch.HatchSet;
 import frc.robot.commands.intake.BallIntakeMotorSet;
-
+import frc.robot.util.calc.VortxMath;
 import frc.robot.util.oi.XboxController;
 
 /**
@@ -64,6 +63,10 @@ public class OI {
 	public double getFODAngle(){
 		//return main.getRightAngle();
 		return 0;
+	}
+
+	public double getElevatorMove() {
+		return VortxMath.handleDeadband(main.getRightY()+ co.getLeftY(), .05);
 	}
 	
 }

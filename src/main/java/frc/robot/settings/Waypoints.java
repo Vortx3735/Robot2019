@@ -2,7 +2,6 @@ package frc.robot.settings;
 
 import frc.robot.util.profiling.Location;
 import frc.robot.util.profiling.Position;
-import frc.robot.util.recording.DriveState;
 
 public class Waypoints {
 
@@ -89,20 +88,6 @@ public class Waypoints {
 
 	}
 
-	
-	public static class CSVAuto{
-		public static DriveState[] leftScaleLeft;
-		public static DriveState[] leftScaleRight;
-		
-		public static DriveState[] midSwitchLeft;
-		public static DriveState[] midSwitchRight;
-		
-//		public static DriveState[] leftScaleLeft;
-//		public static DriveState[] leftScaleRight;
-
-
-		
-	}
 	//public static String rightScaleRight = "RightScaleRight";
 
 	public static class Starting{

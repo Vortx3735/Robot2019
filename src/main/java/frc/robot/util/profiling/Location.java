@@ -1,7 +1,5 @@
 package frc.robot.util.profiling;
 
-import frc.robot.util.recording.Filer;
-
 import java.util.ArrayList;
 
 public class Location{
@@ -33,20 +31,6 @@ public class Location{
 	
 	public double yawTo(Location other) {
 		return Math.toDegrees(Math.atan2(other.x - x, other.y - y));
-	}
-
-
-
-	public String toString() {
-		return Filer.make("Xloc", x, 2) + Filer.make("Yloc", y, 2);
-	}
-	
-	public static Location fromString(String s) {
-		return new Location(
-			Filer.getDouble("Xloc", s),
-			Filer.getDouble("Yloc", s)
-		);
-		
 	}
 	
 }

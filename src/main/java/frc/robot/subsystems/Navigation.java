@@ -29,7 +29,7 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 	
 	private PIDCtrl controller;
 	//PID Controller stuff
-	private static Setting outputExponent = new Setting("Nav Output Exponent", 1, false);
+	
     public static Setting actingI = 		new Setting("Nav Acting I Value", 0.004, false);
     
 //    public static Setting InitialOffset =	new Setting("Horizontal Offset", 0);
