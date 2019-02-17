@@ -1,10 +1,13 @@
 package frc.robot.subsystems;
 
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+
+import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
@@ -22,7 +25,11 @@ import frc.robot.util.settings.Setting;
 
 public class Drive extends Subsystem {
 
-	
+	ShuffleboardTab tab = Shuffleboard.getTab("Drive");
+	private NetworkTableEntry distanceEntry =
+      tab.add("Distance to target", 0)
+				 .getEntry();
+				 
 	private VortxTalon l1;
 	private VortxTalon r1;
 	
