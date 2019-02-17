@@ -18,11 +18,12 @@ import frc.robot.util.profiling.Location;
 import frc.robot.util.profiling.Position;
 import frc.robot.util.profiling.Ray;
 import frc.robot.util.settings.Setting;
+import frc.robot.util.*;
 
 //import Robot.Side;
 
 
-public class Navigation extends Subsystem implements PIDSource, PIDOutput {
+public class Navigation extends VortxSubsystem implements PIDSource, PIDOutput {
 	private static final int BUMP_THRESHOLD = 1;
 
 	private VortxAhrs ahrs;
@@ -48,6 +49,7 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 	private double curRight;
 	
 	public Navigation(){
+		super("navigation","NAV");
 		table = NetworkTableInstance.getDefault().getTable("MAP");
 		
 		ahrs = new VortxAhrs(SPI.Port.kMXP);
@@ -61,7 +63,8 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 		curLeft = Robot.drive.getLeftPosition();
     	curRight = Robot.drive.getRightPosition();
     	prevLeft = curLeft;
-    	prevRight = curRight;
+		prevRight = curRight;
+		
 	}
 
 	public synchronized void setPosition(Position p){

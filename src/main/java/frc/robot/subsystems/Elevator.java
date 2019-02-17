@@ -18,11 +18,12 @@ import frc.robot.util.hardware.VortxTalon;
 import frc.robot.Constants;
 import frc.robot.util.settings.PIDSetting;
 import frc.robot.util.settings.Setting;
+import frc.robot.util.VortxSubsystem;
 
 /**
  *
  */
-public class Elevator extends Subsystem implements PIDSource, PIDOutput {
+public class Elevator extends VortxSubsystem implements PIDSource, PIDOutput {
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -45,6 +46,7 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 
 	public Elevator() {
+    super("elevator","ELV");
 		limiter = new DDxLimiter(0, new Range(new Setting("Elevator DDx Limit", 4)));
 
 		elevator = new VortxTalon(RobotMap.Elevator.elevatorMotors, "Elevator Left");

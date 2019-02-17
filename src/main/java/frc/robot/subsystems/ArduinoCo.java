@@ -10,17 +10,19 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.util.VortxSubsystem;
 
 /**
  * Add your docs here.
  */
-public class ArduinoCo extends Subsystem {
+public class ArduinoCo extends VortxSubsystem {
 
   int distance;
   Thread nThread;
   public static SerialPort sp;
 
   public ArduinoCo() {
+    super("arduino","ARD");
     sp = new SerialPort(9600, Port.kUSB);
   }
 

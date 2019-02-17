@@ -7,17 +7,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.util.hardware.VortxTalon;
+import frc.robot.util.*;
 
 /**
  * Add your docs here.
  */
-public class Winch extends Subsystem {
-
+public class Winch extends VortxSubsystem {
   Solenoid solLeft;
   Solenoid solRight;
   VortxTalon motor;
 
   public Winch() {
+    super("winch","WCH");
     solLeft = new Solenoid(RobotMap.Winch.solEndLeft);
     solRight = new Solenoid(RobotMap.Winch.solEndRight);
     motor = new VortxTalon(RobotMap.Winch.winch);

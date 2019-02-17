@@ -11,16 +11,16 @@ import frc.robot.RobotMap;
 import frc.robot.commands.drive.DDxDrive;
 import frc.robot.Constants;
 import frc.robot.settings.Dms;
+import frc.robot.util.VortxSubsystem;
 import frc.robot.util.hardware.VortxTalon;
 import frc.robot.util.settings.BooleanSetting;
 import frc.robot.util.settings.Setting;
-
 
 /**
  *
  */
 
-public class Drive extends Subsystem {
+public class Drive extends VortxSubsystem {
 
 	
 	private VortxTalon l1;
@@ -59,6 +59,7 @@ public class Drive extends Subsystem {
 
 
 	public Drive() {
+		super("drive","DRV");
 		l1 = new VortxTalon(RobotMap.Drive.leftTrain, "Left Drive");
 		r1 = new VortxTalon(RobotMap.Drive.rightTrain, "Right Drive");
 		l1.setInchesPerTick(Constants.Drive.InchesPerTick);
