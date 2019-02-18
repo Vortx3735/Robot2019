@@ -14,33 +14,39 @@ import frc.robot.util.smartboard.SmartBoard;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.networktables.NetworkTable;
-/**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the TimedRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the build.properties file in the
- * project.
- */
-public class Robot extends TimedRobot {
-	public static Drive drive;
-	public static Autonomous autoLogic;
 
+public class Robot extends TimedRobot {
+
+	// Hardware Subsystems
+	public static Drive drive;
 	public static BallIntake ballintake;
 	public static HatchIntake hatchintake;
-	public static Navigation navigation;
-	public static OI oi;
 	public static Elevator elevator;
 	public static Winch endgame;
-	public static ArduinoCo arduinoCo;
-	//public static SerialPort sp = new SerialPort(9600, Port.kUSB);
 
+	// Software Subsystems
+	public static ArduinoCo arduinoCo;
+	public static Autonomous autoLogic;
+	public static Navigation navigation;
+	public static OI oi;
 	public static UsbCamera camera1;
 	
-
-	/**
-	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
+	/** Understanding how the methods are called.
+	 *  
+	 *  The states are divided into general robot, disabled, and enabled
+	 *  Enabled is furhter divided into modes: Teleop, Autonomous,and Test 
+	 *  
+	 *  Each one of these have their own:
+	 * 
+	 *  Init method - called once each time
+	 *  Periodic method - called periodically while in that mode
+	 * 
+	 *  NOTE: Practice causes the robot to cycle through the stages as it would in an acutal match.
 	 */
+
+
+	/************************************ General Robot ******************************************/
+
 	@Override
 	public void robotInit() {
 		drive = new Drive();
@@ -55,10 +61,13 @@ public class Robot extends TimedRobot {
 		
 		autoLogic = new Autonomous();
 
+		SmartBoard.start();
+
 		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
 		camera1.setResolution(320, 240);
 		camera1.setFPS(15);
 	}
+
 	@Override 
 	public void robotPeriodic() {
 		//only reads and prints the values to smartdashboard
@@ -66,75 +75,36 @@ public class Robot extends TimedRobot {
 		ballintake.log();
 		hatchintake.log();
 		endgame.log();
+		navigation.log();
 	}
-	/**
-	 * This function is called once each time the robot enters Disabled mode.
-	 * You can use it to reset any subsystem information you want to clear when
-	 * the robot is disabled.
-	 */
+
+	/************************************ Disabled Robot ******************************************/
+
 	@Override
 	public void disabledInit() {
-
+		SmartBoard.setPreMatchMode();
 	}
-//
+
 	@Override
 	public void disabledPeriodic() {
-		Scheduler.getInstance().run();
-		drive.log();
 	}
 
-	/**
-	 * This autonomous (along with the chooser code above) shows how to select
-	 * between different autonomous modes using the dashboard. The sendable
-	 * chooser code works with the Java SmartDashboard. If you prefer the
-	 * LabVIEW Dashboard, remove all of the chooser code and uncomment the
-	 * getString code to get the auto name from the text box below the Gyro
-	 *
-	 * <p>You can add additional auto modes by adding additional commands to the
-	 * chooser code above (like the commented example) or additional comparisons
-	 * to the switch structure below with additional strings & commands.
-	 */
-	@Override
-	public void autonomousInit() {
-		System.out.println("Autonomous Started");
-		autoLogic.startCommand();
-	}
-
-	/**
-	 * This function is called periodically during autonomous.
-	 */
-	@Override
-	public void autonomousPeriodic() {
-		Scheduler.getInstance().run();
-		drive.log();
-	}
+	/************************************ Teleop ******************************************/
 
 	@Override
 	public void teleopInit() {
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
-		// if (m_autonomousCommand != null) {
-		// 	m_autonomousCommand.cancel();
-		// }
-		
+		SmartBoard.setMatchMode();
 	}
-//
-	/**
-	 * This function is called periodically during operator control.
-	 */
+
 	@Override
-	public void teleopPeriodic() {
-		Scheduler.getInstance().run();
+	public void teleopPeriodic() {}
 
+	/************************************ Test ******************************************/
 
-	}
-
-	/**
-	 * This function is called periodically during test mode.
-	 */
 	@Override
-	public void testPeriodic() {
-	}
+	public void testInit() {}
+
+	@Override
+	public void testPeriodic() {}
+
 }
