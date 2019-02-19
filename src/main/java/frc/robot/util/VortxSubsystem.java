@@ -23,7 +23,7 @@ public abstract class VortxSubsystem extends Subsystem {
         // Configure Tables
         configTable = SmartBoard.getConfigTable(this);
         valueTable = SmartBoard.getValuesTable(this);
-        errorTable = SmartBoard.getErrrorTable(this);
+        errorTable = SmartBoard.getErrorTable(this);
 
         // Create default error
         ERROR_GENERAL = new SmartBoardError(this, 0, SmartBoardErrorType.ERROR);
