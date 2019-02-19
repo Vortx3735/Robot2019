@@ -20,32 +20,44 @@ public class SmartBoard {
     private static final NetworkTable values = NTValuesInstance.getTable("").getSubTable("values");
     private static final NetworkTable errors = NTErrorsInstance.getTable("").getSubTable("errors");
 
-    // Subsystems
+    // Return the table where all the values for a specific subsystem should be reported
     public static NetworkTable getValuesTable(VortxSubsystem subsystem) {
         return values.getSubTable(subsystem.name);
     }
 
+    // Return the table where all the config values for a specific subsystem should be reported
     public static NetworkTable getConfigTable(VortxSubsystem subsystem) {
         return config.getSubTable(subsystem.name);
     }
 
-    public static NetworkTable getErrrorTable(VortxSubsystem subsystem) {
+    // Return the table where all the config values for a specific subsystem should be reported
+    public static NetworkTable getErrorTable(VortxSubsystem subsystem) {
         return errors.getSubTable(subsystem.name);
     }
 
+    // Return the table for all errors
+    public static NetworkTable getErrorTable() {
+        return errors;
+    }
+
+    // Start the sync of config tables
     public static void setPreMatchMode() {
-        // Start the sync of config files
         NTConfigInstance.startClientTeam(3735);
     }
 
+    // Stop the sync of config tables
     public static void setMatchMode() {
-        // Stop the sync of config files
         NTConfigInstance.stopClient();
     }
 
     public static void start() {
+        // Start the sync of all config intances
+        // * TODO: Check if this actually is necessary
         NTConfigInstance.startClientTeam(3735);
         NTValuesInstance.startClientTeam(3735);
         NTErrorsInstance.startClientTeam(3735);
+
+        // Set the default value for the master alarm
+        errors.getEntry("master").setNumber(0);
     }
 }

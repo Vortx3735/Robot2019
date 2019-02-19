@@ -24,15 +24,31 @@ public class SmartBoardError {
         id = subsystem.id + String.format("%01d",identifier);
 
         // Add to NetworkTables
-        subsystem.errorTable.getEntry(id).setBoolean(false);
+        subsystem.errorTable.getEntry(id).setNumber(0);
 
     }
 
     public void report()
     {
-        subsystem.errorTable.getEntry(id).setBoolean(true);
+        int numRepresentation = numberFromType(type);
+        subsystem.errorTable.getEntry(id).setNumber(numRepresentation);
         Shuffleboard.addEventMarker(id + " REPORTED", EventImportance.kHigh);
+
+        subsystem.errorTable.getEntry(subsystem.id).setNumber(numRepresentation);
+
+        if (type == SmartBoardErrorType.NUCLEAR) {
+            SmartBoard.getErrorTable().getEntry("master").setNumber(2);
+        }
     }
 
-    
+    public static int numberFromType(SmartBoardErrorType t) 
+    {
+        switch (t) 
+        {
+            case WARNING: return 1;
+            case ERROR: return 2;
+            case NUCLEAR: return 3;
+            default: return 1;
+        }
+    }
 }
