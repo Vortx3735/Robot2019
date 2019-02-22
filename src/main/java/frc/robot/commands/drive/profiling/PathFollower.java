@@ -1,7 +1,7 @@
 package frc.robot.commands.drive.profiling;
 
-import frc.robot.Robot;
 import frc.robot.Constants;
+import frc.robot.Robot;
 import frc.robot.util.cmds.VortxCommand;
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
@@ -15,6 +15,12 @@ public class PathFollower extends VortxCommand {
     public EncoderFollower lFollower;
     public EncoderFollower rFollower;
 
+    // public DistanceFollower lFollower;
+    // public DistanceFollower rFollower;
+
+    public Trajectory leftTraj;
+    public Trajectory rightTraj;
+
     public double left;
     public double right;
     public double angle;
@@ -22,17 +28,27 @@ public class PathFollower extends VortxCommand {
     public double angleDifference;
     public double turn;
 
+    public double originalAngleOffset;
 
-    private int i=0;
+    Waypoint[] waypoints;
 
     //@param: array of waypoint that have (x,y,0)
     public PathFollower(Waypoint[] waypoints) {
+        
+        this.waypoints = waypoints;
+
+        requires(Robot.drive);            
+        
+    }
+
+    @Override
+    protected void initialize() {
 
         long startTime = System.currentTimeMillis();
 
         //FitMethod fit, int samples, double dt, double max_velocity, double max_acceleration, double max_jerk
         Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, //Fit method
-        Trajectory.Config.SAMPLES_HIGH //How many samples to use to refine the path (higher = smoother, lower = faster)
+        Trajectory.Config.SAMPLES_FAST //How many samples to use to refine the path (higher = smoother, lower = faster)
         , Constants.dt, Constants.Drive.maxVelocity, Constants.Drive.maxAccel, Constants.Drive.maxJerk); // dt, max_velocity,  max_acceleration,  max_jerk
 
         Trajectory trajectory = Pathfinder.generate(waypoints, config);
@@ -41,48 +57,56 @@ public class PathFollower extends VortxCommand {
         TankModifier modifier = new TankModifier(trajectory).modify(Constants.Drive.wheelBase); //wheel base in meters
 
         // Do something with the new Trajectories...
-        Trajectory leftTraj = modifier.getLeftTrajectory();
-        Trajectory rightTraj = modifier.getRightTrajectory();
+        leftTraj = modifier.getLeftTrajectory();
+        rightTraj = modifier.getRightTrajectory();
 
         lFollower = new EncoderFollower(leftTraj);
         rFollower = new EncoderFollower(rightTraj);
 
-        lFollower.configureEncoder((int)(Math.round(Robot.drive.getLeftTicks())), Constants.Drive.ticksPerRotation, Constants.Drive.wheelDiam);
-        rFollower.configureEncoder((int)(Math.round(Robot.drive.getRightTicks())), Constants.Drive.ticksPerRotation, Constants.Drive.wheelDiam);
+        
+        lFollower.configureEncoder((int)(Math.round(Robot.drive.getLeftPosition())), Constants.Drive.ticksPerRotation, Constants.Drive.wheelDiam);
+        rFollower.configureEncoder((int)(Math.round(Robot.drive.getRightPosition())), Constants.Drive.ticksPerRotation, Constants.Drive.wheelDiam);
 
-        lFollower.configurePIDVA(0, 0, 0, 1/Constants.Drive.maxVelocity, 0);
-        rFollower.configurePIDVA(0, 0, 0, 1/Constants.Drive.maxVelocity, 0);
+        lFollower.configurePIDVA(.00055, 0, 0, 1/Constants.Drive.maxVelocity, 1/Constants.Drive.maxAccel*.01);//1/Constants.Drive.maxAccel*.08);
+        rFollower.configurePIDVA(.00055, 0, 0, 1/Constants.Drive.maxVelocity, 1/Constants.Drive.maxAccel*.01);//1/Constants.Drive.maxAccel*.08);
 
         long timeTake = System.currentTimeMillis()-startTime;
 
-        System.out.println("Set trajectories in " + timeTake  + " second");
+        System.out.println("Set trajectories in " + timeTake  + "millis");
 
-        requires(Robot.drive);            
-        
+        originalAngleOffset = Robot.navigation.getYaw();
+
+        System.out.println("The original angle off set is " + originalAngleOffset);
     }
 
     @Override
     protected void execute () {
-        System.out.println("Execute was called");
-            left = lFollower.calculate((int)(Math.round(Robot.drive.getLeftTicks()))); 
-            right = rFollower.calculate((int)(Math.round(Robot.drive.getRightTicks()))); 
+            left = lFollower.calculate((int)Robot.drive.getLeftPosition()); 
+            right = rFollower.calculate((int)Robot.drive.getRightPosition());
+            
 
-            System.out.println(i + " Left: " + left + " Right: " + right);
-            angle = 0;// Robot.navigation.getYaw();
-            desiredAngle = Pathfinder.r2d(lFollower.getHeading());
+
+            angle = Robot.navigation.getYaw();
+            desiredAngle = Pathfinder.boundHalfDegrees(Pathfinder.r2d(lFollower.getHeading()) + originalAngleOffset);
             angleDifference = Pathfinder.boundHalfDegrees(desiredAngle - angle);
 
-            turn = 0;//0.8 * (-1.0/80) * angleDifference;
+            System.out.println("Navx: " + angle + " Offset: " + originalAngleOffset + " desired: " + desiredAngle + " Difference: " + angleDifference);
+            
 
-            Robot.drive.setLeftRight(left+turn, right-turn);
+
+            turn = -1.7 * (1.0/80) * angleDifference;
+
+            System.out.println("Left Power: " + left +  " Right Power: " + right  + " Turn power: " + turn);
+
+
+            Robot.drive.setLeftRight((left+turn), (right-turn));
     }
 
     
 
     @Override
     protected boolean isFinished() {
-        System.out.println("Is finished is called");
-        return !lFollower.isFinished()||!rFollower.isFinished();
+        return rFollower.isFinished() && lFollower.isFinished();
     }
 
 }

@@ -23,9 +23,10 @@ public class Robot extends TimedRobot {
 	public static HatchIntake hatchintake;
 	public static Elevator elevator;
 	public static Winch endgame;
+	public static LimeLight limelight;
 
 	// Software Subsystems
-	public static ArduinoCo arduinoCo;
+	public static ArduinoCo arduino;
 	public static Autonomous autoLogic;
 	public static Navigation navigation;
 	public static OI oi;
@@ -54,9 +55,9 @@ public class Robot extends TimedRobot {
 		hatchintake = new HatchIntake();
 		elevator = new Elevator();
 		endgame = new Winch();
-		//arduinoCo = new ArduinoCo();
+		arduino = new ArduinoCo();
+		limelight = new LimeLight();
 		navigation = new Navigation();
-		//jevois = Jevois();
 		oi = new OI();
 		
 		autoLogic = new Autonomous();
