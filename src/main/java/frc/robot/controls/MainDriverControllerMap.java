@@ -9,8 +9,8 @@ import frc.robot.commands.hatch.*;
 import frc.robot.commands.intake.*;
 import frc.robot.commands.winch.*;
 
-public class MainDriverControllerMap extends VorTXControllerMap
-{
+public class MainDriverControllerMap extends VorTXControllerMap {
+	
     public MainDriverControllerMap() {
 		super();
         

@@ -4,7 +4,6 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
@@ -275,10 +274,6 @@ public class Drive extends VortxSubsystem {
 	
 	public void setNavxAssist(double error) {
 		this.navxAssist = (error/180.0) * Navigation.navCo.getValue();
-	}
-
-	public void setJevoisAssist(double error) {
-		
 	}
 
 	

@@ -5,16 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package frc.robot.controls;
 
-import frc.robot.commands.hatch.HatchSet;
-import frc.robot.commands.intake.BallIntakeMotorSet;
-import frc.robot.commands.winch.SetWinchSolenoids;
-import frc.robot.commands.winch.SetWinchSpeed;
 import frc.robot.util.calc.VortxMath;
-import frc.robot.util.oi.VorTXControllerMap;
 import frc.robot.util.oi.XboxController;
-import frc.robot.controls.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator

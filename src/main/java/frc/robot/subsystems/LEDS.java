@@ -8,9 +8,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.util.VortxSubsystem;
-
 
 public class LEDS extends VortxSubsystem {
 	I2C com;
@@ -69,8 +67,7 @@ public class LEDS extends VortxSubsystem {
 	
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
+	
 	}
 	
 
