@@ -1,6 +1,5 @@
 
 package frc.robot.util.smartboard;
-import javax.management.NotCompliantMBeanException;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
