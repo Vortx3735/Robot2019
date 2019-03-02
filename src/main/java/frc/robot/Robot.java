@@ -62,7 +62,6 @@ public class Robot extends TimedRobot {
 		//limelight = new LimeLight();
 		//navigation = new Navigation();
 
-		System.out.println("Robot init was called");
 		oi = new OI();
 		
 		autoLogic = new Autonomous();
@@ -81,7 +80,8 @@ public class Robot extends TimedRobot {
 	@Override 
 	public void robotPeriodic() {
 		//only reads and prints the values to smartdashboard
-		//drive.log();
+		drive.log();
+		elevator.log();
 		//ballIntake.log();
 		//hatchIntake.log();
 		//endgame.log();
@@ -99,6 +99,19 @@ public class Robot extends TimedRobot {
 	public void disabledPeriodic() {
 	}
 
+	/**************************************Auto********************************************* */
+
+	@Override
+	public void autonomousInit() {
+		autoLogic.startCommand();
+	}
+
+	@Override
+	public void autonomousPeriodic() {
+		Scheduler.getInstance().run();
+		
+	}
+
 	/************************************ Teleop ******************************************/
 
 	@Override
@@ -108,9 +121,9 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopPeriodic() {
-		
 		Scheduler.getInstance().run();
 		drive.debugLog();
+		elevator.debugLog();
 	}
 
 	/************************************ Test ******************************************/

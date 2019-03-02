@@ -28,10 +28,8 @@ public class Drive extends VortxSubsystem {
 	private static int iZone = 2;
 	private static double maxV = 160;
 
-	//for speed profiling
-	public static final double slope = 0.00113174;
+	//for controllers
 	public static final double minPct = 0.0944854;
-	public static final double maxSpeed = (1-minPct)/slope; //about 800.11 rpm, 173 in/s
 	
 	
 	
@@ -441,13 +439,11 @@ public class Drive extends VortxSubsystem {
 	public void log() {
 		SmartDashboard.putNumber("Drive Left Position", getLeftPosition());
 		SmartDashboard.putNumber("Drive Right Position", getRightPosition());
-		SmartDashboard.putNumber("Drive Left Ticks", getLeftPosition()/Constants.Drive.InchesPerTick);
-		SmartDashboard.putNumber("Drive Right Ticks", getRightPosition()/Constants.Drive.InchesPerTick);
 	}
 
 	public void debugLog() {
-		SmartDashboard.putNumber("Drive Left Position", getLeftPosition());
-		SmartDashboard.putNumber("Drive Right Position", getRightPosition());
+		SmartDashboard.putNumber("Drive Left Ticks", getLeftTicks());
+		SmartDashboard.putNumber("Drive Right Ticks", getRightTicks());
 
 		SmartDashboard.putNumber("Drive Left Speed", getLeftSpeed());
 		SmartDashboard.putNumber("Drive Right Speed", getRightSpeed());

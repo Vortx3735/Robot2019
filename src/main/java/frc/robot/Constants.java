@@ -45,7 +45,8 @@ public class Constants {
 
 	public class Elevator {
 		//TODO set these values
-		public static final double ticksPerInch = 512;
+		public static final double ticksPerInch = 0.0;
+		public static final double tickPerRoatation = 512;
 		//All these are heights and should assume the 0 is the bottom of the elevator
 		public static final double lowRocketHatch = 0.0;
 		public static final double midRocketHatch = 0.0;

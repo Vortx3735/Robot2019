@@ -25,18 +25,8 @@ public class Elevator extends VortxSubsystem implements PIDSource, PIDOutput {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	VortxTalon elevator;
-	
-	public static double minDown = -.07;
-	public static double minUp = .33;
-	
-	public static double bottom = 0;
-	public static double switchHeight = 10;
-	public static double top = 36;
-	
-	public static double transferHeight = 4.1;
 
 	public PIDCtrl controller;
-	// private Setting carriageSpeed;
 
 	public Setting consPower = new Setting("Elevator ConsPower", 0.0);	//.183 on the final
 
@@ -49,8 +39,8 @@ public class Elevator extends VortxSubsystem implements PIDSource, PIDOutput {
 		controller = new PIDCtrl(.15,.01,0,this,this,2);
 		controller.setAbsoluteTolerance(.5);
 		//TODO figure direction of motors
-		controller.setOutputRange(-.7, 1);
-		controller.sendToDash("Elevator PID");
+		controller.setOutputRange(-.1, 7);
+		//controller.sendToDash("Elevator PID");
 		controller.disable();
 		
 		elevator.setTicksPerInch(Constants.Elevator.ticksPerInch);
@@ -116,8 +106,6 @@ public class Elevator extends VortxSubsystem implements PIDSource, PIDOutput {
 
 	public void log() {
 		elevator.log();
-		//SmartDashboard.putNumber("Joysticks", Robot.oi.getElevatorMove());
-		//SmartDashboard.putNumber("Elevator Position Inches", getPosition());
 		//valueTable.getEntry("Elevator Encoder Inches").setNumber(getPosition());
 	}
 	
