@@ -3,6 +3,7 @@ package frc.robot.controls;
 import frc.robot.util.oi.*;
 import frc.robot.commands.*;
 import frc.robot.commands.auto.*;
+import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.drive.*;
 import frc.robot.commands.elevator.*;
 import frc.robot.commands.hatch.*;
@@ -25,6 +26,9 @@ public class MainDriverControllerMap extends VorTXControllerMap {
 		//Winch commands
 		pov90.whenPressed(new SetWinchSolenoids(true));
 		pov270.whenPressed(new SetWinchSolenoids(false));
+
+		pov0.whenPressed(new CarriageSolenoidSet(true));
+		pov180.whenPressed(new CarriageSolenoidSet(false));
 
 		start.whileHeld(new SetWinchSpeed(1.0));
 		back.whenPressed(new SetWinchSpeed(0.0));

@@ -63,9 +63,7 @@ public class Drive extends VortxSubsystem {
 		r1 = new VortxTalon(RobotMap.Drive.rightTrain, "Right Drive");
 		l1.setInchesPerTick(Constants.Drive.InchesPerTick);
 		r1.setInchesPerTick(Constants.Drive.InchesPerTick);
-				
-		//l1.setFMaxV(maxV);
-		//r1.setFMaxV(maxV);
+
 		brakeEnabled.setIsListening(true);
 		initSensors();
 		setEnableBrake(true);
@@ -104,14 +102,15 @@ public class Drive extends VortxSubsystem {
 
 
 	public void initSensors() {
-		l1.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);	
+		l1.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);	
 		l1.setSelectedSensorPosition(0);
-		l1.setSensorPhase(true);
+		//TODO see if the drive is backwards or foward
+		//l1.setSensorPhase(true);
 		
 		
-		r1.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+		r1.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
 		r1.setSelectedSensorPosition(0);
-		r1.setSensorPhase(true);
+		//r1.setSensorPhase(true);
 
 	}
 	
@@ -208,19 +207,6 @@ public class Drive extends VortxSubsystem {
 		double right = move - getTurnAdditions() - rotate;
 		double leftSpeed;
 		double rightSpeed;
-//		if(left > 1) {
-//			leftSpeed = 1;
-//			rightSpeed = right - left + 1;
-//		}else if(right > 1) {
-//			rightSpeed = 1;
-//			leftSpeed = left - right + 1;
-//		}else if(left < -1) {
-//			leftSpeed = -1;
-//			rightSpeed = right - left - 1;
-//		}else if(right < -1) {
-//			rightSpeed = -1;
-//			leftSpeed = left - right - 1;
-//		}
 		
 		if(Math.abs(left) > 1) {
 			leftSpeed = Math.signum(left);
@@ -297,11 +283,11 @@ public class Drive extends VortxSubsystem {
 	 *********************************/
 
 	public double getLeftPosition() {
-		return l1.getSelectedSensorPosition(0) * Constants.Drive.InchesPerTick *-1;
+		return l1.getSelectedSensorPosition(0) * Constants.Drive.InchesPerTick;
 	}
 
 	public double getRightPosition() {
-		return r1.getSelectedSensorPosition(0) * Constants.Drive.InchesPerTick *-1;
+		return r1.getSelectedSensorPosition(0) * Constants.Drive.InchesPerTick;
 	}
 
 	public double getLeftTicks() {

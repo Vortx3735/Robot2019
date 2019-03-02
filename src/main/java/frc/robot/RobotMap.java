@@ -16,29 +16,31 @@ package frc.robot;
 public class RobotMap {
 	public static class Drive{
 
-		public static int[] leftTrain =  {3,4,5}; //values for Robot2019
-		public static int[] rightTrain = {7,8,9};
+		public static int[] leftTrain =  {3,2,1}; //values for Robot2019
+		public static int[] rightTrain = {9,8,10};
 	}
 
-	public static class Intake {
-		public static int topMotor = 8;
+	public static class Ball {
+		public static int topMotor = 5;
 
 	}
 
 	public static class Hatch {
-		public static int solenoid = 4;
+		public static int solenoid = 1;
 	}
 	
+	public static class Carriage {
+		public static int solenoid = 2;
+	}
 	public static class Elevator {
-		public static int[] elevatorMotors = {0,0};
+		public static int[] elevatorMotors = {7,6};
 	}
 
-	public static class Winch
-	{
-		public static int solEndLeft = 2;
-		public static int solEndRight = 3;
+	public static class Winch {
+		public static int solEndLeft = 3;
+		public static int solEndRight = 4;
 
-		public static int winch = 7;
+		public static int winch = 0;
 	}
 
 }

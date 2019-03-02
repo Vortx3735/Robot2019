@@ -1,4 +1,4 @@
-package frc.robot.commands.hatch;
+package frc.robot.commands.carriage;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
@@ -6,13 +6,15 @@ import frc.robot.Robot;
 /**
  *
  */
-public class HatchSet extends Command {
-	boolean b = true;
-    public HatchSet(boolean b) {
+public class CarriageSolenoidSet extends Command {
+
+    boolean b = true;
+    
+    public CarriageSolenoidSet(boolean b) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         this.b=b;
-    	requires(Robot.hatchIntake);
+    	requires(Robot.carriage);
     }
 
     // Called just before this Command runs the first time

@@ -9,7 +9,8 @@ import frc.robot.util.VortxSubsystem;
 //Hatch intake
 public class HatchIntake extends VortxSubsystem {
 
-	Solenoid solenoid;
+	public Solenoid solenoid;
+	
 	public HatchIntake()
 	{
 		super("hatchIntake","HTC");

@@ -14,7 +14,7 @@ public class Constants {
 		public static final double wheelBase = 29; //in
 		public static final double wheelDiam = 4; //in
 		//if this is on a different gear then we should spin the wheel ten times and find the displacement
-		public static final int ticksPerRotation = 4096; //4096 for mag encoder //256 for grayhills we are using
+		public static final int ticksPerRotation = 1024; //4096 for mag encoder /1024 for grayhills we are using
 		public static final double InchesPerRotation = 4*Math.PI;
 
 
@@ -45,7 +45,7 @@ public class Constants {
 
 	public class Elevator {
 		//TODO set these values
-		public static final double ticksPerInch = 0.0;
+		public static final double ticksPerInch = 512;
 		//All these are heights and should assume the 0 is the bottom of the elevator
 		public static final double lowRocketHatch = 0.0;
 		public static final double midRocketHatch = 0.0;

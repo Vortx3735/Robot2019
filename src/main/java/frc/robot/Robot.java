@@ -19,10 +19,11 @@ public class Robot extends TimedRobot {
 
 	// Hardware Subsystems
 	public static Drive drive;
-	public static BallIntake ballintake;
-	public static HatchIntake hatchintake;
+	public static BallIntake ballIntake;
+	public static HatchIntake hatchIntake;
 	public static Elevator elevator;
 	public static Winch endgame;
+	public static Carriage carriage;
 	public static LimeLight limelight;
 
 	// Software Subsystems
@@ -51,32 +52,35 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		drive = new Drive();
-		ballintake = new BallIntake();
-		hatchintake = new HatchIntake();
+		ballIntake = new BallIntake();
+		hatchIntake = new HatchIntake();
 		elevator = new Elevator();
-		endgame = new Winch();
-		arduino = new ArduinoCo();
-		limelight = new LimeLight();
-		navigation = new Navigation();
+		carriage = new Carriage();
+		//endgame = new Winch();
+		//arduino = new ArduinoCo();
+		//limelight = new LimeLight();
+		//navigation = new Navigation();
 		oi = new OI();
 		
 		autoLogic = new Autonomous();
 
 		SmartBoard.start();
 
-		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
-		camera1.setResolution(320, 240);
-		camera1.setFPS(15);
+//TODO add camera
 
-		NetworkTableInstance.getDefault().getEntry("/CameraPublisher/MyCamera/streams").setStringArray(new String[] {"mjpg:http://10.37.35.11:5800/?action=stream"});
+		//camera1 = CameraServer.getInstance().startAutomaticCapture(0);
+		//camera1.setResolution(320, 240);
+		//camera1.setFPS(15);
+
+		//NetworkTableInstance.getDefault().getEntry("/CameraPublisher/MyCamera/streams").setStringArray(new String[] {"mjpg:http://10.37.35.11:5800/?action=stream"});
 	}
 
 	@Override 
 	public void robotPeriodic() {
 		//only reads and prints the values to smartdashboard
 		drive.log();
-		ballintake.log();
-		hatchintake.log();
+		ballIntake.log();
+		hatchIntake.log();
 		endgame.log();
 		navigation.log();
 	}

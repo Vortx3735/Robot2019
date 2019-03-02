@@ -117,7 +117,8 @@ public class Elevator extends VortxSubsystem implements PIDSource, PIDOutput {
 	public void log() {
 		elevator.log();
 		//SmartDashboard.putNumber("Joysticks", Robot.oi.getElevatorMove());
-		SmartDashboard.putNumber("Elevator Position Inches", getPosition());
+		//SmartDashboard.putNumber("Elevator Position Inches", getPosition());
+		valueTable.getEntry("Elevator Encoder Inches").setNumber(getPosition());
 	}
 	
 	public void debugLog() {
