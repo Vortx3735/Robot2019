@@ -9,6 +9,14 @@ package frc.robot.controls;
 
 import frc.robot.util.calc.VortxMath;
 import frc.robot.util.oi.XboxController;
+import frc.robot.commands.*;
+import frc.robot.commands.auto.*;
+import frc.robot.commands.carriage.CarriageSolenoidSet;
+import frc.robot.commands.drive.*;
+import frc.robot.commands.elevator.*;
+import frc.robot.commands.hatch.*;
+import frc.robot.commands.intake.*;
+import frc.robot.commands.winch.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -24,7 +32,17 @@ public class OI {
 		main = new XboxController(0);
 		co = new XboxController(1);
 
-		main.applyControls(new MainDriverControllerMap());
+		//main.applyControls(new MainDriverControllerMap());
+		main.a.whileHeld(new BallIntakeMotorSet(-0.75)); //in
+		main.b.whileHeld(new BallIntakeMotorSet(1.0)); //out
+
+		//Hatch commands
+		main.lb.whenPressed(new HatchSet(true));
+	    main.rb.whenPressed(new HatchSet(false));
+
+
+		main.pov0.whenPressed(new CarriageSolenoidSet(true));
+		main.pov180.whenPressed(new CarriageSolenoidSet(false));
 	}
 
 	//

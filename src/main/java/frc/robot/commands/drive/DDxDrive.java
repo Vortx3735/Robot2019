@@ -1,11 +1,13 @@
 package frc.robot.commands.drive;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.subsystems.Drive;
 import frc.robot.util.calc.JerkLimiter;
 import frc.robot.util.calc.Range;
 import frc.robot.util.settings.Setting;
+//import frc.robot.util.smartboard.SmartBoard;
 
 /**
  *
@@ -63,18 +65,19 @@ public class DDxDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//move.reset(Robot.drive.getCurrentPercent());
-    	move.reset();
-    	turn.reset();
+		//move.reset(Robot.drive.getCurrentPercent());]]\\
+		move.reset();
+		turn.reset();
     	Robot.drive.setupDriveForSpeedControl();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+
     	
     	moveMotor = Robot.oi.getDriveMove();
-    	turnMotor = Robot.oi.getDriveTurn();
-    	
+		turnMotor = Robot.oi.getDriveTurn();
+		    	
 		moveMotor = moveMotor * Math.pow(Math.abs(moveMotor), Drive.moveExponent.getValue() - 1);
 		turnMotor = turnMotor * Math.pow(Math.abs(turnMotor), Drive.turnExponent.getValue() - 1);
 		

@@ -23,14 +23,15 @@ public class MainDriverControllerMap extends VorTXControllerMap {
 		lb.whenPressed(new HatchSet(true));
 	    rb.whenPressed(new HatchSet(false));
 
-		//Winch commands
-		pov90.whenPressed(new SetWinchSolenoids(true));
-		pov270.whenPressed(new SetWinchSolenoids(false));
 
 		pov0.whenPressed(new CarriageSolenoidSet(true));
 		pov180.whenPressed(new CarriageSolenoidSet(false));
 
-		start.whileHeld(new SetWinchSpeed(1.0));
-		back.whenPressed(new SetWinchSpeed(0.0));
+		// 		//Winch commands
+		// 		pov90.whenPressed(new SetWinchSolenoids(true));
+		// 		pov270.whenPressed(new SetWinchSolenoids(false));
+
+		// start.whileHeld(new SetWinchSpeed(1.0));
+		// back.whenPressed(new SetWinchSpeed(0.0));
     }
 }

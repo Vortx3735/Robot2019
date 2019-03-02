@@ -17,7 +17,7 @@ public class RobotMap {
 	public static class Drive{
 
 		public static int[] leftTrain =  {3,2,1}; //values for Robot2019
-		public static int[] rightTrain = {9,8,10};
+		public static int[] rightTrain = {-9,-8,-10};
 	}
 
 	public static class Ball {
@@ -26,11 +26,11 @@ public class RobotMap {
 	}
 
 	public static class Hatch {
-		public static int solenoid = 1;
+		public static int solenoid = 2;
 	}
 	
 	public static class Carriage {
-		public static int solenoid = 2;
+		public static int solenoid = 1;
 	}
 	public static class Elevator {
 		public static int[] elevatorMotors = {7,6};

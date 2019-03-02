@@ -19,7 +19,7 @@ public class CarriageSolenoidSet extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.hatchIntake.setSolenoid(b);
+        Robot.carriage.setSolenoid(b);
     }
 
     // Called repeatedly when this Command is scheduled to run

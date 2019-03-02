@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.*;
 import frc.robot.util.smartboard.SmartBoard;
 import edu.wpi.cscore.UsbCamera;
@@ -60,6 +61,8 @@ public class Robot extends TimedRobot {
 		//arduino = new ArduinoCo();
 		//limelight = new LimeLight();
 		//navigation = new Navigation();
+
+		System.out.println("Robot init was called");
 		oi = new OI();
 		
 		autoLogic = new Autonomous();
@@ -78,11 +81,11 @@ public class Robot extends TimedRobot {
 	@Override 
 	public void robotPeriodic() {
 		//only reads and prints the values to smartdashboard
-		drive.log();
-		ballIntake.log();
-		hatchIntake.log();
-		endgame.log();
-		navigation.log();
+		//drive.log();
+		//ballIntake.log();
+		//hatchIntake.log();
+		//endgame.log();
+		//navigation.log();
 	}
 
 	/************************************ Disabled Robot ******************************************/
@@ -104,7 +107,11 @@ public class Robot extends TimedRobot {
 	}
 
 	@Override
-	public void teleopPeriodic() {}
+	public void teleopPeriodic() {
+		
+		Scheduler.getInstance().run();
+		drive.debugLog();
+	}
 
 	/************************************ Test ******************************************/
 
