@@ -12,13 +12,13 @@ import frc.robot.util.*;
 /**
  * Add your docs here.
  */
-public class Winch extends VortxSubsystem {
+public class Winch extends Subsystem {
   Solenoid solLeft;
   Solenoid solRight;
   VortxTalon motor;
 
   public Winch() {
-    super("winch","WCH");
+//    super("winch","WCH");
     solLeft = new Solenoid(RobotMap.Winch.solEndLeft);
     solRight = new Solenoid(RobotMap.Winch.solEndRight);
     motor = new VortxTalon(RobotMap.Winch.winch);
@@ -33,11 +33,10 @@ public class Winch extends VortxSubsystem {
     motor.set(ControlMode.PercentOutput, d);
   }
 
-  public void log() {
-    
-    SmartDashboard.putNumber("WinchPullySpeed",motor.get());
-   
+  public void log() {    
+    SmartDashboard.putNumber("Winch Pully Speed",motor.get()); 
   }
+
   @Override
   public void initDefaultCommand() {
 

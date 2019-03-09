@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.util.VortxSubsystem;
@@ -9,7 +10,7 @@ import frc.robot.util.hardware.VortxTalon;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 
-public class BallIntake extends VortxSubsystem {
+public class BallIntake extends Subsystem {
 	
 	VortxTalon intakeMotor;
 
@@ -17,7 +18,7 @@ public class BallIntake extends VortxSubsystem {
 	int talval = 0;
 	int solval = 0;
 	public BallIntake() {
-		super("ballIntake","BAL");
+//		super("ballIntake","BAL");
 		intakeMotor = new VortxTalon(RobotMap.Ball.topMotor);
 		intakeMotor.setNeutralMode(NeutralMode.Brake);
 		

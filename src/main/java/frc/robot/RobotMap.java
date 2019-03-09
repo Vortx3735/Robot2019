@@ -17,11 +17,11 @@ public class RobotMap {
 	public static class Drive{
 
 		public static int[] leftTrain =  {3,2,1}; //values for Robot2019
-		public static int[] rightTrain = {-9,-8,-10};
+		public static int[] rightTrain = {-10,-9,-8};
 	}
 
 	public static class Ball {
-		public static int topMotor = 5;
+		public static int topMotor = 5; //5
 
 	}
 

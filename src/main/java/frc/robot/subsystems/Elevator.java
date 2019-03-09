@@ -7,6 +7,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.elevator.ElevatorMoveJoystick;
@@ -20,7 +21,7 @@ import frc.robot.util.VortxSubsystem;
 /**
  *
  */
-public class Elevator extends VortxSubsystem implements PIDSource, PIDOutput {
+public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -32,7 +33,7 @@ public class Elevator extends VortxSubsystem implements PIDSource, PIDOutput {
 
 
 	public Elevator() {
-    	super("elevator","ELV");
+//    	super("elevator","ELV");
 
 		elevator = new VortxTalon(RobotMap.Elevator.elevatorMotors, "Elevator Motors");
 		//TODO tuning on these values
@@ -45,10 +46,11 @@ public class Elevator extends VortxSubsystem implements PIDSource, PIDOutput {
 		
 		elevator.setTicksPerInch(Constants.Elevator.ticksPerInch);
 
-		
 		elevator.setNeutralMode(NeutralMode.Brake);
 
 		elevator.initSensor(FeedbackDevice.QuadEncoder, false);
+
+		elevator.setSensorPhase(true);
 		
 		resetEncoderPositions();
 	}

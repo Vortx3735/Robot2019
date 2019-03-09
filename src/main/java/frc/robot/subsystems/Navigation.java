@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.settings.Waypoints;
@@ -22,7 +23,7 @@ import frc.robot.util.*;
 //import Robot.Side;
 
 
-public class Navigation extends VortxSubsystem implements PIDSource, PIDOutput {
+public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 	private static final int BUMP_THRESHOLD = 1;
 
 	private VortxAhrs ahrs;
@@ -40,7 +41,7 @@ public class Navigation extends VortxSubsystem implements PIDSource, PIDOutput {
 	Position pos = new Position(0,0,0);
 	private Object posLock = new Object();
 	
-	NetworkTable table;
+	//NetworkTable table;
 
 	private double prevLeft = 0;
 	private double prevRight = 0;
@@ -48,16 +49,15 @@ public class Navigation extends VortxSubsystem implements PIDSource, PIDOutput {
 	private double curRight;
 	
 	public Navigation(){
-		super("navigation","NAV");
-		table = NetworkTableInstance.getDefault().getTable("MAP");
+//		super("navigation","NAV");
+//		table = NetworkTableInstance.getDefault().getTable("MAP");
 		
 		ahrs = new VortxAhrs(SPI.Port.kMXP);
 		controller = new PIDCtrl(.016,0.0,0.061,this,this, 10);
     	controller.setOutputRange(-.7, .7);
     	controller.setInputRange(-180, 180);
     	controller.setContinuous();
-    	controller.setAbsoluteTolerance(3);
-    	SmartDashboard.putData("Turning Controller", controller);
+		controller.setAbsoluteTolerance(3);
     	
 		curLeft = Robot.drive.getLeftPosition();
     	curRight = Robot.drive.getRightPosition();
@@ -125,25 +125,13 @@ public class Navigation extends VortxSubsystem implements PIDSource, PIDOutput {
     public AHRS getAHRS(){
     	return ahrs;
     }
-    public void log(){
-    	SmartDashboard.putNumber("Robot Yaw", getYaw());
-    	SmartDashboard.putNumber("Nav Loc X", pos.x);
-    	SmartDashboard.putNumber("Nav Loc Y", pos.y);
-    	SmartDashboard.putNumber("Nav Acc", this.getXYAcceleration());
-//    	SmartDashboard.putNumber("Gyro Acceleration X", ahrs.getWorldLinearAccelX());
-//    	SmartDashboard.putNumber("Gyro Acceleration Y", ahrs.getWorldLinearAccelY());
-//    	SmartDashboard.putNumber("Gyro Accel XY Vector", getXYAcceleration());
-
- //     displayDebugGyroData();
-
-    }
     
-    public void displayPosition(){
-    	table.getEntry("CenterX").setDoubleArray(new double[]{pos.x});
-    	table.getEntry("CenterY").setDoubleArray(new double[]{pos.y});
-    	table.getEntry("Yaw").setDoubleArray(new double[]{pos.yaw});
+    // public void displayPosition(){
+    // 	table.getEntry("CenterX").setDoubleArray(new double[]{pos.x});
+    // 	table.getEntry("CenterY").setDoubleArray(new double[]{pos.y});
+    // 	table.getEntry("Yaw").setDoubleArray(new double[]{pos.yaw});
 
-    }
+    // }
 
 	@Override
 	public void setPIDSourceType(PIDSourceType pidSource) {
@@ -273,6 +261,10 @@ public class Navigation extends VortxSubsystem implements PIDSource, PIDOutput {
     	controller.setAbsoluteTolerance(3);
 	}
 	
-    
+	public void log(){
+    	SmartDashboard.putNumber("Robot Yaw", getYaw());
+    	SmartDashboard.putNumber("Nav Loc X", pos.x);
+    	SmartDashboard.putNumber("Nav Loc Y", pos.y);
+    }
 }
 

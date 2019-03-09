@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
 import frc.robot.util.smartboard.SmartBoard;
 import edu.wpi.cscore.UsbCamera;
@@ -66,7 +67,9 @@ public class Robot extends TimedRobot {
 		
 		autoLogic = new Autonomous();
 
-		SmartBoard.start();
+		SmartDashboard.putData(Scheduler.getInstance());
+
+//		SmartBoard.start();
 
 //TODO add camera
 
@@ -88,7 +91,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledInit() {
-		SmartBoard.setPreMatchMode();
+//		SmartBoard.setPreMatchMode();
 	}
 
 	@Override
@@ -112,7 +115,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		SmartBoard.setMatchMode();
+//		SmartBoard.setMatchMode();
 	}
 
 	@Override

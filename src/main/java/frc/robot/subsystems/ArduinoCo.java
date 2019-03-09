@@ -15,14 +15,14 @@ import frc.robot.util.VortxSubsystem;
 /**
  * Add your docs here.
  */
-public class ArduinoCo extends VortxSubsystem {
+public class ArduinoCo extends Subsystem {
 
   int distance;
   Thread nThread;
   public static SerialPort sp;
 
   public ArduinoCo() {
-    super("arduino","ARD");
+//    super("arduino","ARD");
     sp = new SerialPort(9600, Port.kUSB);
   }
 

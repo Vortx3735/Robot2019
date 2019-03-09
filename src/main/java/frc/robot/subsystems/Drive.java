@@ -4,6 +4,8 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
@@ -19,7 +21,7 @@ import frc.robot.util.settings.Setting;
  *
  */
 
-public class Drive extends VortxSubsystem {
+public class Drive  extends Subsystem {
 
 	
 	private VortxTalon l1;
@@ -56,7 +58,7 @@ public class Drive extends VortxSubsystem {
 
 
 	public Drive() {
-		super("drive","DRV");
+		//super("drive","DRV");
 		l1 = new VortxTalon(RobotMap.Drive.leftTrain, "Left Drive");
 		r1 = new VortxTalon(RobotMap.Drive.rightTrain, "Right Drive");
 		l1.setInchesPerTick(Constants.Drive.InchesPerTick);
@@ -178,7 +180,7 @@ public class Drive extends VortxSubsystem {
 	
 	
 	public void normalDrive(double move, double rotate){
-		double rotateValue = rotate + getTurnAdditions();
+		double rotateValue = rotate; //+getTurnAdditions();
 		setLeftRight(move + rotateValue, move - rotateValue);
 	}
 	
@@ -319,6 +321,7 @@ public class Drive extends VortxSubsystem {
 	public void setLeftRight(double left, double right) {
 		l1.set(ControlMode.PercentOutput, left);
 		r1.set(ControlMode.PercentOutput, right);
+		System.out.println(left + " " + right);
 		
 //		System.out.println("Left: " + left + "Right: " + right);
 		
@@ -452,6 +455,10 @@ public class Drive extends VortxSubsystem {
 		SmartDashboard.putNumber("Drive Right P Output", r1.getMotorOutputPercent());
 		
 		SmartDashboard.putNumber("Drive avg speed inches", getAverageSpeed());
+
+		SmartDashboard.putNumber("Number 9 current", r1.followers[0].getOutputCurrent());
+		SmartDashboard.putNumber("Number 10 current", r1.followers[1].getOutputCurrent());
+
 	}
 
 }

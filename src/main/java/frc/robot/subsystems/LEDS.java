@@ -8,9 +8,10 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.util.VortxSubsystem;
 
-public class LEDS extends VortxSubsystem {
+public class LEDS extends Subsystem {
 	I2C com;
 	
 	public static enum Data{
@@ -38,7 +39,7 @@ public class LEDS extends VortxSubsystem {
 	}
 	
 	public LEDS(){
-		super("leds","LED");
+//		super("leds","LED");
 		com = new I2C(I2C.Port.kOnboard, 5);
 		sendData(Data.NOTHING);
 	}

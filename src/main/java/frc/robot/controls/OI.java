@@ -50,7 +50,7 @@ public class OI {
 	public double getDriveMove() {
 		double move = main.getRightTrigger() - main.getLeftTrigger();
 		return Math.copySign((move*move), move);
-		//return main.getLeftY();
+		//return main.getRightTrigger() - main.getLeftTrigger();
 	}
 
 	public double getDriveTurn() {
@@ -59,16 +59,6 @@ public class OI {
 		//return main.getRightX();
 	}
 	
-	public double getFODMag() {
-		//return main.getRightMagnitude();
-		return 0;
-	}
-	
-	public double getFODAngle(){
-		//return main.getRightAngle();
-		return 0;
-	}
-
 	public double getElevatorMove() {
 		double move = VortxMath.handleDeadband(main.getRightY()+ co.getLeftY(), .05);
 		return  Math.copySign((move*move), move);

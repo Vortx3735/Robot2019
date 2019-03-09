@@ -2,17 +2,18 @@ package frc.robot.subsystems;
 
 
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.util.VortxSubsystem;
 
 //Hatch intake
-public class Carriage extends VortxSubsystem {
+public class Carriage extends Subsystem {
 
 	Solenoid solenoid;
 	
 	public Carriage() {
-		super("Carriage","David fix this");
+		//super("Carriage","David fix this");
 		solenoid = new Solenoid(RobotMap.Carriage.solenoid);
 	}
 	public void setSolenoid(boolean b) {
