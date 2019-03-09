@@ -9,9 +9,11 @@ package frc.robot.controls;
 
 import frc.robot.util.calc.VortxMath;
 import frc.robot.util.oi.XboxController;
+import frc.robot.Constants;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.hatch.*;
 import frc.robot.commands.intake.*;
+import frc.robot.commands.sequences.PlaceHatch;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -37,6 +39,11 @@ public class OI {
 
 		main.pov0.whenPressed(new CarriageSolenoidSet(true));
 		main.pov180.whenPressed(new CarriageSolenoidSet(false));
+ 
+		co.b.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch));
+		co.a.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch));
+		co.y.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch));
+
 	}
 
 	//
