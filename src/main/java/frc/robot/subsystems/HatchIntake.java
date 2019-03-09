@@ -20,9 +20,8 @@ public class HatchIntake extends VortxSubsystem {
 	{
 		solenoid.set(b);
 	}
-	public void log()
-    {
-      SmartDashboard.putBoolean("ActivateHatchIntake", solenoid.get());
+	public void log()  {
+      SmartDashboard.putBoolean("Hatch Intake", solenoid.get());
       
     }
 	@Override

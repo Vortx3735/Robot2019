@@ -60,7 +60,7 @@ public class Robot extends TimedRobot {
 		//endgame = new Winch();
 		//arduino = new ArduinoCo();
 		//limelight = new LimeLight();
-		//navigation = new Navigation();
+		navigation = new Navigation();
 
 		oi = new OI();
 		
@@ -80,12 +80,8 @@ public class Robot extends TimedRobot {
 	@Override 
 	public void robotPeriodic() {
 		//only reads and prints the values to smartdashboard
-		drive.log();
-		elevator.log();
-		//ballIntake.log();
-		//hatchIntake.log();
-		//endgame.log();
-		//navigation.log();
+		log();
+		debugLog();
 	}
 
 	/************************************ Disabled Robot ******************************************/
@@ -122,8 +118,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		drive.debugLog();
-		elevator.debugLog();
+		log();
+		debugLog();
 	}
 
 	/************************************ Test ******************************************/
@@ -133,5 +129,20 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void testPeriodic() {}
+
+	public void log() {
+		drive.log();
+		ballIntake.log();
+		hatchIntake.log();
+		elevator.log();
+		carriage.log();
+		navigation.log();
+	} 
+
+	public void debugLog() {
+		drive.debugLog();
+		ballIntake.debugLog();
+		elevator.debugLog();
+	}
 
 }

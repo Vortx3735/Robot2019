@@ -448,8 +448,8 @@ public class Drive extends VortxSubsystem {
 		SmartDashboard.putNumber("Drive Left Speed", getLeftSpeed());
 		SmartDashboard.putNumber("Drive Right Speed", getRightSpeed());
 
-		SmartDashboard.putNumber("Drive Left Get", l1.getMotorOutputPercent());
-		SmartDashboard.putNumber("Drive Right Get", r1.getMotorOutputPercent());
+		SmartDashboard.putNumber("Drive Left P Output", l1.getMotorOutputPercent());
+		SmartDashboard.putNumber("Drive Right P Output", r1.getMotorOutputPercent());
 		
 		SmartDashboard.putNumber("Drive avg speed inches", getAverageSpeed());
 	}

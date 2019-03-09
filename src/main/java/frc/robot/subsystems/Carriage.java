@@ -19,9 +19,9 @@ public class Carriage extends VortxSubsystem {
 		solenoid.set(b);
 	}
 	public void log() {
-      SmartDashboard.putBoolean("ActivateCarriage", solenoid.get());
-      
-    }
+      SmartDashboard.putBoolean("Carriage Pnumatic", solenoid.get());
+	}
+	
 	@Override
 	protected void initDefaultCommand() {
 		

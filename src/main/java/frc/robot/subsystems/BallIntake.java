@@ -27,7 +27,12 @@ public class BallIntake extends VortxSubsystem {
 	}
 	
 	public void log() {
-		SmartDashboard.putNumber("BallIntakeSpeed", intakeMotor.get());
+		SmartDashboard.putNumber("Ball Intake P Output", intakeMotor.getMotorOutputPercent());
+	}
+
+	public void debugLog() {
+		SmartDashboard.putNumber("Ball Intake Current", intakeMotor.getOutputCurrent());
+		SmartDashboard.putNumber("Ball Intake Voltage", intakeMotor.getMotorOutputVoltage());
 	}
 
 	@Override
