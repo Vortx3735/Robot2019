@@ -154,20 +154,16 @@ public class VortxTalon extends WPI_TalonSRX{
 	
 	public void debugLog() {
 		SmartDashboard.putNumber(name + " Ticks", this.getSelectedSensorPosition());
-		SmartDashboard.putStringArray(name, new String[] {
-			new String("P Output " + getMotorOutputPercent()),
-			new String("Current " + getOutputCurrent()),
-			new String("Voltage " + getMotorOutputVoltage())
-		});
+		SmartDashboard.putNumber(name + "P Output ", getMotorOutputPercent());
+		SmartDashboard.putNumber(name + " Current ", getOutputCurrent());	
+		
+		displayFollowerPower();
 	}
 
 	public void displayFollowerPower() {
 		for (int i = 0; i < followers.length; i++) {
-			SmartDashboard.putStringArray(name + " follower " + i, new String[] {
-					new String("P Output " + followers[i].getMotorOutputPercent()),
-					new String("Current " + followers[i].getOutputCurrent()),
-					new String("Voltage " + followers[i].getMotorOutputVoltage())
-			});
+			SmartDashboard.putNumber(name + "Follower " + i + " P Output ", followers[i].getMotorOutputPercent());
+			SmartDashboard.putNumber(name + "Follower " + i + " Current ", followers[i].getOutputCurrent());	
 		}
 		
 		

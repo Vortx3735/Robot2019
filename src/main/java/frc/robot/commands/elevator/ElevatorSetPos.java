@@ -1,28 +1,36 @@
 package frc.robot.commands.elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.util.settings.Func;
 
 /**
  *
  */
 public class ElevatorSetPos extends Command {
-	double inches;
-	private boolean finishes;
-    public ElevatorSetPos(double inches, boolean finishes) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        this.finishes=finishes;
-        this.inches = inches;
 
+    Func inches;
+
+    public ElevatorSetPos(Func inches) {
+        this.inches = inches;
         requires(Robot.elevator);
-    	
+    }
+
+    public ElevatorSetPos() {
+        inches = new Func() {
+            @Override
+            public double getValue() {
+                return SmartDashboard.getNumber("ElevatorHeight", 0.0);
+            }
+        };
     }
     
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.elevator.controller.setSetpoint(inches);
+        System.out.println("Setting set point to " + inches.getValue());
+    	Robot.elevator.controller.setSetpoint(inches.getValue()+1); //adding one compensates for fall
     	Robot.elevator.controller.enable();
     }
 
@@ -34,13 +42,12 @@ public class ElevatorSetPos extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return finishes && Robot.elevator.controller.onTarget();
+        return Robot.elevator.controller.onTarget();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.elevator.setPOutput(0);
-    	Robot.elevator.controller.disable();
+        Robot.elevator.controller.disable();
     }
 
     // Called when another command which requires one or more of the same

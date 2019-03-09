@@ -9,11 +9,16 @@ package frc.robot.controls;
 
 import frc.robot.util.calc.VortxMath;
 import frc.robot.util.oi.XboxController;
+import frc.robot.util.settings.Func;
+import frc.robot.util.smartboard.SmartBoard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
+import frc.robot.commands.EndAll;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.hatch.*;
 import frc.robot.commands.intake.*;
 import frc.robot.commands.sequences.PlaceHatch;
+import frc.robot.commands.elevator.ElevatorSetPos;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -29,6 +34,29 @@ public class OI {
 		main = new XboxController(0);
 		co = new XboxController(1);
 
+		main.x.whileHeld(new ElevatorSetPos());
+
+		main.a.whenPressed(new PlaceHatch(new Func() {
+			@Override
+			public double getValue() {
+				return main.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch;
+			}
+		}));
+		main.b.whenPressed(new PlaceHatch(new Func() {
+			@Override
+			public double getValue() {
+				System.out.println("LB is " + main.lb.get());
+				return main.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch;
+			}
+		}));
+		main.y.whenPressed(new PlaceHatch(new Func() {
+			@Override
+			public double getValue() {
+				return main.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch;
+			}
+		}));
+
+		
 		// main.a.whileHeld(new BallIntakeMotorSet(-0.75)); //in
 		// main.b.whileHeld(new BallIntakeMotorSet(1.0)); //out
 
@@ -39,10 +67,6 @@ public class OI {
 
 		// main.pov0.whenPressed(new CarriageSolenoidSet(true));
 		// main.pov180.whenPressed(new CarriageSolenoidSet(false));
- 
-		// co.b.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch));
-		// co.a.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch));
-		// co.y.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch));
 
 	}
 
@@ -60,7 +84,7 @@ public class OI {
 	}
 	
 	public double getElevatorMove() {
-		double move = VortxMath.handleDeadband(main.getRightY()+ co.getLeftY(), .05);
+		double move = main.getRightY()+ co.getLeftY();
 		return  Math.copySign((move*move), move);
 	}
 	

@@ -465,10 +465,6 @@ public class Drive  extends Subsystem {
 		SmartDashboard.putNumber("Drive Right P Output", r1.getMotorOutputPercent());
 		
 		SmartDashboard.putNumber("Drive avg speed inches", getAverageSpeed());
-
-		SmartDashboard.putNumber("Number 9 current", r1.followers[0].getOutputCurrent());
-		SmartDashboard.putNumber("Number 10 current", r1.followers[1].getOutputCurrent());
-
 	}
 
 }

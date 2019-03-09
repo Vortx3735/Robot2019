@@ -8,13 +8,14 @@ import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.elevator.ElevatorMoveJoystick;
 import frc.robot.util.PIDCtrl;
 import frc.robot.util.hardware.VortxTalon;
 import frc.robot.Constants;
 import frc.robot.util.settings.PIDSetting;
-import frc.robot.util.settings.Setting;
+import frc.robot.commands.elevator.ElevatorResetEncoder;
 
 /**
  *
@@ -27,17 +28,15 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 	public PIDCtrl controller;
 
-	public Setting consPower = new Setting("Elevator ConsPower", 0.0);	//.183 on the final
-
 
 	public Elevator() {
 //    	super("elevator","ELV");
 
 		elevator = new VortxTalon(RobotMap.Elevator.elevatorMotors, "Elevator Motors");
 		//TODO tuning on these values
-		controller = new PIDCtrl(.15,.01,0,this,this,2);
-		controller.setAbsoluteTolerance(.5);
-		controller.setOutputRange(-.1, 7);
+		controller = new PIDCtrl(.11,.01,0,0,this,this,2);
+		controller.setAbsoluteTolerance(.1);
+		controller.setOutputRange(-.15, .4);
 		//controller.sendToDash("Elevator PID");
 		controller.disable();
 		
@@ -45,11 +44,12 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 		elevator.setNeutralMode(NeutralMode.Brake);
 
-		elevator.initSensor(FeedbackDevice.QuadEncoder, false);
-
-		elevator.setSensorPhase(true);
-		
+		elevator.initSensor(FeedbackDevice.QuadEncoder, false);		
 		resetEncoderPositions();
+
+		SmartDashboard.putData("Reset ELV Encoder", new ElevatorResetEncoder());
+
+		SmartDashboard.putNumber("ElevatorHeight", 0.0);
 	}
 
 
@@ -65,20 +65,6 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
     	elevator.set(ControlMode.PercentOutput, speed);
 	}
 	
-	public void setPOutputAdjusted(double speed) {
-//		System.out.print("Trying: " + speed + "\t");
-//		double actual = speed;
-		if((getPosition() < 1.5 ) && (speed == 0)) {
-//			actual = 0;
-			speed = 0;
-		} else {
-			speed+= consPower.getValue();
-//			actual = speed + consPower.getValue();
-		}
-
-		setPOutput(speed);
-	}
-
 	public void setElevatorPIDSetting(PIDSetting setting) {
 		elevator.setPIDSetting(setting);
 	}
@@ -105,11 +91,17 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 	public void log() {
 		elevator.log();
+		SmartDashboard.putNumber("Elv Setpoint", controller.getSetpoint());
 		//valueTable.getEntry("Elevator Encoder Inches").setNumber(getPosition());
 	}
 	
 	public void debugLog() {
 		elevator.debugLog();
+		SmartDashboard.putNumber("Elevator Temp", getAverageTemp());
+	}
+
+	public double getAverageTemp() {
+		return (elevator.getTemperature()+elevator.followers[0].getTemperature())/2;
 	}
 
 
@@ -133,6 +125,7 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 	@Override
 	public void pidWrite(double output) {
-	  setPOutput(output);
+		SmartDashboard.putNumber("Elev PID Output", output);
+	  	setPOutput(output);
 	}
 }

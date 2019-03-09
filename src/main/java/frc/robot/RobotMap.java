@@ -33,7 +33,7 @@ public class RobotMap {
 		public static int solenoid = 1;
 	}
 	public static class Elevator {
-		public static int[] elevatorMotors = {7,6};
+		public static int[] elevatorMotors = {-7,6};
 	}
 
 	public static class Winch {
