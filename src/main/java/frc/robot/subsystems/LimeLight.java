@@ -151,19 +151,6 @@ public class LimeLight extends Subsystem {
 
     }
 
-    public void set3D(boolean b) {
-        this.threeD = b;
-        if(true) {
-            setPipeline(0.0);
-        } else {
-            setPipeline(1.0);
-        }
-    }
-
-    public boolean get3d () {
-        return threeD;
-    }
-
     public void log() {
         //All these values can be found in network tables
         // SmartDashboard.putNumber("tx", getTx());
@@ -171,15 +158,6 @@ public class LimeLight extends Subsystem {
         // SmartDashboard.putNumber("ta", getTa());
         // SmartDashboard.putNumber("tv" , getTv());
         // SmartDashboard.putNumber("Distance", getDistance());
-        // Double[] array = camtran.getDoubleArray(new Double[] {0.0,0.0,0.0,0.0,0.0,0.0});
-        // x = array[0];
-        // y = array[1];
-        // z = array[2];
-        // yaw = array[3];
-        // SmartDashboard.putNumber("x", x);
-        // SmartDashboard.putNumber("y", y);
-        // SmartDashboard.putNumber("z", z);
-        // SmartDashboard.putNumber("yawToTarger", yaw);
     }
 
    

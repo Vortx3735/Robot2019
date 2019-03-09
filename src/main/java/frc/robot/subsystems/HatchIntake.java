@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
-import frc.robot.util.VortxSubsystem;
 
 //Hatch intake
 public class HatchIntake extends Subsystem {

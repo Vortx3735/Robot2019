@@ -11,10 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
-import frc.robot.util.smartboard.SmartBoard;
 import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.controls.OI;
 
 public class Robot extends TimedRobot {
@@ -55,9 +52,9 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		drive = new Drive();
 		ballIntake = new BallIntake();
-		hatchIntake = new HatchIntake();
+		//hatchIntake = new HatchIntake();
 		elevator = new Elevator();
-		carriage = new Carriage();
+		//carriage = new Carriage();
 		//endgame = new Winch();
 		//arduino = new ArduinoCo();
 		//limelight = new LimeLight();
@@ -65,7 +62,7 @@ public class Robot extends TimedRobot {
 
 		oi = new OI();
 		
-		autoLogic = new Autonomous();
+		//autoLogic = new Autonomous();
 
 		SmartDashboard.putData(Scheduler.getInstance());
 
@@ -102,12 +99,13 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
-		autoLogic.startCommand();
+//		autoLogic.startCommand();
 	}
 
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		navigation.integrate();
 		
 	}
 
@@ -121,6 +119,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		navigation.integrate();
 		log();
 		debugLog();
 	}
@@ -135,16 +134,16 @@ public class Robot extends TimedRobot {
 
 	public void log() {
 		drive.log();
-		ballIntake.log();
-		hatchIntake.log();
+//		ballIntake.log();
+//		hatchIntake.log();
 		elevator.log();
-		carriage.log();
+//		carriage.log();
 		navigation.log();
 	} 
 
 	public void debugLog() {
 		drive.debugLog();
-		ballIntake.debugLog();
+//		ballIntake.debugLog();
 		elevator.debugLog();
 	}
 

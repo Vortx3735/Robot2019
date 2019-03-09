@@ -9,7 +9,6 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.util.VortxSubsystem;
 
 public class LEDS extends Subsystem {
 	I2C com;

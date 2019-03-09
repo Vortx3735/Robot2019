@@ -1,7 +1,6 @@
 package frc.robot.commands.sequences;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.Constants;
 import frc.robot.commands.elevator.ElevatorSetPos;
 import frc.robot.commands.hatch.HatchSet;
 import frc.robot.commands.carriage.CarriageSolenoidSet;

@@ -1,8 +1,6 @@
 package frc.robot.subsystems;
 
 import com.kauailabs.navx.frc.AHRS;
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
@@ -18,7 +16,6 @@ import frc.robot.util.profiling.Location;
 import frc.robot.util.profiling.Position;
 import frc.robot.util.profiling.Ray;
 import frc.robot.util.settings.Setting;
-import frc.robot.util.*;
 
 //import Robot.Side;
 
@@ -87,13 +84,14 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
         	double dd = ((curLeft-prevLeft) + (curRight-prevRight)) * .5;
         	
         	pos.yaw = getYaw();
-        	double angle = VortxMath.swapYawAngle(pos.yaw);
+			//double angle = VortxMath.swapYawAngle(pos.yaw);
+			double angle = pos.yaw;
 
     		pos.x += Math.cos(Math.toRadians(angle)) * dd;
     		pos.y += Math.sin(Math.toRadians(angle)) * dd;
     		
         	prevLeft = curLeft;
-        	prevRight = curRight;
+			prevRight = curRight;
         	
     	}
     	
@@ -188,7 +186,9 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 	}
 
 	public synchronized void resetPosition() {
-		
+		pos.x=0;
+		pos.y=0;
+		pos.yaw=0;
 	}
 	
 	public synchronized Position getPosition() {

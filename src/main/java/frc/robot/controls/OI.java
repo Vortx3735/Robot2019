@@ -29,20 +29,20 @@ public class OI {
 		main = new XboxController(0);
 		co = new XboxController(1);
 
-		main.a.whileHeld(new BallIntakeMotorSet(-0.75)); //in
-		main.b.whileHeld(new BallIntakeMotorSet(1.0)); //out
+		// main.a.whileHeld(new BallIntakeMotorSet(-0.75)); //in
+		// main.b.whileHeld(new BallIntakeMotorSet(1.0)); //out
 
-		//Hatch commands
-		main.lb.whenPressed(new HatchSet(true));
-	    main.rb.whenPressed(new HatchSet(false));
+		// //Hatch commands
+		// main.lb.whenPressed(new HatchSet(true));
+	    // main.rb.whenPressed(new HatchSet(false));
 
 
-		main.pov0.whenPressed(new CarriageSolenoidSet(true));
-		main.pov180.whenPressed(new CarriageSolenoidSet(false));
+		// main.pov0.whenPressed(new CarriageSolenoidSet(true));
+		// main.pov180.whenPressed(new CarriageSolenoidSet(false));
  
-		co.b.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch));
-		co.a.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch));
-		co.y.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch));
+		// co.b.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch));
+		// co.a.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch));
+		// co.y.whenPressed(new PlaceHatch(co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch));
 
 	}
 

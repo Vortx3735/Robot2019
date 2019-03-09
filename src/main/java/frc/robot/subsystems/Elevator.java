@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.elevator.ElevatorMoveJoystick;
 import frc.robot.util.PIDCtrl;
@@ -16,7 +15,6 @@ import frc.robot.util.hardware.VortxTalon;
 import frc.robot.Constants;
 import frc.robot.util.settings.PIDSetting;
 import frc.robot.util.settings.Setting;
-import frc.robot.util.VortxSubsystem;
 
 /**
  *
@@ -39,12 +37,11 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 		//TODO tuning on these values
 		controller = new PIDCtrl(.15,.01,0,this,this,2);
 		controller.setAbsoluteTolerance(.5);
-		//TODO figure direction of motors
 		controller.setOutputRange(-.1, 7);
 		//controller.sendToDash("Elevator PID");
 		controller.disable();
 		
-		elevator.setTicksPerInch(Constants.Elevator.ticksPerInch);
+		elevator.setInchesPerTick(Constants.Elevator.inchesPerTick);
 
 		elevator.setNeutralMode(NeutralMode.Brake);
 

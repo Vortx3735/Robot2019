@@ -10,12 +10,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.drive.DDxDrive;
+import frc.robot.commands.drive.ZeroEncoders;
 import frc.robot.Constants;
 import frc.robot.settings.Dms;
-import frc.robot.util.VortxSubsystem;
 import frc.robot.util.hardware.VortxTalon;
 import frc.robot.util.settings.BooleanSetting;
 import frc.robot.util.settings.Setting;
+import frc.robot.commands.drive.positions.ResetPosition;
+import frc.robot.commands.drive.positions.ZeroYaw;  
 
 /**
  *
@@ -67,6 +69,10 @@ public class Drive  extends Subsystem {
 		brakeEnabled.setIsListening(true);
 		initSensors();
 		setEnableBrake(true);
+
+		SmartDashboard.putData("Zero encoders ", new ZeroEncoders());
+		SmartDashboard.putData("Zero yaw" , new ZeroYaw());
+		SmartDashboard.putData("Zero Positions", new ResetPosition());
 	}
 
 	/*******************************
@@ -112,6 +118,11 @@ public class Drive  extends Subsystem {
 		r1.setSelectedSensorPosition(0);
 		//r1.setSensorPhase(true);
 
+	}
+
+	public void zeroSensors() {
+		l1.setSelectedSensorPosition(0);
+		r1.setSelectedSensorPosition(0);
 	}
 	
 
@@ -321,7 +332,6 @@ public class Drive  extends Subsystem {
 	public void setLeftRight(double left, double right) {
 		l1.set(ControlMode.PercentOutput, left);
 		r1.set(ControlMode.PercentOutput, right);
-		System.out.println(left + " " + right);
 		
 //		System.out.println("Left: " + left + "Right: " + right);
 		

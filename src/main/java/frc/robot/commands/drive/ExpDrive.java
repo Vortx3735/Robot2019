@@ -85,7 +85,4 @@ private static Setting moveReactivity = new Setting("Move Reactivity", Constants
     	end();
     }
     
-    private void log(){
-
-    }
 }
