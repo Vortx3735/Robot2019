@@ -45,7 +45,6 @@ public class OI {
 		main.b.whenPressed(new PlaceHatch(new Func() {
 			@Override
 			public double getValue() {
-				System.out.println("LB is " + main.lb.get());
 				return main.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch;
 			}
 		}));

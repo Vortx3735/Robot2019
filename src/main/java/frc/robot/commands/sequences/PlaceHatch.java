@@ -9,7 +9,6 @@ import frc.robot.commands.carriage.CarriageSolenoidSet;
 public class PlaceHatch extends CommandGroup {
 
     public PlaceHatch(Func height) {
-        System.out.println("Place hatach called");
         addSequential(new ElevatorSetPos(height));
         // addSequential(new CarriageSolenoidSet(true), .25);
         // addSequential(new HatchSet(false), .25);

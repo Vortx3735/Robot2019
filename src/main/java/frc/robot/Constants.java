@@ -50,11 +50,11 @@ public class Constants {
 		public static final double tickPerRoatation = 512;
 		//All these are heights and should assume the 0 is the bottom of the elevator
 		public static final double lowRocketHatch = 0;
-		public static final double midRocketHatch = 28;
-		public static final double highRocketHatch = 56;
-		public static final double lowRocketCargo = 8.5;
-		public static final double midRocketCargo = 36.5;
-		public static final double highRocketCargo = 64.5;
+		public static final double midRocketHatch = 28+2;
+		public static final double highRocketHatch = 56+2;
+		public static final double lowRocketCargo = 8.5+14.5;
+		public static final double midRocketCargo = 36.5+13;
+		public static final double highRocketCargo = 60; //TODO: The real heigth
 		public static final double cargoHatch = 0;
 		public static final double cargoPort = 41;
 
