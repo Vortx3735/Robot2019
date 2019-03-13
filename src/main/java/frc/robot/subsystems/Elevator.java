@@ -44,7 +44,7 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 		elevator.setNeutralMode(NeutralMode.Brake);
 
-		elevator.initSensor(FeedbackDevice.QuadEncoder, false);		
+		elevator.initSensor(FeedbackDevice.QuadEncoder, true);		
 		resetEncoderPositions();
 
 		SmartDashboard.putData("Reset ELV Encoder", new ElevatorResetEncoder());

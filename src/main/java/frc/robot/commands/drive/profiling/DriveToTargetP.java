@@ -30,7 +30,7 @@ public class DriveToTargetP extends Command {
                 double drivePower;
                 if (Robot.limelight.getTv()==1.0) {
                     drivePower  = Robot.limelight.getDistance();
-                } else if (Robot.arduino.getDistance()< 15) {
+                } else if (Robot.arduino.getDistance()< 12) {
                     drivePower = Robot.arduino.getDistance();
                 } else {
                     System.out.println("There is no distance info");

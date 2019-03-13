@@ -21,6 +21,7 @@ import frc.robot.commands.hatch.*;
 import frc.robot.commands.intake.*;
 import frc.robot.commands.sequences.PlaceHatch;
 import frc.robot.commands.elevator.ElevatorSetPos;
+import frc.robot.commands.auto.InchesStraight;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -87,6 +88,8 @@ public class OI {
 
 		main.pov0.whenPressed(new CarriageSolenoidSet(true));
 		main.pov180.whenPressed(new CarriageSolenoidSet(false));
+
+		main.rb.whenPressed(new InchesStraight(50));
 
 	}
 

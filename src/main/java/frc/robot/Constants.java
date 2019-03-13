@@ -7,9 +7,9 @@ public class Constants {
 	public class Drive {
 
 		//TODO: testing on these values
-		public static final double maxVelocity = 90; //in/s  //TODO: testing
-		public static final double maxAccel = 100;//in/s^2
-		public static final double maxJerk = 3000; //in/s^3
+		public static final double maxVelocity = 80;//in/s  //TODO: testing
+		public static final double maxAccel = 50;//in/s^2
+		public static final double maxJerk = 300; //in/s^3
 
 		public static final double wheelBase = 29; //in
 		//if this is on a different gear then we should spin the wheel ten times and find the displacement

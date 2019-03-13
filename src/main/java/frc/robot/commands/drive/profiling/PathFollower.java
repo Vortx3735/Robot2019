@@ -65,8 +65,8 @@ public class PathFollower extends VortxCommand {
         rFollower = new DistanceFollower(rightTraj);
         
 
-        lFollower.configurePIDVA(.00, 0, 0, 1/Constants.Drive.maxVelocity, .000);//1/Constants.Drive.maxAccel*.08);
-        rFollower.configurePIDVA(.00, 0, 0, 1/Constants.Drive.maxVelocity, .000);//1/Constants.Drive.maxAccel*.08);
+        lFollower.configurePIDVA(.05, 0, 0, 1/Constants.Drive.maxVelocity, .007);//1/Constants.Drive.maxAccel*.08);
+        rFollower.configurePIDVA(.05, 0, 0, 1/Constants.Drive.maxVelocity, .007);//1/Constants.Drive.maxAccel*.08);
 
         long timeTake = System.currentTimeMillis()-startTime;
 

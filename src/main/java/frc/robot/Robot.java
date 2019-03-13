@@ -58,7 +58,7 @@ public class Robot extends TimedRobot {
 		endgame = new Winch();
 		//arduino = new ArduinoCo();
 		limelight = new LimeLight();
-		//navigation = new Navigation();
+		navigation = new Navigation();
 
 		oi = new OI();
 		

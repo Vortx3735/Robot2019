@@ -73,6 +73,8 @@ public class Drive  extends Subsystem {
 		SmartDashboard.putData("Zero encoders ", new ZeroEncoders());
 		SmartDashboard.putData("Zero yaw" , new ZeroYaw());
 		SmartDashboard.putData("Zero Positions", new ResetPosition());
+
+		l1.setSelectedSensorPosition(50);
 	}
 
 	/*******************************
@@ -466,21 +468,17 @@ public class Drive  extends Subsystem {
 	double leftVelocity;
 	double rightVelocity;
 
-	double count = 0;
 
 	public void calcSpeeds() {
-		count++;
-		if(count==2) {
-			count=0;
 			double leftInches = l1.getSelectedSensorPosition()*Constants.Drive.InchesPerTick;
 			double rightInches = r1.getSelectedSensorPosition()*Constants.Drive.InchesPerTick;
 
-			leftVelocity = (leftInches - pastLeftInches)/(Constants.dt*2);
-			rightVelocity = (rightInches - pastRightInches)/(Constants.dt*2);
+			leftVelocity = (leftInches - pastLeftInches)/(Constants.dt);
+			rightVelocity = (rightInches - pastRightInches)/(Constants.dt);
 
 			pastRightInches = rightInches;
 			pastLeftInches = leftInches;
-		}
+	
 		
 		
 	}
