@@ -33,8 +33,8 @@ public class DriveMoveDistancePID extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	
-    	startInchesLeft = Robot.drive.getLeftPositionInches();
-    	startInchesRight = Robot.drive.getRightPositionInches();
+    	startInchesLeft = Robot.drive.getLeftPosition();
+    	startInchesRight = Robot.drive.getRightPosition();
     	endInchesLeft = startInchesLeft + deltaDistance;
     	endInchesRight = startInchesRight + deltaDistance;
     	
@@ -60,10 +60,10 @@ public class DriveMoveDistancePID extends Command {
     }
     
     private boolean isOnTarget(){
-    	return VortxMath.isWithinThreshold(Robot.drive.getLeftPositionInches(),
+    	return VortxMath.isWithinThreshold(Robot.drive.getLeftPosition(),
 			   								endInchesLeft,
 			   								Constants.Drive.driveTolerance) &&
-    			VortxMath.isWithinThreshold(Robot.drive.getRightPositionInches(),
+    			VortxMath.isWithinThreshold(Robot.drive.getRightPosition(),
     										endInchesRight,
     										Constants.Drive.driveTolerance);
     }

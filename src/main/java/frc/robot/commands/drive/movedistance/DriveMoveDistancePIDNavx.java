@@ -38,8 +38,8 @@ public class DriveMoveDistancePIDNavx extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	startDistanceLeft = Robot.drive.getLeftPositionInches();
-    	startDistanceRight = Robot.drive.getRightPositionInches();
+    	startDistanceLeft = Robot.drive.getLeftPosition();
+    	startDistanceRight = Robot.drive.getRightPosition();
     	endPositionLeft = startDistanceLeft + deltaDistance;
     	endPositionRight = startDistanceRight + deltaDistance;
     	
@@ -56,10 +56,10 @@ public class DriveMoveDistancePIDNavx extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 		Robot.drive.setLeftRightDistance(endPositionLeft, endPositionRight);
-		double distRight = endPositionRight-Robot.drive.getRightPositionInches();
-		double distLeft = endPositionRight-Robot.drive.getLeftPositionInches();
-		System.out.println("Left distance " + Robot.drive.getLeftPositionInches() + " need to go " + distLeft);
-    	System.out.println("Right distance " + Robot.drive.getRightPositionInches() + " need to go" + distRight);
+		double distRight = endPositionRight-Robot.drive.getRightPosition();
+		double distLeft = endPositionRight-Robot.drive.getLeftPosition();
+		System.out.println("Left distance " + Robot.drive.getLeftPosition() + " need to go " + distLeft);
+    	System.out.println("Right distance " + Robot.drive.getRightPosition() + " need to go" + distRight);
     	if(!VortxMath.isWithinThreshold(Robot.navigation.getYaw(), targetYaw, yawThreshold)){
     		if(Robot.navigation.getYaw() > targetYaw){
     			Robot.drive.setLeftPIDF(p*strongMultiplier, i, d, f);
@@ -88,10 +88,10 @@ public class DriveMoveDistancePIDNavx extends Command {
     }
     
     private boolean isOnTarget(){
-    	return 	VortxMath.isWithinThreshold(Robot.drive.getLeftPositionInches(),
+    	return 	VortxMath.isWithinThreshold(Robot.drive.getLeftPosition(),
 										   	endPositionLeft,
 										   	Constants.Drive.driveTolerance) &&
-    			VortxMath.isWithinThreshold(Robot.drive.getLeftPositionInches(),
+    			VortxMath.isWithinThreshold(Robot.drive.getLeftPosition(),
 						   				   	endPositionRight,
 						   				   	Constants.Drive.driveTolerance);
     }

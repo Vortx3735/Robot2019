@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
+import frc.robot.commands.intake.BallMoveJoystick;
 import frc.robot.util.hardware.VortxTalon;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
@@ -37,6 +38,6 @@ public class BallIntake extends Subsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-		
+		setDefaultCommand(new BallMoveJoystick());
 	}
 }

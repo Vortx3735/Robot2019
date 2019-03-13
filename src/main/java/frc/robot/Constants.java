@@ -2,17 +2,16 @@ package frc.robot;
 
 public class Constants {
 
-	public static final double dt = .05; //seconds
+	public static final double dt = Robot.kDefaultPeriod; //seconds
 	
 	public class Drive {
 
 		//TODO: testing on these values
-		public static final double maxVelocity = 180; //in/s  //i am sure this is very high
-		public static final double maxAccel = 68;//in/s^2
-		public static final double maxJerk = 500; //in/s^3
+		public static final double maxVelocity = 90; //in/s  //TODO: testing
+		public static final double maxAccel = 100;//in/s^2
+		public static final double maxJerk = 3000; //in/s^3
 
 		public static final double wheelBase = 29; //in
-		public static final double wheelDiam = 4; //in
 		//if this is on a different gear then we should spin the wheel ten times and find the displacement
 		public static final int ticksPerRotation = 5358; //ticks per rotation of wheels calculated
 		//would be these if we were one to one1024; //4096 for mag encoder /1024 for grayhills we are using

@@ -318,11 +318,11 @@ public class Drive  extends Subsystem {
 
 	
 	public double getLeftSpeed() {
-		return l1.getSpeed();
+		return leftVelocity;
 	}
 	
 	public double getRightSpeed() {
-		return r1.getSpeed();
+		return rightVelocity;
 	}
 	
 	public double getAverageSpeed() {
@@ -431,14 +431,6 @@ public class Drive  extends Subsystem {
 	public void setRightPIDF(double kp, double ki, double kd, double kf){
 		r1.setPIDF(kp, ki, kd, kf);
 	}
-
-
-	public double getLeftPositionInches() {
-		return l1.getPosition();
-	}
-	public double getRightPositionInches() {
-		return r1.getPosition();
-	}
 	
 	public void setLeftRightDistance(double left, double right) {
 		l1.set(ControlMode.Position, left); //OneRotationInches //left / (Constants.Drive.InchesPerRotation 
@@ -452,6 +444,7 @@ public class Drive  extends Subsystem {
 	public void log() {
 		SmartDashboard.putNumber("Drive Left Position", getLeftPosition());
 		SmartDashboard.putNumber("Drive Right Position", getRightPosition());
+		calcSpeeds();
 	}
 
 	public void debugLog() {
@@ -467,5 +460,29 @@ public class Drive  extends Subsystem {
 		SmartDashboard.putNumber("Drive avg speed inches", getAverageSpeed());
 	}
 
+	double pastLeftInches;
+	double pastRightInches;	
+
+	double leftVelocity;
+	double rightVelocity;
+
+	double count = 0;
+
+	public void calcSpeeds() {
+		count++;
+		if(count==2) {
+			count=0;
+			double leftInches = l1.getSelectedSensorPosition()*Constants.Drive.InchesPerTick;
+			double rightInches = r1.getSelectedSensorPosition()*Constants.Drive.InchesPerTick;
+
+			leftVelocity = (leftInches - pastLeftInches)/(Constants.dt*2);
+			rightVelocity = (rightInches - pastRightInches)/(Constants.dt*2);
+
+			pastRightInches = rightInches;
+			pastLeftInches = leftInches;
+		}
+		
+		
+	}
 }
 

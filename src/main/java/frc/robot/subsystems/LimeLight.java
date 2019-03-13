@@ -40,8 +40,6 @@ public class LimeLight extends Subsystem {
     double distance;
     String camtranValue;
 
-    boolean threeD;
-
     double x,y,z,yaw;
 
 

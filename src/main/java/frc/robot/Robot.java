@@ -52,13 +52,13 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		drive = new Drive();
 		ballIntake = new BallIntake();
-		//hatchIntake = new HatchIntake();
+		hatchIntake = new HatchIntake();
 		elevator = new Elevator();
-		//carriage = new Carriage();
-		//endgame = new Winch();
+		carriage = new Carriage();
+		endgame = new Winch();
 		//arduino = new ArduinoCo();
-		//limelight = new LimeLight();
-		navigation = new Navigation();
+		limelight = new LimeLight();
+		//navigation = new Navigation();
 
 		oi = new OI();
 		
@@ -105,7 +105,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		navigation.integrate();
+		//navigation.integrate();
 		
 	}
 
@@ -119,7 +119,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		navigation.integrate();
+		//navigation.integrate();
 		log();
 		debugLog();
 	}
@@ -134,16 +134,16 @@ public class Robot extends TimedRobot {
 
 	public void log() {
 		drive.log();
-//		ballIntake.log();
-//		hatchIntake.log();
+		ballIntake.log();
+		hatchIntake.log();
 		elevator.log();
-//		carriage.log();
-		navigation.log();
+		carriage.log();
+		//navigation.log();
 	} 
 
 	public void debugLog() {
 		drive.debugLog();
-//		ballIntake.debugLog();
+		ballIntake.debugLog();
 		elevator.debugLog();
 	}
 

@@ -11,10 +11,12 @@ import frc.robot.util.calc.VortxMath;
 import frc.robot.util.oi.XboxController;
 import frc.robot.util.settings.Func;
 import frc.robot.util.smartboard.SmartBoard;
+import jaci.pathfinder.Waypoint;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
 import frc.robot.commands.EndAll;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
+import frc.robot.commands.drive.profiling.PathFollower;
 import frc.robot.commands.hatch.*;
 import frc.robot.commands.intake.*;
 import frc.robot.commands.sequences.PlaceHatch;
@@ -31,10 +33,10 @@ public class OI {
 
 	public OI() {
 
+		///////////////////////MAIN CONTROLS//////////////////////////////
+
 		main = new XboxController(0);
 		co = new XboxController(1);
-
-		main.x.whileHeld(new ElevatorSetPos());
 
 		main.a.whenPressed(new PlaceHatch(new Func() {
 			@Override
@@ -54,18 +56,37 @@ public class OI {
 				return main.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch;
 			}
 		}));
-
 		
-		// main.a.whileHeld(new BallIntakeMotorSet(-0.75)); //in
-		// main.b.whileHeld(new BallIntakeMotorSet(1.0)); //out
+		main.x.whenPressed(new HatchToggle());
 
-		// //Hatch commands
-		// main.lb.whenPressed(new HatchSet(true));
-	    // main.rb.whenPressed(new HatchSet(false));
+		main.pov0.whenPressed(new CarriageSolenoidSet(true));
+		main.pov180.whenPressed(new CarriageSolenoidSet(false));
 
+		//////////////////////////////CO Controls//////////////////////////////
 
-		// main.pov0.whenPressed(new CarriageSolenoidSet(true));
-		// main.pov180.whenPressed(new CarriageSolenoidSet(false));
+		co.a.whenPressed(new PlaceHatch(new Func() {
+			@Override
+			public double getValue() {
+				return co.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch;
+			}
+		}));
+		co.b.whenPressed(new PlaceHatch(new Func() {
+			@Override
+			public double getValue() {
+				return co.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch;
+			}
+		}));
+		co.y.whenPressed(new PlaceHatch(new Func() {
+			@Override
+			public double getValue() {
+				return co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch;
+			}
+		}));
+		
+		co.x.whenPressed(new HatchToggle());
+
+		main.pov0.whenPressed(new CarriageSolenoidSet(true));
+		main.pov180.whenPressed(new CarriageSolenoidSet(false));
 
 	}
 
@@ -79,12 +100,15 @@ public class OI {
 	public double getDriveTurn() {
 		double turn = main.getLeftX();
 		return  Math.copySign((turn*turn), turn);
-		//return main.getRightX();
 	}
 	
 	public double getElevatorMove() {
 		double move = main.getRightY()+ co.getLeftY();
 		return  Math.copySign((move*move), move);
+	}
+
+	public double getBallMove() {
+		return co.getRawAxis(5)*-1;
 	}
 	
 }

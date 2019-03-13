@@ -1,22 +1,20 @@
 package frc.robot.commands.drive.profiling;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.util.cmds.VortxCommand;
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.Waypoint;
-import jaci.pathfinder.followers.EncoderFollower;
+import jaci.pathfinder.followers.DistanceFollower;
 import jaci.pathfinder.modifiers.TankModifier;
 
 
 public class PathFollower extends VortxCommand {
 
-    public EncoderFollower lFollower;
-    public EncoderFollower rFollower;
-
-    // public DistanceFollower lFollower;
-    // public DistanceFollower rFollower;
+    public DistanceFollower lFollower;
+    public DistanceFollower rFollower;
 
     public Trajectory leftTraj;
     public Trajectory rightTraj;
@@ -29,6 +27,9 @@ public class PathFollower extends VortxCommand {
     public double turn;
 
     public double originalAngleOffset;
+
+    public double originalLeftOffset;
+    public double originalRightOffset;
 
     Waypoint[] waypoints;
 
@@ -60,43 +61,60 @@ public class PathFollower extends VortxCommand {
         leftTraj = modifier.getLeftTrajectory();
         rightTraj = modifier.getRightTrajectory();
 
-        lFollower = new EncoderFollower(leftTraj);
-        rFollower = new EncoderFollower(rightTraj);
-
+        lFollower = new DistanceFollower(leftTraj);
+        rFollower = new DistanceFollower(rightTraj);
         
-        lFollower.configureEncoder((int)(Math.round(Robot.drive.getLeftPosition())), Constants.Drive.ticksPerRotation, Constants.Drive.wheelDiam);
-        rFollower.configureEncoder((int)(Math.round(Robot.drive.getRightPosition())), Constants.Drive.ticksPerRotation, Constants.Drive.wheelDiam);
 
-        lFollower.configurePIDVA(.00055, 0, 0, 1/Constants.Drive.maxVelocity, 1/Constants.Drive.maxAccel*.01);//1/Constants.Drive.maxAccel*.08);
-        rFollower.configurePIDVA(.00055, 0, 0, 1/Constants.Drive.maxVelocity, 1/Constants.Drive.maxAccel*.01);//1/Constants.Drive.maxAccel*.08);
+        lFollower.configurePIDVA(.00, 0, 0, 1/Constants.Drive.maxVelocity, .000);//1/Constants.Drive.maxAccel*.08);
+        rFollower.configurePIDVA(.00, 0, 0, 1/Constants.Drive.maxVelocity, .000);//1/Constants.Drive.maxAccel*.08);
 
         long timeTake = System.currentTimeMillis()-startTime;
 
         System.out.println("Set trajectories in " + timeTake  + "millis");
 
         originalAngleOffset = Robot.navigation.getYaw();
+        originalLeftOffset = Robot.drive.getLeftPosition();
+        originalRightOffset = Robot.drive.getRightPosition();
 
-        System.out.println("The original angle off set is " + originalAngleOffset);
+        for(int i = 0; i<leftTraj.segments.length; i++) {
+            System.out.println(i*.02 + " " + leftTraj.segments[i].velocity);
+        }
     }
 
     @Override
     protected void execute () {
-            left = lFollower.calculate((int)Robot.drive.getLeftPosition()); 
-            right = rFollower.calculate((int)Robot.drive.getRightPosition());
-            
 
+            double wantedLeft = lFollower.getSegment().position;
+            double wantedRight = rFollower.getSegment().position;
+
+            double actualLeft = Robot.drive.getLeftPosition() - originalLeftOffset;
+            double actualRight = Robot.drive.getRightPosition() - originalRightOffset;
+
+           SmartDashboard.putNumber("Error left", wantedLeft-actualLeft);
+           SmartDashboard.putNumber("Error right", wantedRight-actualRight);
+
+           SmartDashboard.putNumber("Error Vel left", lFollower.getSegment().velocity-Robot.drive.getLeftSpeed());
+           SmartDashboard.putNumber("Error Vel right", rFollower.getSegment().velocity-Robot.drive.getRightSpeed());
+
+            System.out.println(actualLeft + " " + actualRight);
+
+            SmartDashboard.putNumber("Distance Covered Left", actualLeft);
+            SmartDashboard.putNumber("Distance Covered Right", actualRight);
+
+            left = lFollower.calculate(actualLeft); 
+            right = rFollower.calculate(actualRight);
 
             angle = Robot.navigation.getYaw();
             desiredAngle = Pathfinder.boundHalfDegrees(Pathfinder.r2d(lFollower.getHeading()) + originalAngleOffset);
             angleDifference = Pathfinder.boundHalfDegrees(desiredAngle - angle);
 
-            System.out.println("Navx: " + angle + " Offset: " + originalAngleOffset + " desired: " + desiredAngle + " Difference: " + angleDifference);
+            //System.out.println("Navx: " + angle + " Offset: " + originalAngleOffset + " desired: " + desiredAngle + " Difference: " + angleDifference);
             
 
 
-            turn = -1.7 * (1.0/80) * angleDifference;
+            turn = 1.7 * (1.0/80) * angleDifference;
 
-            System.out.println("Left Power: " + left +  " Right Power: " + right  + " Turn power: " + turn);
+            //System.out.println("Left Power: " + left +  " Right Power: " + right  + " Turn power: " + turn);
 
 
             Robot.drive.setLeftRight((left+turn), (right-turn));

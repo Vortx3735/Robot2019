@@ -30,7 +30,7 @@ public class DriveToTargetP extends Command {
                 double drivePower;
                 if (Robot.limelight.getTv()==1.0) {
                     drivePower  = Robot.limelight.getDistance();
-                } else if (Robot.arduino.getDistance()< 45) {
+                } else if (Robot.arduino.getDistance()< 15) {
                     drivePower = Robot.arduino.getDistance();
                 } else {
                     System.out.println("There is no distance info");
@@ -57,13 +57,10 @@ public class DriveToTargetP extends Command {
         angleCommand = turning;
         driveCommand = driving;
     }
-    
-
-	
 
     // Called just before this Command runs the first time
     protected void initialize() {
- 
+        Robot.limelight.setPipeline(0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -86,6 +83,7 @@ public class DriveToTargetP extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.drive.arcadeDrive(0, 0);
+        Robot.limelight.setPipeline(1.0); //TODO: Make 1.0 normal and 0.0 vision
     }
 
     // Called when another command which requires one or more of the same
