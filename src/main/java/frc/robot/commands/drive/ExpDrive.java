@@ -22,8 +22,8 @@ public class ExpDrive extends Command {
 	private double turnMotorPrev;
 	
 	
-private static Setting moveReactivity = new Setting("Move Reactivity", Constants.Drive.moveReactivity);
-	private static Setting turnReactivity = new Setting("Turn Reactivity", Constants.Drive.turnReactivity);
+private static Setting moveReactivity = new Setting("Move Reactivity", Constants.Drive.moveReactivity, false);
+	private static Setting turnReactivity = new Setting("Turn Reactivity", Constants.Drive.turnReactivity, false);
 
 	
     public ExpDrive() {

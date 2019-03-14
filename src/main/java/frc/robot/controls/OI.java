@@ -7,19 +7,16 @@
 
 package frc.robot.controls;
 
-import frc.robot.util.calc.VortxMath;
 import frc.robot.util.oi.XboxController;
 import frc.robot.util.settings.Func;
-import frc.robot.util.smartboard.SmartBoard;
-import jaci.pathfinder.Waypoint;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
-import frc.robot.commands.EndAll;
+import frc.robot.commands.ZeroAll;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
-import frc.robot.commands.drive.profiling.PathFollower;
 import frc.robot.commands.hatch.*;
-import frc.robot.commands.intake.*;
 import frc.robot.commands.sequences.PlaceHatch;
+import frc.robot.commands.drive.simple.DriveAddSensitiveLeft;
+import frc.robot.commands.drive.simple.DriveAddSensitiveRight;
 import frc.robot.commands.elevator.ElevatorSetPos;
 import frc.robot.commands.auto.InchesStraight;
 
@@ -39,19 +36,19 @@ public class OI {
 		main = new XboxController(0);
 		co = new XboxController(1);
 
-		main.a.whenPressed(new PlaceHatch(new Func() {
+		main.a.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
 			public double getValue() {
 				return main.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch;
 			}
 		}));
-		main.b.whenPressed(new PlaceHatch(new Func() {
+		main.b.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
 			public double getValue() {
 				return main.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch;
 			}
 		}));
-		main.y.whenPressed(new PlaceHatch(new Func() {
+		main.y.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
 			public double getValue() {
 				return main.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch;
@@ -63,21 +60,26 @@ public class OI {
 		main.pov0.whenPressed(new CarriageSolenoidSet(true));
 		main.pov180.whenPressed(new CarriageSolenoidSet(false));
 
+		main.pov270.whileHeld(new DriveAddSensitiveLeft());
+		main.pov90.whileHeld(new DriveAddSensitiveRight());
+
+		main.rb.whenPressed(new PlaceHatch());
+
 		//////////////////////////////CO Controls//////////////////////////////
 
-		co.a.whenPressed(new PlaceHatch(new Func() {
+		co.a.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
 			public double getValue() {
 				return co.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch;
 			}
 		}));
-		co.b.whenPressed(new PlaceHatch(new Func() {
+		co.b.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
 			public double getValue() {
 				return co.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch;
 			}
 		}));
-		co.y.whenPressed(new PlaceHatch(new Func() {
+		co.y.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
 			public double getValue() {
 				return co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch;
@@ -86,10 +88,14 @@ public class OI {
 		
 		co.x.whenPressed(new HatchToggle());
 
-		main.pov0.whenPressed(new CarriageSolenoidSet(true));
-		main.pov180.whenPressed(new CarriageSolenoidSet(false));
+		co.pov0.whenPressed(new CarriageSolenoidSet(true));
+		co.pov180.whenPressed(new CarriageSolenoidSet(false));
 
-		main.rb.whenPressed(new InchesStraight(50));
+		co.rb.whenPressed(new PlaceHatch());
+
+		SmartDashboard.putData(new ZeroAll());
+
+		//main.start.whenPressed(new InchesStraight(50,20));
 
 	}
 

@@ -63,9 +63,6 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 		
 		//autoLogic = new Autonomous();
-
-		SmartDashboard.putData(Scheduler.getInstance());
-
 //		SmartBoard.start();
 
 //TODO add camera
@@ -81,7 +78,6 @@ public class Robot extends TimedRobot {
 	public void robotPeriodic() {
 		//only reads and prints the values to smartdashboard
 		log();
-		debugLog();
 	}
 
 	/************************************ Disabled Robot ******************************************/
@@ -105,7 +101,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		//navigation.integrate();
+		navigation.integrate();
 		
 	}
 
@@ -119,9 +115,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		//navigation.integrate();
+		navigation.integrate();
 		log();
-		debugLog();
 	}
 
 	/************************************ Test ******************************************/
@@ -138,7 +133,7 @@ public class Robot extends TimedRobot {
 		hatchIntake.log();
 		elevator.log();
 		carriage.log();
-		//navigation.log();
+		navigation.log();
 	} 
 
 	public void debugLog() {

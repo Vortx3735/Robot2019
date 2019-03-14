@@ -90,16 +90,16 @@ public class PathFollower extends VortxCommand {
             double actualLeft = Robot.drive.getLeftPosition() - originalLeftOffset;
             double actualRight = Robot.drive.getRightPosition() - originalRightOffset;
 
-           SmartDashboard.putNumber("Error left", wantedLeft-actualLeft);
-           SmartDashboard.putNumber("Error right", wantedRight-actualRight);
+           //SmartDashboard.putNumber("Error left", wantedLeft-actualLeft);
+           //SmartDashboard.putNumber("Error right", wantedRight-actualRight);
 
-           SmartDashboard.putNumber("Error Vel left", lFollower.getSegment().velocity-Robot.drive.getLeftSpeed());
-           SmartDashboard.putNumber("Error Vel right", rFollower.getSegment().velocity-Robot.drive.getRightSpeed());
+           //SmartDashboard.putNumber("Error Vel left", lFollower.getSegment().velocity-Robot.drive.getLeftSpeed());
+           //SmartDashboard.putNumber("Error Vel right", rFollower.getSegment().velocity-Robot.drive.getRightSpeed());
 
             System.out.println(actualLeft + " " + actualRight);
 
-            SmartDashboard.putNumber("Distance Covered Left", actualLeft);
-            SmartDashboard.putNumber("Distance Covered Right", actualRight);
+            //SmartDashboard.putNumber("Distance Covered Left", actualLeft);
+            //SmartDashboard.putNumber("Distance Covered Right", actualRight);
 
             left = lFollower.calculate(actualLeft); 
             right = rFollower.calculate(actualRight);

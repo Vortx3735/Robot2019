@@ -10,14 +10,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.drive.DDxDrive;
-import frc.robot.commands.drive.ZeroEncoders;
 import frc.robot.Constants;
 import frc.robot.settings.Dms;
 import frc.robot.util.hardware.VortxTalon;
 import frc.robot.util.settings.BooleanSetting;
 import frc.robot.util.settings.Setting;
-import frc.robot.commands.drive.positions.ResetPosition;
-import frc.robot.commands.drive.positions.ZeroYaw;  
 
 /**
  *
@@ -69,12 +66,6 @@ public class Drive  extends Subsystem {
 		brakeEnabled.setIsListening(true);
 		initSensors();
 		setEnableBrake(true);
-
-		SmartDashboard.putData("Zero encoders ", new ZeroEncoders());
-		SmartDashboard.putData("Zero yaw" , new ZeroYaw());
-		SmartDashboard.putData("Zero Positions", new ResetPosition());
-
-		l1.setSelectedSensorPosition(50);
 	}
 
 	/*******************************
@@ -112,7 +103,6 @@ public class Drive  extends Subsystem {
 	public void initSensors() {
 		l1.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);	
 		l1.setSelectedSensorPosition(0);
-		//TODO see if the drive is backwards or foward
 		//l1.setSensorPhase(true);
 		
 		
@@ -193,7 +183,7 @@ public class Drive  extends Subsystem {
 	
 	
 	public void normalDrive(double move, double rotate){
-		double rotateValue = rotate; //+getTurnAdditions();
+		double rotateValue = rotate + getTurnAdditions();
 		setLeftRight(move + rotateValue, move - rotateValue);
 	}
 	
@@ -258,7 +248,7 @@ public class Drive  extends Subsystem {
 	}
 	
 	public double getTurnAdditions() {
-		return leftAddTurn + rightAddTurn + visionAssist + navxAssist;
+		return leftAddTurn + rightAddTurn;// + visionAssist + navxAssist;
 	}
 
 	/*******************************
@@ -408,15 +398,6 @@ public class Drive  extends Subsystem {
     public void setRightVelocity(double v) {
     	r1.set(ControlMode.Velocity, v);
     }
-    /**
-     * 
-     * @return the speed from the current on motors -- needs to be tested and made
-     * This is for a backup if encoders fail
-     */
-    public double getSpeedFromCurrent() {
-    	return 0;
-    }
-
     
     /******************************************
      * PID driving 

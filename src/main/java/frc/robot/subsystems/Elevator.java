@@ -44,12 +44,8 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 		elevator.setNeutralMode(NeutralMode.Brake);
 
-		elevator.initSensor(FeedbackDevice.QuadEncoder, true);		
+		elevator.initSensor(FeedbackDevice.QuadEncoder, false);//True on final
 		resetEncoderPositions();
-
-		SmartDashboard.putData("Reset ELV Encoder", new ElevatorResetEncoder());
-
-		SmartDashboard.putNumber("ElevatorHeight", 0.0);
 	}
 
 
@@ -91,13 +87,13 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 	public void log() {
 		elevator.log();
+		SmartDashboard.putNumber("Elevator Temp", getAverageTemp());
 		SmartDashboard.putNumber("Elv Setpoint", controller.getSetpoint());
 		//valueTable.getEntry("Elevator Encoder Inches").setNumber(getPosition());
 	}
 	
 	public void debugLog() {
 		elevator.debugLog();
-		SmartDashboard.putNumber("Elevator Temp", getAverageTemp());
 	}
 
 	public double getAverageTemp() {
@@ -125,7 +121,6 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 	@Override
 	public void pidWrite(double output) {
-		SmartDashboard.putNumber("Elev PID Output", output);
 	  	setPOutput(output);
 	}
 }
