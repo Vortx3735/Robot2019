@@ -62,16 +62,6 @@ public class Robot extends TimedRobot {
 
 		oi = new OI();
 		
-		//autoLogic = new Autonomous();
-//		SmartBoard.start();
-
-//TODO add camera
-
-		//camera1 = CameraServer.getInstance().startAutomaticCapture(0);
-		//camera1.setResolution(320, 240);
-		//camera1.setFPS(15);
-
-		//NetworkTableInstance.getDefault().getEntry("/CameraPublisher/MyCamera/streams").setStringArray(new String[] {"mjpg:http://10.37.35.11:5800/?action=stream"});
 	}
 
 	@Override 

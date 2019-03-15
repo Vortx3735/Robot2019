@@ -15,6 +15,7 @@ import frc.robot.commands.ZeroAll;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.hatch.*;
 import frc.robot.commands.sequences.PlaceHatch;
+import frc.robot.commands.drive.profiling.DriveToTargetP;
 import frc.robot.commands.drive.simple.DriveAddSensitiveLeft;
 import frc.robot.commands.drive.simple.DriveAddSensitiveRight;
 import frc.robot.commands.elevator.ElevatorSetPos;
@@ -65,6 +66,9 @@ public class OI {
 
 		main.rb.whenPressed(new PlaceHatch());
 
+		main.start.whileHeld(new DriveToTargetP());
+
+
 		//////////////////////////////CO Controls//////////////////////////////
 
 		co.a.whenPressed(new ElevatorSetPos(new Func() {
@@ -94,6 +98,7 @@ public class OI {
 		co.rb.whenPressed(new PlaceHatch());
 
 		SmartDashboard.putData(new ZeroAll());
+
 
 		//main.start.whenPressed(new InchesStraight(50,20));
 
