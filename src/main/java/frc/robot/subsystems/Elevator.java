@@ -15,6 +15,7 @@ import frc.robot.util.PIDCtrl;
 import frc.robot.util.hardware.VortxTalon;
 import frc.robot.Constants;
 import frc.robot.util.settings.PIDSetting;
+import frc.robot.util.settings.Setting;
 import frc.robot.commands.elevator.ElevatorResetEncoder;
 
 /**
@@ -28,7 +29,6 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 	public PIDCtrl controller;
 
-
 	public Elevator() {
 //    	super("elevator","ELV");
 
@@ -36,7 +36,7 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 		//TODO tuning on these values
 		controller = new PIDCtrl(.11,.01,0,0,this,this,2);
 		controller.setAbsoluteTolerance(.1);
-		controller.setOutputRange(-.15, .4);
+		controller.setOutputRange(-.15, .5);
 		//controller.sendToDash("Elevator PID");
 		controller.disable();
 		
@@ -45,6 +45,8 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 		elevator.setNeutralMode(NeutralMode.Brake);
 
 		elevator.initSensor(FeedbackDevice.QuadEncoder, true);//True on final
+
+
 		resetEncoderPositions();
 	}
 

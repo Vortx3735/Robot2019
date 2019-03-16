@@ -19,12 +19,13 @@ public class CarriageSolenoidSet extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("Carriage sol called with " + b);
         Robot.carriage.setSolenoid(b);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+        Robot.carriage.setSolenoid(b);
     }
 
     // Make this return true when this Command no longer needs to run execute()

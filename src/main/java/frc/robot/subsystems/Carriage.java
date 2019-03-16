@@ -17,9 +17,7 @@ public class Carriage extends Subsystem {
 		solenoid = new Solenoid(RobotMap.Carriage.solenoid);
 	}
 	public void setSolenoid(boolean b) {
-		if(Robot.elevator.getPosition()>4.5) {
 			solenoid.set(b);
-		}
 	}
 	public void log() {
       SmartDashboard.putBoolean("Carriage Pnumatic", solenoid.get());

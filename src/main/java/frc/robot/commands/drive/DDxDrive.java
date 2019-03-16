@@ -20,7 +20,7 @@ public class DDxDrive extends Command {
 //	private double maxA = 2;
 //	private double maxJ = 1;
 	
-	private Setting maxA = new Setting("Max Acc", 10, true){
+	private Setting maxA = new Setting("Max Acc", 8, true){
 		@Override
 		public double getValue(){
 			return super.getValue() / 50.0;
@@ -36,7 +36,7 @@ public class DDxDrive extends Command {
 		}
 	};
 	
-	private Setting maxAt = new Setting("Max Acc Turn", 10, true){
+	private Setting maxAt = new Setting("Max Acc Turn", 8, true){
 		@Override
 		public double getValue(){
 			return super.getValue() / 50.0;

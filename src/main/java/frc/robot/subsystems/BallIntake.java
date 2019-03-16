@@ -36,6 +36,10 @@ public class BallIntake extends Subsystem {
 		SmartDashboard.putNumber("Ball Intake Voltage", intakeMotor.getMotorOutputVoltage());
 	}
 
+	public boolean hasBall() {
+		return intakeMotor.getOutputCurrent()>10;
+	}
+
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new BallMoveJoystick());

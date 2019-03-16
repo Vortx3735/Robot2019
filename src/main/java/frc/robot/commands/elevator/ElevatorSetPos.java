@@ -15,6 +15,7 @@ public class ElevatorSetPos extends Command {
     public ElevatorSetPos(Func inches) {
         this.inches = inches;
         requires(Robot.elevator);
+        consPower = new ElevatorConsPower();
     }
 
     public ElevatorSetPos() {
@@ -45,9 +46,11 @@ public class ElevatorSetPos extends Command {
         return Robot.elevator.controller.onTarget();
     }
 
+    Command consPower;
     // Called once after isFinished returns true
     protected void end() {
         Robot.elevator.controller.disable();
+        consPower.start();
     }
 
     // Called when another command which requires one or more of the same
