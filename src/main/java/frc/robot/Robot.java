@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -30,7 +31,7 @@ public class Robot extends TimedRobot {
 	public static Autonomous autoLogic;
 	public static Navigation navigation;
 	public static OI oi;
-	public static UsbCamera camera1;
+	public static UsbCamera camera;
 	
 	/** Understanding how the methods are called.
 	 *  
@@ -61,7 +62,7 @@ public class Robot extends TimedRobot {
 		navigation = new Navigation();
 
 		oi = new OI();
-		
+		CameraServer.getInstance().startAutomaticCapture();
 	}
 
 	@Override 

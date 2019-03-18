@@ -36,7 +36,7 @@ public class DDxDrive extends Command {
 		}
 	};
 	
-	private Setting maxAt = new Setting("Max Acc Turn", 8, true){
+	private Setting maxAt = new Setting("Max Acc Turn", 5, true){
 		@Override
 		public double getValue(){
 			return super.getValue() / 50.0;

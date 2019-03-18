@@ -40,7 +40,7 @@ public class RobotMap {
 		public static int solEndLeft = 3;
 		public static int solEndRight = 4;
 
-		public static int winch = 0;
+		public static int[] winch = {3,4};
 	}
 
 }

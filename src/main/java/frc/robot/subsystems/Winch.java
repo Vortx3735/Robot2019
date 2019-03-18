@@ -12,20 +12,12 @@ import frc.robot.util.hardware.VortxTalon;
  * Add your docs here.
  */
 public class Winch extends Subsystem {
-  Solenoid solLeft;
-  Solenoid solRight;
+
   VortxTalon motor;
 
   public Winch() {
 //    super("winch","WCH");
-    solLeft = new Solenoid(RobotMap.Winch.solEndLeft);
-    solRight = new Solenoid(RobotMap.Winch.solEndRight);
-    motor = new VortxTalon(RobotMap.Winch.winch);
-  }
-
-  public void setEnd(boolean bol) {
-    solLeft.set(bol);
-    solRight.set(bol);
+    motor = new VortxTalon(RobotMap.Winch.winch, "Winch");
   }
 
   public void setMotorSpeed(double d) {
