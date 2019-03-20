@@ -121,7 +121,7 @@ public class LimeLight extends Subsystem {
     }
 
     public double getDistance() {
-        return 75.315 * Math.pow(getTa(), -.484);
+        return 64.958 * Math.pow(getTa(), -.695);
     }
 
     public void setLedMode(double ledType) {

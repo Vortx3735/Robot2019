@@ -39,18 +39,7 @@ public class DriveToTargetPID extends Command {
     	}, new Func() {
             @Override
             public double getValue() {
-                if (Robot.limelight.getTv()==1.0) {
-                    System.out.println("There is a target from the limelight " + Robot.limelight.getDistance());
-                    return Robot.limelight.getDistance();
-                } else if (Robot.arduino.getDistance()< 45) {
-                    System.out.println("There is a target from the arduino " + Robot.arduino.getDistance());
-                    return Robot.arduino.getDistance();
-                } else {
-                    System.out.println("There is no distance info");
-                    return 0.0;
-                }
-                //return Robot.limelight.getTv()==1.0 ? Robot.limelight.getDistance() :
-                //(Robot.arduino.getDistance() < 60 ? Robot.arduino.getDistance() : 0.0);
+                return Robot.arduino.getDistance();
             }
         });
     }
@@ -63,7 +52,6 @@ public class DriveToTargetPID extends Command {
         
         createControllers();
        
-
         getAngleError = angle;
         getDistanceError = distance;
 		count = 0;
@@ -121,9 +109,12 @@ public class DriveToTargetPID extends Command {
 
             @Override
             public void pidWrite(double output) {        
-                move = -1*output;
+                move = output;
             }      
         });
+
+        SmartDashboard.putData(turningController);
+        SmartDashboard.putData(moveController);
 
         turningController.setInputRange(-180, 180);
 		turningController.setOutputRange(-.3, .3);

@@ -17,6 +17,7 @@ import frc.robot.commands.hatch.*;
 import frc.robot.commands.sequences.PlaceHatch;
 import frc.robot.commands.winch.SetWinchSpeed;
 import frc.robot.commands.drive.profiling.DriveToTargetP;
+import frc.robot.commands.drive.profiling.DriveToTargetPID;
 import frc.robot.commands.drive.simple.DriveAddSensitiveLeft;
 import frc.robot.commands.drive.simple.DriveAddSensitiveRight;
 import frc.robot.commands.elevator.ElevatorSetPos;
@@ -55,6 +56,7 @@ public class OI {
 		co.a.whenPressed(new DropHatch());
 
 		main.start.whileHeld(new DriveToTargetP());
+		main.back.whileHeld(new DriveToTargetPID());
 
 
 		//////////////////////////////CO Controls//////////////////////////////

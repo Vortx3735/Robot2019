@@ -264,7 +264,9 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 	public void log(){
     	SmartDashboard.putNumber("Robot Yaw", getYaw());
     	SmartDashboard.putNumber("Nav Loc X", pos.x);
-    	SmartDashboard.putNumber("Nav Loc Y", pos.y);
+		SmartDashboard.putNumber("Nav Loc Y", pos.y);
+		SmartDashboard.putNumber("RawAccel_Z",  ahrs.getRawAccelZ());
+
     }
 }
 

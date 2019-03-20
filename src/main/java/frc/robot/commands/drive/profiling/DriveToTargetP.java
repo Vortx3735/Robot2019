@@ -22,33 +22,26 @@ public class DriveToTargetP extends Command {
     	this(new Func(){
 			@Override
 			public double getValue() {
-				return Robot.limelight.getTx() * Constants.LimeLight.STEER_K;
+                return Robot.limelight.getTx() * Constants.LimeLight.STEER_K;
 			}
     	}, new Func() {
             @Override
             public double getValue() {
-                double drivePower;
-                if (Robot.limelight.getTv()==1.0) {
-                    drivePower  = Robot.limelight.getDistance();
-                } else {
-                    drivePower = Constants.LimeLight.DESIRED_TARGET_DISTANCE;
-                }
-
-                drivePower = (drivePower-Constants.LimeLight.DESIRED_TARGET_DISTANCE) * Constants.LimeLight.DRIVE_K;
-
-                if (drivePower>Constants.LimeLight.MAX_DRIVE) {
-                    return Constants.LimeLight.MAX_DRIVE;
-                } else {
-                    return drivePower;
-                } 
+                // if (Robot.limelight.getTv()==1.0) {
+                //     drivePower  = Robot.limelight.getDistance();
+                // } else {
+                //     drivePower = 0;
+                // }
+                return Math.min(Robot.arduino.getDistance() * 
+                    Constants.LimeLight.DRIVE_K, Constants.LimeLight.MAX_DRIVE); 
             }
         });
     }
 
 	public DriveToTargetP(Func turning, Func driving) {
     	requires(Robot.drive);
-		requires(Robot.navigation);
         requires(Robot.limelight);
+        requires(Robot.arduino);
 
         angleCommand = turning;
         driveCommand = driving;

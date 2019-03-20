@@ -57,12 +57,13 @@ public class Robot extends TimedRobot {
 		elevator = new Elevator();
 		carriage = new Carriage();
 		endgame = new Winch();
-		//arduino = new ArduinoCo();
+		arduino = new ArduinoCo();
 		limelight = new LimeLight();
 		navigation = new Navigation();
 
+		autoLogic = new Autonomous();
+
 		oi = new OI();
-		CameraServer.getInstance().startAutomaticCapture();
 	}
 
 	@Override 
@@ -86,7 +87,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
-//		autoLogic.startCommand();
+		autoLogic.startCommand();
 	}
 
 	@Override
@@ -125,6 +126,7 @@ public class Robot extends TimedRobot {
 		elevator.log();
 		carriage.log();
 		navigation.log();
+		arduino.log();
 	} 
 
 	public void debugLog() {
