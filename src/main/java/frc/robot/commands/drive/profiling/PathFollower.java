@@ -65,8 +65,8 @@ public class PathFollower extends VortxCommand {
         rFollower = new DistanceFollower(rightTraj);
         
 
-        lFollower.configurePIDVA(.05, 0, 0, 1/Constants.Drive.maxVelocity, .007);//1/Constants.Drive.maxAccel*.08);
-        rFollower.configurePIDVA(.05, 0, 0, 1/Constants.Drive.maxVelocity, .007);//1/Constants.Drive.maxAccel*.08);
+        lFollower.configurePIDVA(.01, 0, 0, 1/Constants.Drive.maxVelocity, .005);//1/Constants.Drive.maxAccel*.08);
+        rFollower.configurePIDVA(.01, 0, 0, 1/Constants.Drive.maxVelocity, .005);//1/Constants.Drive.maxAccel*.08);
 
         long timeTake = System.currentTimeMillis()-startTime;
 
@@ -76,16 +76,13 @@ public class PathFollower extends VortxCommand {
         originalLeftOffset = Robot.drive.getLeftPosition();
         originalRightOffset = Robot.drive.getRightPosition();
 
-        for(int i = 0; i<leftTraj.segments.length; i++) {
-            System.out.println(i*.02 + " " + leftTraj.segments[i].velocity);
-        }
+        // for(int i = 0; i<leftTraj.segments.length; i++) {
+        //     System.out.println(i*.02 + " " + leftTraj.segments[i].velocity);
+        // }
     }
 
     @Override
     protected void execute () {
-
-            double wantedLeft = lFollower.getSegment().position;
-            double wantedRight = rFollower.getSegment().position;
 
             double actualLeft = Robot.drive.getLeftPosition() - originalLeftOffset;
             double actualRight = Robot.drive.getRightPosition() - originalRightOffset;
@@ -96,7 +93,7 @@ public class PathFollower extends VortxCommand {
            //SmartDashboard.putNumber("Error Vel left", lFollower.getSegment().velocity-Robot.drive.getLeftSpeed());
            //SmartDashboard.putNumber("Error Vel right", rFollower.getSegment().velocity-Robot.drive.getRightSpeed());
 
-            System.out.println(actualLeft + " " + actualRight);
+            //System.out.println(actualLeft + " " + actualRight);
 
             //SmartDashboard.putNumber("Distance Covered Left", actualLeft);
             //SmartDashboard.putNumber("Distance Covered Right", actualRight);
@@ -108,13 +105,13 @@ public class PathFollower extends VortxCommand {
             desiredAngle = Pathfinder.boundHalfDegrees(Pathfinder.r2d(lFollower.getHeading()) + originalAngleOffset);
             angleDifference = Pathfinder.boundHalfDegrees(desiredAngle - angle);
 
-            //System.out.println("Navx: " + angle + " Offset: " + originalAngleOffset + " desired: " + desiredAngle + " Difference: " + angleDifference);
+            System.out.println("Navx: " + angle + " Offset: " + originalAngleOffset + " desired: " + desiredAngle + " Difference: " + angleDifference);
             
 
 
-            turn = 1.7 * (1.0/80) * angleDifference;
+            turn = 0;// .01 * angleDifference;
 
-            //System.out.println("Left Power: " + left +  " Right Power: " + right  + " Turn power: " + turn);
+            System.out.println("Left Power: " + left +  " Right Power: " + right  + " Turn power: " + turn);
 
 
             Robot.drive.setLeftRight((left+turn), (right-turn));

@@ -9,10 +9,19 @@ package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
+import frc.robot.util.choosers.AutoChooser;
+import frc.robot.util.choosers.DoNothing;
+import frc.robot.util.hardware.VortxPDP;
 import edu.wpi.cscore.UsbCamera;
+import frc.robot.commands.ZeroAll;
+import frc.robot.commands.auto.LeftHab2PlaceHatch;
+import frc.robot.commands.auto.MiddleHatch;
+import frc.robot.commands.auto.RightHab2PlaceHatch;
 import frc.robot.controls.OI;
 
 public class Robot extends TimedRobot {
@@ -25,13 +34,15 @@ public class Robot extends TimedRobot {
 	public static Winch endgame;
 	public static Carriage carriage;
 	public static LimeLight limelight;
+	public static Suck suck;
+	public static SuckArms suckArms;
 
 	// Software Subsystems
 	public static ArduinoCo arduino;
 	public static Autonomous autoLogic;
 	public static Navigation navigation;
 	public static OI oi;
-	public static UsbCamera camera;
+	public static VortxPDP pdp;
 	
 	/** Understanding how the methods are called.
 	 *  
@@ -57,13 +68,18 @@ public class Robot extends TimedRobot {
 		elevator = new Elevator();
 		carriage = new Carriage();
 		endgame = new Winch();
+		suck = new Suck();
+		suckArms = new SuckArms();
+
 		arduino = new ArduinoCo();
 		limelight = new LimeLight();
 		navigation = new Navigation();
-
+		pdp = new VortxPDP();
+		
 		autoLogic = new Autonomous();
 
 		oi = new OI();
+
 	}
 
 	@Override 
@@ -81,6 +97,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledPeriodic() {
+		Scheduler.getInstance().run();
 	}
 
 	/**************************************Auto********************************************* */
@@ -102,6 +119,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 //		SmartBoard.setMatchMode();
+		
 	}
 
 	@Override
@@ -120,18 +138,20 @@ public class Robot extends TimedRobot {
 	public void testPeriodic() {}
 
 	public void log() {
+		SmartDashboard.putData(Scheduler.getInstance());
 		drive.log();
-		ballIntake.log();
+		//ballIntake.log();
 		hatchIntake.log();
 		elevator.log();
 		carriage.log();
 		navigation.log();
 		arduino.log();
+		pdp.log();
 	} 
 
 	public void debugLog() {
 		drive.debugLog();
-		ballIntake.debugLog();
+		//ballIntake.debugLog();
 		elevator.debugLog();
 	}
 

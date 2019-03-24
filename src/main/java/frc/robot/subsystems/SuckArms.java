@@ -2,23 +2,19 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
-import frc.robot.commands.winch.WinchMoveJoystick;
+import frc.robot.commands.suckarms.SuckArmsMoveJoystick;
 import frc.robot.util.hardware.VortxTalon;
 
-/**
- * Add your docs here.
- */
-public class Winch extends Subsystem {
+public class SuckArms extends Subsystem {
 
   VortxTalon motor;
 
-  public Winch() {
+  public SuckArms() {
 //    super("winch","WCH");
-    motor = new VortxTalon(RobotMap.Winch.winch, "Winch");
+    motor = new VortxTalon(RobotMap.SuckArms.suckArms, "SuckArms");
   }
 
   public void setMotorSpeed(double d) {
@@ -26,12 +22,12 @@ public class Winch extends Subsystem {
   }
 
   public void log() {    
-    SmartDashboard.putNumber("Winch Pully Speed",motor.get()); 
+    SmartDashboard.putNumber("Suck Arms Speed", motor.get()); 
   }
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new WinchMoveJoystick());
+    setDefaultCommand(new SuckArmsMoveJoystick());
   }
   
 }

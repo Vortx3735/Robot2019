@@ -34,9 +34,10 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 		elevator = new VortxTalon(RobotMap.Elevator.elevatorMotors, "Elevator Motors");
 		//TODO tuning on these values
-		controller = new PIDCtrl(.11,.01,0,0,this,this,2);
-		controller.setAbsoluteTolerance(.1);
-		controller.setOutputRange(-.15, .5);
+		controller = new PIDCtrl(.103,.01,0,0,this,this,2);
+		SmartDashboard.putData(controller);
+		controller.setAbsoluteTolerance(.5);
+		controller.setOutputRange(-.45, .5);
 		//controller.sendToDash("Elevator PID");
 		controller.disable();
 		

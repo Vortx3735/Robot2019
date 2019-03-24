@@ -49,14 +49,14 @@ private static Setting moveReactivity = new Setting("Move Reactivity", Constants
     public void execute() {
     	super.execute();
 		moveSetValue = Robot.oi.getDriveMove();
-		turnSetValue = Robot.oi.getDriveTurn();
-		
+		turnSetValue = Robot.oi.getDriveTurn();		
 
 		moveMotor = (moveSetValue-moveMotorPrev)*moveReactivity.getValue() + moveMotorPrev;
 		turnMotor = (turnSetValue-turnMotorPrev)*turnReactivity.getValue() + turnMotorPrev;
 
 		moveMotorPrev = moveMotor;
 		turnMotorPrev = turnMotor;
+
 					
 		moveMotor = moveMotor * Math.pow(Math.abs(moveMotor), Drive.moveExponent.getValue() - 1);
 		turnMotor = turnMotor * Math.pow(Math.abs(turnMotor), Drive.turnExponent.getValue() - 1);

@@ -2,8 +2,9 @@ package frc.robot.commands.drive.profiling;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.Constants;
+import frc.robot.Constants.LimeLight;
 import frc.robot.Robot;
+import frc.robot.util.calc.VortxMath;
 import frc.robot.util.settings.Func;
 
 /**
@@ -12,7 +13,9 @@ import frc.robot.util.settings.Func;
 public class DriveToTargetP extends Command {
 	
 	// private double finishTime = .3;
-	// private double timeOnTarget = 0;
+    // private double timeOnTarget = 0;
+    
+
 
     Func angleCommand;
     Func driveCommand;
@@ -22,20 +25,23 @@ public class DriveToTargetP extends Command {
     	this(new Func(){
 			@Override
 			public double getValue() {
-                return Robot.limelight.getTx() * Constants.LimeLight.STEER_K;
+                return VortxMath.limit(
+                    (Robot.limelight.getTx()-SmartDashboard.getNumber("Ang offset", LimeLight.ANGLE_OFFSET)) * 
+                    SmartDashboard.getNumber("Turn cof", LimeLight.STEER_K),
+                    LimeLight.MIN_TURN, LimeLight.MAX_TURN);
 			}
     	}, new Func() {
             @Override
             public double getValue() {
-                // if (Robot.limelight.getTv()==1.0) {
-                //     drivePower  = Robot.limelight.getDistance();
-                // } else {
-                //     drivePower = 0;
-                // }
-                return Math.min(Robot.arduino.getDistance() * 
-                    Constants.LimeLight.DRIVE_K, Constants.LimeLight.MAX_DRIVE); 
+                return Math.min(((Robot.arduino.getDistance()-SmartDashboard.getNumber("Dist offset", LimeLight.DISTANCE_OFFSET)) * 
+                SmartDashboard.getNumber("Drive cof", LimeLight.STEER_K)),
+                 LimeLight.MAX_DRIVE); 
             }
         });
+        SmartDashboard.putNumber("Drive cof", LimeLight.DRIVE_K);
+        SmartDashboard.putNumber("Turn cof", LimeLight.STEER_K);
+        SmartDashboard.putNumber("Ang offset", LimeLight.ANGLE_OFFSET);
+        SmartDashboard.putNumber("Dist offset", LimeLight.DISTANCE_OFFSET);
     }
 
 	public DriveToTargetP(Func turning, Func driving) {

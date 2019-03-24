@@ -1,4 +1,4 @@
-package frc.robot.commands.winch;
+package frc.robot.commands.suckarms;
 
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -7,12 +7,12 @@ import frc.robot.Robot;
 /**
  *
  */
-public class WinchMoveJoystick extends Command {
+public class SuckArmsMoveJoystick extends Command {
 
-	public WinchMoveJoystick() {
+	public SuckArmsMoveJoystick() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(Robot.endgame);
+		requires(Robot.suckArms);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +22,7 @@ public class WinchMoveJoystick extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {		
-		Robot.endgame.setMotorSpeed(Robot.oi.getWinchMove());
+		Robot.suckArms.setMotorSpeed(Robot.oi.getArmsMove());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -32,7 +32,7 @@ public class WinchMoveJoystick extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.endgame.setMotorSpeed(0.0);
+		Robot.suckArms.setMotorSpeed(0.0);
 	}
 
 	// Called when another command which requires one or more of the same

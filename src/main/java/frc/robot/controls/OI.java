@@ -7,10 +7,12 @@
 
 package frc.robot.controls;
 
+import frc.robot.util.calc.VortxMath;
 import frc.robot.util.oi.XboxController;
 import frc.robot.util.settings.Func;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
+import frc.robot.commands.EndAll;
 import frc.robot.commands.ZeroAll;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.hatch.*;
@@ -20,9 +22,13 @@ import frc.robot.commands.drive.profiling.DriveToTargetP;
 import frc.robot.commands.drive.profiling.DriveToTargetPID;
 import frc.robot.commands.drive.simple.DriveAddSensitiveLeft;
 import frc.robot.commands.drive.simple.DriveAddSensitiveRight;
+import frc.robot.commands.elevator.ElevatorFree;
 import frc.robot.commands.elevator.ElevatorSetPos;
 import frc.robot.commands.auto.InchesStraight;
 import frc.robot.commands.sequences.DropHatch;
+import frc.robot.commands.winch.ConstantPushing;
+import frc.robot.commands.winch.StopPushing;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -43,55 +49,51 @@ public class OI {
 		main.x.whenPressed(new HatchToggle());
 
 		main.pov0.whenPressed(new CarriageSolenoidSet(true));
-	main.pov180.whenPressed(new CarriageSolenoidSet(false));
+		main.pov180.whenPressed(new CarriageSolenoidSet(false));
 
 		main.pov270.whileHeld(new DriveAddSensitiveLeft());
 		main.pov90.whileHeld(new DriveAddSensitiveRight());
 
-		main.rb.whenPressed(new PlaceHatch());
+		main.a.whileHeld(new DriveToTargetP());
 
-		//main.a.whileHeld(new SetWinchSpeed(.5));
+		main.start.whenPressed(new ConstantPushing());
+		main.back.whenPressed(new StopPushing());
 
-		main.a.whenPressed(new DropHatch());
-		co.a.whenPressed(new DropHatch());
+		////////////////////////CO CONTROLS////////////////////////////
 
-		main.start.whileHeld(new DriveToTargetP());
-		main.back.whileHeld(new DriveToTargetPID());
-
-
-		//////////////////////////////CO Controls//////////////////////////////
-
-		// co.a.whenPressed(new ElevatorSetPos(new Func() {
-		// 	@Override
-		// 	public double getValue() {
-		// 		return co.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch;
-		// 	}
-		// }));
-		// co.b.whenPressed(new ElevatorSetPos(new Func() {
-		// 	@Override
-		// 	public double getValue() {
-		// 		return co.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch;
-		// 	}
-		// }));
-		// co.y.whenPressed(new ElevatorSetPos(new Func() {
-		// 	@Override
-		// 	public double getValue() {
-		// 		return co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch;
-		// 	}
-		// }));
-		
 		co.x.whenPressed(new HatchToggle());
 
 		co.pov0.whenPressed(new CarriageSolenoidSet(true));
-		//co.pov180.whenPressed(new CarriageSolenoidSet(false));
+		co.pov180.whenPressed(new CarriageSolenoidSet(false));
 
-		co.rb.whenPressed(new PlaceHatch());
+		co.start.whenPressed(new ConstantPushing());
+		co.back.whenPressed(new StopPushing());
+
+		co.a.whenPressed(new ElevatorSetPos(new Func() {
+			@Override
+			public double getValue() {
+				return co.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch;
+			}
+		}));
+		co.b.whenPressed(new ElevatorSetPos(new Func() {
+			@Override
+			public double getValue() {
+				return co.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch;
+			}
+		}));
+		co.y.whenPressed(new ElevatorSetPos(new Func() {
+			@Override
+			public double getValue() {
+				return co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch;
+			}
+		}));
+
+		co.rb.whenPressed(new ElevatorFree());
 
 		SmartDashboard.putData(new ZeroAll());
+		SmartDashboard.putData(new EndAll());
 
-
-		//main.start.whenPressed(new InchesStraight(50,20));
-
+		
 	}
 
 	//
@@ -107,16 +109,21 @@ public class OI {
 	}
 	
 	public double getElevatorMove() {
-		double move = main.getRightY()+ co.getLeftY();
+		double move = VortxMath.handleDeadband(main.getRightY()+ co.getLeftY(),.05);
 		return  Math.copySign((move*move), move);
 	}
 
 	public double getBallMove() {
-		return co.getRawAxis(5)*-1;
+		return VortxMath.handleDeadband(co.getRawAxis(5),.1);
 	}
 
 	public double getWinchMove() {
-		double move = co.getRightTrigger() - co.getLeftTrigger();
+		double move = VortxMath.handleDeadband(co.getRightTrigger() - co.getLeftTrigger(), .05);
+		return Math.copySign((move*move), move);
+	}
+
+	public double getArmsMove() {
+		double move = VortxMath.handleDeadband(co.getRawAxis(4),.1);
 		return Math.copySign((move*move), move);
 	}
 	

@@ -7,8 +7,8 @@ import frc.robot.commands.hatch.HatchToggle;
 public class DropHatch extends CommandGroup {
 
     public DropHatch () {
-            addSequential(new CarriageSolenoidSet(true),.19);
-            addSequential(new HatchToggle());
+        addSequential(new HatchToggle());
+        addSequential(new CarriageSolenoidSet(true));
     }
     
 }

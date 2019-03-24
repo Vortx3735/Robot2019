@@ -30,8 +30,7 @@ public class ElevatorSetPos extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("Setting set point to " + inches.getValue());
-    	Robot.elevator.controller.setSetpoint(inches.getValue()+1); //adding one compensates for fall
+    	Robot.elevator.controller.setSetpoint(inches.getValue()); //adding one compensates for fall
     	Robot.elevator.controller.enable();
     }
 

@@ -25,8 +25,8 @@ public class Constants {
 		//exp drive
 		public static final double moveReactivity = 1;	//(0,1] (least reactive, most reactive]
 		public static final double turnReactivity = 1;	//(0,1] (least reactive, most reactive]	
-		public static final double scaledMaxMove = 1;
-		public static final double scaledMaxTurn = .7;	//(0,1] directly to the arcadedrive turn value
+		public static final double scaledMaxMove = .9;
+		public static final double scaledMaxTurn = .5;	//(0,1] directly to the arcadedrive turn value
 		//these retain the range but shift more of the action towards lower values as the exponent is raised higher
 		//graph y = x * x^(p-1) {-1 < x < 1} for visualization
 		public static final double moveExponent = 3;		//[1,inf) 1 is linear, 2 is squared (normal), etc.
@@ -50,20 +50,23 @@ public class Constants {
 		public static final double tickPerRoatation = 512;
 		//All these are heights and should assume the 0 is the bottom of the elevator
 		public static final double lowRocketHatch = 0;
-		public static final double midRocketHatch = 48;
+		public static final double midRocketHatch = 54;
 		public static final double highRocketHatch = 102;
-		public static final double lowRocketCargo = 37;
-		public static final double midRocketCargo = 85.5;
-		public static final double highRocketCargo = 64.5+14.5; //TODO: The real heigth
+		public static final double lowRocketCargo = 4.5;
+		public static final double midRocketCargo = 52.5;
+		public static final double highRocketCargo = 52.5; //TODO: The real heigth
 		public static final double cargoHatch = 0;
-		public static final double cargoPort = 41;
+		public static final double shipPort = 31.5;
 
 	}
 
 	public class LimeLight {
 		public static final double STEER_K = 0.04;                    // how hard to turn toward the target
-        public static final double DRIVE_K = 0.01;                    // how hard to drive fwd toward the target
-        public static final double DESIRED_TARGET_DISTANCE = 24.0;        // Area of the target when the robot reaches the wall
-        public static final double MAX_DRIVE = 0.5;                   // Simple speed limit so we don't drive too fast
+        public static final double DRIVE_K = 0.0075;                   // how hard to drive fwd toward the target
+		public static final double MAX_DRIVE = 0.4;                   // Simple speed limit so we don't drive too fast
+		public static final double MAX_TURN = 0.5;
+		public static final double MIN_TURN = -0.5;
+		public static final double ANGLE_OFFSET = 1.8;
+		public static final double DISTANCE_OFFSET = 11.0;
 	}
 }

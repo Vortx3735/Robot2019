@@ -21,6 +21,7 @@ public class ArduinoCo extends Subsystem {
   Pattern p;
   Matcher m;
   String s;
+  int count;
 
   public ArduinoCo() {
     sp = new SerialPort(9600, Port.kUSB);
@@ -29,23 +30,27 @@ public class ArduinoCo extends Subsystem {
   }
 
   public double getDistance() {
-    return distance;
+    return distance > 300 ? 60 : distance;
   }
 
   public void update() {
-
+    count++;
+    if(!(count%5==0)) {
+      return;
+    }
     try {
       if (sp.getBytesReceived() > 0) {
-        s += sp.readString().trim(); //add the characters that were read in
+        s += sp.readString(); //add the characters that were read in
+        //System.out.println(s);
         m = p.matcher(s);
         if(s.length()>=6&&m.find()) { //if the current string has length greater than 6 and contains the pattern
           for (int i = s.length()-1; i >=0; i-=6) { //loop backwards from end to beginning to find last occurrence
-                if(m.find(Math.max(i, 0))) {        //if it finds it from index i or after
-                    distance = Double.parseDouble(s.substring(m.start(), m.end())); //set the distance
-                    s = s.substring(m.end());       //remove the string from the end of the last data and before
-                    break;                          //break out of the loop
-                }
+            if(m.find(Math.max(i, 0))) {        //if it finds it from index i or after
+              distance = Double.parseDouble(s.substring(m.start(), m.end())); //set the distance
+               s = s.substring(m.end());       //remove the string from the end of the last data and before
+               break;                          //break out of the loop
             }
+          }
         }    
       }
 

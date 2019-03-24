@@ -19,7 +19,6 @@ public class CarriageSolenoidSet extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("Carriage sol called with " + b);
         Robot.carriage.setSolenoid(b);
     }
 

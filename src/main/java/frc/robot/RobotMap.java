@@ -37,10 +37,14 @@ public class RobotMap {
 	}
 
 	public static class Winch {
-		public static int solEndLeft = 3;
-		public static int solEndRight = 4;
+		public static int solenoid = 2;
 
-		public static int[] winch = {3,4};
+		public static int winch = 3;
 	}
+
+	public static class SuckArms {
+		public static int suckArms = -4;
+	}
+
 
 }

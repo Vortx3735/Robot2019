@@ -50,7 +50,7 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
 //		table = NetworkTableInstance.getDefault().getTable("MAP");
 		
 		ahrs = new VortxAhrs(SPI.Port.kMXP);
-		controller = new PIDCtrl(.016,0.0,0.061,this,this, 10);
+		controller = new PIDCtrl(.022,0.001,0.061,this,this, 10);
     	controller.setOutputRange(-.7, .7);
     	controller.setInputRange(-180, 180);
     	controller.setContinuous();

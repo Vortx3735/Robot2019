@@ -7,12 +7,14 @@ import frc.robot.Robot;
 /**
  *
  */
-public class WinchMoveJoystick extends Command {
+public class ConstantPushing extends Command {
 
-	public WinchMoveJoystick() {
+    int count;
+
+	public ConstantPushing() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(Robot.endgame);
+		requires(Robot.suck);
 	}
 
 	// Called just before this Command runs the first time
@@ -21,8 +23,11 @@ public class WinchMoveJoystick extends Command {
 	}
 
 	// Called repeatedly when this Command is scheduled to run
-	protected void execute() {		
-		Robot.endgame.setMotorSpeed(Robot.oi.getWinchMove());
+	protected void execute() {
+        count++;
+		if(count%6==0) {
+            Robot.suck.setSolenoid(!Robot.suck.solenoid.get());
+        }
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -32,7 +37,6 @@ public class WinchMoveJoystick extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.endgame.setMotorSpeed(0.0);
 	}
 
 	// Called when another command which requires one or more of the same

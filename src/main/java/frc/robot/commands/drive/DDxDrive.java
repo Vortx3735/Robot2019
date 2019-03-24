@@ -36,14 +36,14 @@ public class DDxDrive extends Command {
 		}
 	};
 	
-	private Setting maxAt = new Setting("Max Acc Turn", 5, true){
+	private Setting maxAt = new Setting("Max Acc Turn", 4, true){
 		@Override
 		public double getValue(){
 			return super.getValue() / 50.0;
 		}
 	};
 	
-	private Setting maxJt = new Setting("Max Jerk Turn", 100, false){
+	private Setting maxJt = new Setting("Max Jerk Turn", 50,false){
 		@Override
 		public double getValue(){
 			return super.getValue() / 50.0;
@@ -57,8 +57,8 @@ public class DDxDrive extends Command {
     	requires(Robot.drive);
     	
     	move = new JerkLimiter(0, new Range(maxA), new Range(maxJ));
-    	turn = new JerkLimiter(0, new Range(maxAt), new Range(maxJt));
-
+		turn = new JerkLimiter(0, new Range(maxAt), new Range(maxJt));
+		
     }
     
 
@@ -79,6 +79,11 @@ public class DDxDrive extends Command {
 		    	
 		moveMotor = moveMotor * Math.pow(Math.abs(moveMotor), Drive.moveExponent.getValue() - 1);
 		turnMotor = turnMotor * Math.pow(Math.abs(turnMotor), Drive.turnExponent.getValue() - 1);
+
+		if(Robot.pdp.isBrowningOut()) {
+			moveMotor = 0;
+			turnMotor = 0;
+		}
 		
     	Robot.drive.normalDrive(
     			move.feed(Robot.oi.getDriveMove()) * Drive.scaledMaxMove.getValue(), 

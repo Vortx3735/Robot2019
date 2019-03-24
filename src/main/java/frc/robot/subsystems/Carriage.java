@@ -9,7 +9,7 @@ import frc.robot.RobotMap;
 //Hatch intake
 public class Carriage extends Subsystem {
 
-	Solenoid solenoid;
+	public Solenoid solenoid;
 	
 	public Carriage() {
 		//super("Carriage","David fix this");
