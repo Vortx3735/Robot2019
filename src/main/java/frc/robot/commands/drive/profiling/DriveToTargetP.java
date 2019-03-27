@@ -38,6 +38,7 @@ public class DriveToTargetP extends Command {
                  LimeLight.MAX_DRIVE); 
             }
         });
+        
         SmartDashboard.putNumber("Drive cof", LimeLight.DRIVE_K);
         SmartDashboard.putNumber("Turn cof", LimeLight.STEER_K);
         SmartDashboard.putNumber("Ang offset", LimeLight.ANGLE_OFFSET);
@@ -45,7 +46,6 @@ public class DriveToTargetP extends Command {
     }
 
 	public DriveToTargetP(Func turning, Func driving) {
-    	requires(Robot.drive);
         requires(Robot.limelight);
         requires(Robot.arduino);
 
@@ -66,7 +66,9 @@ public class DriveToTargetP extends Command {
 
         SmartDashboard.putNumber("move", move);
         SmartDashboard.putNumber("turn", turn);
-        Robot.drive.arcadeDrive(move, turn);
+        //add the values to the drive class
+        Robot.drive.setMoveVisionAssist(move);
+        Robot.drive.setTurnVisionAssist(turn);
     }
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -77,7 +79,8 @@ public class DriveToTargetP extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.drive.arcadeDrive(0, 0);
+        Robot.drive.setMoveVisionAssist(0);
+        Robot.drive.setTurnVisionAssist(0);
         Robot.limelight.setPipeline(1.0); 
     }
 

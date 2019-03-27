@@ -11,7 +11,6 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.drive.DDxDrive;
 import frc.robot.Constants;
-import frc.robot.settings.Dms;
 import frc.robot.util.hardware.VortxTalon;
 import frc.robot.util.settings.BooleanSetting;
 import frc.robot.util.settings.Setting;
@@ -36,8 +35,9 @@ public class Drive  extends Subsystem {
 	
 	private double leftAddTurn = 0;
 	private double rightAddTurn = 0;
-	private double visionAssist = 0;
 	private double navxAssist = 0;
+	private double visionMoveAssist = 0;
+	private double visionTurnAssist = 0;
 	
 	public static Setting moveExponent = new Setting("Move Exponent", Constants.Drive.moveExponent, false);
 	public static Setting turnExponent = new Setting("Turn Exponent", Constants.Drive.turnExponent, false);
@@ -117,10 +117,6 @@ public class Drive  extends Subsystem {
 		r1.setSelectedSensorPosition(0);
 	}
 	
-
-
-
-
 	/*********************************
 	 * Configuring left and right PID Peak Voltages
 	 */
@@ -186,69 +182,16 @@ public class Drive  extends Subsystem {
 		double rotateValue = rotate + getTurnAdditions();
 		setLeftRight(move + rotateValue, move - rotateValue);
 	}
-	
-	/**
-	 * 
-	 * @param ips	the desired speed, in inches per second
-	 * @param dps	the desired turn rate, in degrees per second
-	 */
-	public void velocityDrive(double ips, double dps) {
-    	double left = ips + (Math.toRadians(dps) * Dms.Bot.DriveBase.HALFWIDTH);
-    	double right = ips - (Math.toRadians(dps) * Dms.Bot.DriveBase.HALFWIDTH);
-    
-		Robot.drive.setLeftRightPlus(Drive.speedToPercent(left), Drive.speedToPercent(right));
-	}
-	
-	/**
-	 * Limits the left and right speeds so that rotation is consistent
-	 * across all move values. Modifies speed for consistent rotation.
-	 * @param move
-	 * @param rotate
-	 */
-	public void limitedDrive(double move, double rotate) {
-		double left = move + getTurnAdditions() + rotate;
-		double right = move - getTurnAdditions() - rotate;
-		double leftSpeed;
-		double rightSpeed;
-		
-		if(Math.abs(left) > 1) {
-			leftSpeed = Math.signum(left);
-			rightSpeed = right - left + Math.signum(left);
-		}else if(Math.abs(right) > 1) {
-			leftSpeed = left - right + Math.signum(right);
-			rightSpeed = Math.signum(right);
-		}else {
-			leftSpeed = left;
-			rightSpeed = right;
-		}
-		setLeftRight(leftSpeed, rightSpeed);
-		
-	}
 
-	/**
-	 * Drives in a circle with a specified radius
-	 * @param radius
-	 * @param move
-	 */
-	public void radialDrive(double radius, double move){
-		double left;
-		double right;
-		if(radius > 0){
-			radius = Math.abs(radius);
-			left = move;
-			right = move * (radius - Dms.Bot.HALFWIDTH)/
-							  (radius + Dms.Bot.HALFWIDTH);
-		}else{
-			radius = Math.abs(radius);
-			right = move;
-			left = move * (radius - Dms.Bot.HALFWIDTH)/
-				  			 (radius + Dms.Bot.HALFWIDTH);
-		}
-		setLeftRight(left, right);
+	public void arcadeDrivePlus(double move, double rotate) {
+		move += visionMoveAssist;
+		rotate += getTurnAdditions();
+		arcadeDrive(move, rotate);
 	}
+		
 	
 	public double getTurnAdditions() {
-		return leftAddTurn + rightAddTurn;// + visionAssist + navxAssist;
+		return leftAddTurn + rightAddTurn + visionTurnAssist;// + visionAssist + navxAssist;
 	}
 
 	/*******************************
@@ -261,6 +204,14 @@ public class Drive  extends Subsystem {
     	rightAddTurn = turn;
     }
 	
+	public void setMoveVisionAssist(double move) {
+		visionMoveAssist = move;
+	}
+
+	public void setTurnVisionAssist(double turn) {
+		visionTurnAssist = turn;
+	}
+
 	public void setNavxAssist(double error) {
 		this.navxAssist = (error/180.0) * Navigation.navCo.getValue();
 	}
@@ -324,8 +275,7 @@ public class Drive  extends Subsystem {
 	public void setLeftRight(double left, double right) {
 		l1.set(ControlMode.PercentOutput, left);
 		r1.set(ControlMode.PercentOutput, right);
-		
-//		System.out.println("Left: " + left + "Right: " + right);
+		//		System.out.println("Left: " + left + "Right: " + right);
 		
 	}
 	

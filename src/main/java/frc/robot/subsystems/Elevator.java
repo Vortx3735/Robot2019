@@ -15,8 +15,6 @@ import frc.robot.util.PIDCtrl;
 import frc.robot.util.hardware.VortxTalon;
 import frc.robot.Constants;
 import frc.robot.util.settings.PIDSetting;
-import frc.robot.util.settings.Setting;
-import frc.robot.commands.elevator.ElevatorResetEncoder;
 
 /**
  *

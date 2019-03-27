@@ -7,21 +7,11 @@
 
 package frc.robot;
 
-import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
-import frc.robot.util.choosers.AutoChooser;
-import frc.robot.util.choosers.DoNothing;
 import frc.robot.util.hardware.VortxPDP;
-import edu.wpi.cscore.UsbCamera;
-import frc.robot.commands.ZeroAll;
-import frc.robot.commands.auto.LeftHab2PlaceHatch;
-import frc.robot.commands.auto.MiddleHatch;
-import frc.robot.commands.auto.RightHab2PlaceHatch;
 import frc.robot.controls.OI;
 
 public class Robot extends TimedRobot {

@@ -1,7 +1,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
 /**
@@ -18,7 +17,7 @@ public class EndAll extends Command {
         requires(Robot.suck);
         requires(Robot.carriage);
         requires(Robot.endgame);
-        System.out.println("EndAll created");
+        System.out.println("End All created");
     }
 
 

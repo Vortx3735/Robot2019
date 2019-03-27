@@ -1,7 +1,6 @@
 package frc.robot.util;
 
 import frc.robot.util.smartboard.*;
-import edu.wpi.first.wpilibj.buttons.NetworkButton;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.networktables.NetworkTable;
 
