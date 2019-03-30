@@ -21,12 +21,10 @@ public class Robot extends TimedRobot {
 	public static BallIntake ballIntake;
 	public static HatchIntake hatchIntake;
 	public static Elevator elevator;
-	public static Winch endgame;
 	public static Carriage carriage;
 	public static LimeLight limelight;
-	public static Suck suck;
 	public static SuckArms suckArms;
-
+	public static Shoot shoot;
 	// Software Subsystems
 	public static ArduinoCo arduino;
 	public static Autonomous autoLogic;
@@ -57,9 +55,8 @@ public class Robot extends TimedRobot {
 		hatchIntake = new HatchIntake();
 		elevator = new Elevator();
 		carriage = new Carriage();
-		endgame = new Winch();
-		suck = new Suck();
 		suckArms = new SuckArms();
+		shoot = new Shoot();
 
 		arduino = new ArduinoCo();
 		limelight = new LimeLight();

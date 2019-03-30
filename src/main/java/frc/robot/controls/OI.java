@@ -12,17 +12,19 @@ import frc.robot.util.oi.XboxController;
 import frc.robot.util.settings.Func;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
-import frc.robot.commands.EndAll;
 import frc.robot.commands.ZeroAll;
+import frc.robot.commands.auto.FinalClimbUp;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.hatch.*;
+import frc.robot.commands.intake.BallIntakeMotorSet;
+import frc.robot.commands.shoot.ShootToggle;
+import frc.robot.commands.suckarms.ArmsDown;
 import frc.robot.commands.drive.profiling.DriveToTargetP;
 import frc.robot.commands.drive.simple.DriveAddSensitiveLeft;
 import frc.robot.commands.drive.simple.DriveAddSensitiveRight;
 import frc.robot.commands.elevator.ElevatorFree;
 import frc.robot.commands.elevator.ElevatorSetPos;
-import frc.robot.commands.winch.ConstantPushing;
-import frc.robot.commands.winch.StopPushing;
+
 
 
 /**
@@ -45,14 +47,15 @@ public class OI {
 
 		main.pov0.whenPressed(new CarriageSolenoidSet(true));
 		main.pov180.whenPressed(new CarriageSolenoidSet(false));
+		
 
 		main.pov270.whileHeld(new DriveAddSensitiveLeft());
 		main.pov90.whileHeld(new DriveAddSensitiveRight());
 
-		main.a.whileHeld(new DriveToTargetP());
+		//main.a.whileHeld(new DriveToTargetP());
 
-		main.start.whenPressed(new ConstantPushing());
-		main.back.whenPressed(new StopPushing());
+	
+		main.b.whenPressed(new FinalClimbUp());
 
 		////////////////////////CO CONTROLS////////////////////////////
 
@@ -61,8 +64,7 @@ public class OI {
 		co.pov0.whenPressed(new CarriageSolenoidSet(true));
 		co.pov180.whenPressed(new CarriageSolenoidSet(false));
 
-		co.start.whenPressed(new ConstantPushing());
-		co.back.whenPressed(new StopPushing());
+		
 
 		co.a.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
@@ -86,7 +88,7 @@ public class OI {
 		co.rb.whenPressed(new ElevatorFree());
 
 		SmartDashboard.putData(new ZeroAll());
-		SmartDashboard.putData(new EndAll());
+		//SmartDashboard.putData(new EndAll());
 
 		
 	}

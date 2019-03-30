@@ -21,8 +21,12 @@ public class RobotMap {
 	}
 
 	public static class Ball {
-		public static int topMotor = 5; //5
+		public static int topMotor = 4; //5
 
+	}
+	public static class Shoot {
+		public static int shoot = 0;// 3/30 - please replace value
+		
 	}
 
 	public static class Hatch {
@@ -43,7 +47,7 @@ public class RobotMap {
 	}
 
 	public static class SuckArms {
-		public static int suckArms = -4;
+		public static int suckArms = 6;//-
 	}
 
 

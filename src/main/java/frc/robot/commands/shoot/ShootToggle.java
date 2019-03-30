@@ -5,17 +5,18 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.winch;
+package frc.robot.commands.shoot;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.Shoot;
 
-public class SetWinchSpeed extends Command {
-  double speed;
-
-  public SetWinchSpeed(double speed) {
-    requires(Robot.endgame);
-    this.speed = speed;
+public class ShootToggle extends Command {
+  public boolean isOn = false;
+  public ShootToggle(boolean toggle) {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    this.isOn = toggle;  
   }
 
   // Called just before this Command runs the first time
@@ -26,25 +27,24 @@ public class SetWinchSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.endgame.setMotorSpeed(speed);
+    Robot.shoot.isEnabled(isOn);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
     return false;
+    
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.endgame.setMotorSpeed(0.0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.endgame.setMotorSpeed(0.0);
   }
 }
