@@ -16,8 +16,8 @@ package frc.robot;
 public class RobotMap {
 	public static class Drive{
 
-		public static int[] leftTrain =  {2,1,0}; //values for Robot2019
-		public static int[] rightTrain = {-9,-10,-8};
+		public static int[] leftTrain =  {1,0}; //values for Robot2019
+		public static int[] rightTrain = {-9,-8};
 	}
 
 	public static class Ball {
@@ -25,7 +25,8 @@ public class RobotMap {
 
 	}
 	public static class Shoot {
-		public static int shoot = 0;// 3/30 - please replace value
+		public static int frontSolenoid = 3;
+		public static int backSolenoid = 4;
 		
 	}
 
@@ -40,14 +41,8 @@ public class RobotMap {
 		public static int[] elevatorMotors = {-7,6};
 	}
 
-	public static class Winch {
-		public static int solenoid = 2;
-
-		public static int winch = 3;
-	}
-
-	public static class SuckArms {
-		public static int suckArms = 6;//-
+	public static class BallArms {
+		public static int ballArms = 2;
 	}
 
 

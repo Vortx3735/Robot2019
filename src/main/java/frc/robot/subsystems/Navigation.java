@@ -56,8 +56,8 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
     	controller.setContinuous();
 		controller.setAbsoluteTolerance(3);
     	
-		curLeft = Robot.drive.getLeftPosition();
-    	curRight = Robot.drive.getRightPosition();
+		curLeft = 0;//Robot.drive.getLeftPosition();
+    	curRight = 0;//Robot.drive.getRightPosition();
     	prevLeft = curLeft;
 		prevRight = curRight;
 		
@@ -74,29 +74,31 @@ public class Navigation extends Subsystem implements PIDSource, PIDOutput {
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
-    }
+	}
+	
+	//TODO: put in if they put back on drive encoders
     
-    public synchronized void integrate(){
-    	synchronized(posLock){
-    		curLeft = Robot.drive.getLeftPosition();
-        	curRight = Robot.drive.getRightPosition();
+    // public synchronized void integrate(){
+    // 	synchronized(posLock){
+    // 		curLeft = Robot.drive.getLeftPosition();
+    //     	curRight = Robot.drive.getRightPosition();
         	
-        	double dd = ((curLeft-prevLeft) + (curRight-prevRight)) * .5;
+    //     	double dd = ((curLeft-prevLeft) + (curRight-prevRight)) * .5;
         	
-        	pos.yaw = getYaw();
-			//double angle = VortxMath.swapYawAngle(pos.yaw);
-			double angle = pos.yaw;
+    //     	pos.yaw = getYaw();
+	// 		//double angle = VortxMath.swapYawAngle(pos.yaw);
+	// 		double angle = pos.yaw;
 
-    		pos.x += Math.cos(Math.toRadians(angle)) * dd;
-    		pos.y += Math.sin(Math.toRadians(angle)) * dd;
+    // 		pos.x += Math.cos(Math.toRadians(angle)) * dd;
+    // 		pos.y += Math.sin(Math.toRadians(angle)) * dd;
     		
-        	prevLeft = curLeft;
-			prevRight = curRight;
+    //     	prevLeft = curLeft;
+	// 		prevRight = curRight;
         	
-    	}
+    // 	}
     	
     	
-    }
+    // }
     
     public double getYaw(){
     	return ahrs.getYaw();

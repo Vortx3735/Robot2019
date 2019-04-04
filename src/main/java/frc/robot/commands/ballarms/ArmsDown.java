@@ -5,18 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.shoot;
+package frc.robot.commands.ballarms;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.Shoot;
 
-public class ShootToggle extends Command {
-  public boolean isOn = false;
-  public ShootToggle(boolean toggle) {
+public class ArmsDown extends Command {
+  public ArmsDown() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    this.isOn = toggle;  
   }
 
   // Called just before this Command runs the first time
@@ -27,14 +24,13 @@ public class ShootToggle extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.shoot.isEnabled(isOn);
+    Robot.ballArms.setMotorSpeed(1);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
     return false;
-    
   }
 
   // Called once after isFinished returns true

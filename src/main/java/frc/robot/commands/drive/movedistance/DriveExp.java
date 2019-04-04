@@ -39,7 +39,7 @@ public class DriveExp extends VortxCommand {
     protected void initialize() {
     	super.initialize();
     	Robot.drive.setupDriveForSpeedControl();
-		moveMotor = moveMotorPrev = Robot.drive.getCurrentPercent();
+		moveMotor = moveMotorPrev = Robot.drive.getPercentOutput();
 		turnMotor = turnMotorPrev = 0;
 
     }

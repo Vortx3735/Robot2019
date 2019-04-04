@@ -64,7 +64,7 @@ public class Drive  extends Subsystem {
 		r1.setInchesPerTick(Constants.Drive.InchesPerTick);
 
 		brakeEnabled.setIsListening(true);
-		initSensors();
+		//initSensors();
 		setEnableBrake(true);
 	}
 
@@ -112,10 +112,10 @@ public class Drive  extends Subsystem {
 
 	}
 
-	public void zeroSensors() {
-		l1.setSelectedSensorPosition(0);
-		r1.setSelectedSensorPosition(0);
-	}
+	// public void zeroSensors() {
+	// 	l1.setSelectedSensorPosition(0);
+	// 	r1.setSelectedSensorPosition(0);
+	// }
 	
 	/*********************************
 	 * Configuring left and right PID Peak Voltages
@@ -136,7 +136,6 @@ public class Drive  extends Subsystem {
 	public void resetEncodersPositions(){
 		l1.resetPosition();
 		r1.resetPosition();
-
 	}
 	
 	/*******************************
@@ -340,7 +339,11 @@ public class Drive  extends Subsystem {
      */
     public double getCurrentPercent() {
     	return speedToPercent(getAverageSpeed());
-    }
+	}
+	
+	public double getPercentOutput() {
+		return (l1.getMotorOutputPercent() + r1.getMotorOutputPercent())/2;
+	}
     
     public void setLeftVelocity(double v) {
     	l1.set(ControlMode.Velocity, v);
@@ -375,22 +378,22 @@ public class Drive  extends Subsystem {
 	 * The Logs
 	 ******************************************/
 	public void log() {
-		SmartDashboard.putNumber("Drive Left Position", getLeftPosition());
-		SmartDashboard.putNumber("Drive Right Position", getRightPosition());
-		calcSpeeds();
+		// SmartDashboard.putNumber("Drive Left Position", getLeftPosition());
+		// SmartDashboard.putNumber("Drive Right Position", getRightPosition());
+		// calcSpeeds();
 	}
 
 	public void debugLog() {
-		SmartDashboard.putNumber("Drive Left Ticks", getLeftTicks());
-		SmartDashboard.putNumber("Drive Right Ticks", getRightTicks());
+		// SmartDashboard.putNumber("Drive Left Ticks", getLeftTicks());
+		// SmartDashboard.putNumber("Drive Right Ticks", getRightTicks());
 
-		SmartDashboard.putNumber("Drive Left Speed", getLeftSpeed());
-		SmartDashboard.putNumber("Drive Right Speed", getRightSpeed());
+		// SmartDashboard.putNumber("Drive Left Speed", getLeftSpeed());
+		// SmartDashboard.putNumber("Drive Right Speed", getRightSpeed());
 
 		SmartDashboard.putNumber("Drive Left P Output", l1.getMotorOutputPercent());
 		SmartDashboard.putNumber("Drive Right P Output", r1.getMotorOutputPercent());
 		
-		SmartDashboard.putNumber("Drive avg speed inches", getAverageSpeed());
+	//	SmartDashboard.putNumber("Drive avg speed inches", getAverageSpeed());
 	}
 
 	double pastLeftInches;

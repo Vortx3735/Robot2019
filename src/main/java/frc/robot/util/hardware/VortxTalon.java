@@ -168,5 +168,10 @@ public class VortxTalon extends WPI_TalonSRX{
 		
 		
 	}
+
+	@Override
+	public double getTemperature() {
+		return 32 + 1.8*super.getTemperature();
+	}
 	
 }

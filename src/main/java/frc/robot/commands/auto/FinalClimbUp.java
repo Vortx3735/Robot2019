@@ -10,8 +10,7 @@ package frc.robot.commands.auto;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.drive.movedistance.DriveExp;
 import frc.robot.commands.intake.BallIntakeMotorSet;
-import frc.robot.commands.shoot.ShootToggle;
-import frc.robot.commands.suckarms.ArmsDown;
+import frc.robot.commands.ballarms.ArmsDown;
 
 public class FinalClimbUp extends CommandGroup {
   /**

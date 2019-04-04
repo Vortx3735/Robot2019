@@ -14,24 +14,31 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class Shoot extends Subsystem {
+public class Shoot extends Subsystem { //TODO: Name this lift up
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public Solenoid s1;
+  public Solenoid frontSolenoid;
+  public Solenoid backSolenoid;
 
 
-  public Shoot()
-  {
-    s1 = new Solenoid(RobotMap.Shoot.shoot);
+  public Shoot() {
+    frontSolenoid = new Solenoid(RobotMap.Shoot.frontSolenoid);
+    backSolenoid = new Solenoid(RobotMap.Shoot.backSolenoid);
   }
-  public void isEnabled(boolean toggle)
-  {
-    s1.set(toggle);
 
+
+  public void setFrontSolenoid(boolean  b) {
+    frontSolenoid.set(b);
   } 
+
+  public void setBackSolenoid(boolean b) {
+    backSolenoid.set(b);
+  }
+  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
+  
 }

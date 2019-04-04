@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.controls;
+package frc.robot;
 
 import frc.robot.util.calc.VortxMath;
 import frc.robot.util.oi.XboxController;
@@ -16,7 +16,8 @@ import frc.robot.commands.ZeroAll;
 import frc.robot.commands.auto.FinalClimbUp;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.hatch.*;
-import frc.robot.commands.intake.BallIntakeMotorSet;
+import frc.robot.commands.shoot.BackToggle;
+import frc.robot.commands.shoot.FrontToggle;
 import frc.robot.commands.drive.profiling.DriveToTargetP;
 import frc.robot.commands.drive.simple.DriveAddSensitiveLeft;
 import frc.robot.commands.drive.simple.DriveAddSensitiveRight;
@@ -50,10 +51,12 @@ public class OI {
 		main.pov270.whileHeld(new DriveAddSensitiveLeft());
 		main.pov90.whileHeld(new DriveAddSensitiveRight());
 
-		//main.a.whileHeld(new DriveToTargetP());
-
+		main.a.whileHeld(new DriveToTargetP());
 	
-		main.b.whenPressed(new FinalClimbUp());
+		main.b.whenPressed(new BackToggle());
+		main.y.whenPressed(new FrontToggle());
+
+		//main.start.whenPressed(new FinalClimbUp());
 
 		////////////////////////CO CONTROLS////////////////////////////
 
@@ -61,8 +64,6 @@ public class OI {
 
 		co.pov0.whenPressed(new CarriageSolenoidSet(true));
 		co.pov180.whenPressed(new CarriageSolenoidSet(false));
-
-		
 
 		co.a.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
@@ -87,8 +88,6 @@ public class OI {
 
 		SmartDashboard.putData(new ZeroAll());
 		//SmartDashboard.putData(new EndAll());
-
-		
 	}
 
 	//
@@ -112,13 +111,8 @@ public class OI {
 		return VortxMath.handleDeadband(co.getRawAxis(5),.1);
 	}
 
-	public double getWinchMove() {
-		double move = VortxMath.handleDeadband(co.getRightTrigger() - co.getLeftTrigger(), .05);
-		return Math.copySign((move*move), move);
-	}
-
 	public double getArmsMove() {
-		double move = VortxMath.handleDeadband(co.getRawAxis(4),.1);
+		double move = VortxMath.handleDeadband(co.getRightTrigger() - co.getLeftTrigger(), .05);
 		return Math.copySign((move*move), move);
 	}
 	

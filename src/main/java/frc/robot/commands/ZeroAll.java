@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.commands.drive.ZeroEncoders;
+//import frc.robot.commands.drive.ZeroEncoders;
 import frc.robot.commands.drive.positions.ResetPosition;
 import frc.robot.commands.drive.positions.ZeroYaw;
 import frc.robot.commands.elevator.ElevatorResetEncoder;
@@ -15,7 +15,7 @@ public class ZeroAll extends Command {
 
     public ZeroAll() {
         this.setRunWhenDisabled(true);
-        driveEnc = new ZeroEncoders();
+       // driveEnc = new ZeroEncoders();
         yawZero = new ZeroYaw();
         zeroPos = new ResetPosition();
         zeroElv = new ElevatorResetEncoder();
