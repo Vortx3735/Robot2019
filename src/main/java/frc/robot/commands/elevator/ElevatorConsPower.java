@@ -17,17 +17,20 @@ public class ElevatorConsPower extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
+
 		Robot.elevator.controller.disable();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+		System.out.println("Giving cos power of .08");	//TODO: Take these out
         Robot.elevator.setPOutput(0.08);
     }
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return Robot.elevator.getPosition()<2 || (Math.abs(Robot.oi.getElevatorMove()) > 0.05);
+		System.out.println("elev joy is " + Robot.oi.getElevatorMove());
+		return Robot.elevator.getPosition()<2 || (Math.abs(Robot.oi.getElevatorMove()) >= 0.03);
 	}
 
 	// Called once after isFinished returns true

@@ -33,8 +33,8 @@ public class Constants {
 		public static final double turnExponent = 3;		//[1,inf) 
 
 		//for turning slowly with lb and rb
-		public static final double lowSensitivityLeftTurn = -.2;
-		public static final double lowSensitivityRightTurn = .2;
+		public static final double lowSensitivityLeftTurn = -.3;
+		public static final double lowSensitivityRightTurn = .3;
 		
 		public static final boolean isUsingLeftEncoders = true;
 		public static final boolean isUsingRightEncoders = true;
@@ -50,10 +50,10 @@ public class Constants {
 		public static final double tickPerRoatation = 512;
 		//All these are heights and should assume the 0 is the bottom of the elevator
 		public static final double lowRocketHatch = 0;
-		public static final double midRocketHatch = 54;
+		public static final double midRocketHatch = 51;
 		public static final double highRocketHatch = 102;
 		public static final double lowRocketCargo = 0;
-		public static final double midRocketCargo = 54;
+		public static final double midRocketCargo = 51;
 		public static final double highRocketCargo = 102; 
 		public static final double cargoHatch = 0;
 		public static final double shipPort = 31.5;
@@ -66,7 +66,7 @@ public class Constants {
 		public static final double MAX_DRIVE = 0.5;                   // Simple speed limit so we don't drive too fast
 		public static final double MAX_TURN = 0.5;
 		public static final double MIN_TURN = -0.5;
-		public static final double ANGLE_OFFSET = 1.0; // was 1.8
+		public static final double ANGLE_OFFSET = .9; // was 1.8
 		public static final double DISTANCE_OFFSET = 11.0;
 	}
 }

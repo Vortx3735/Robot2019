@@ -49,6 +49,7 @@ public class ElevatorSetPos extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.elevator.controller.disable();
+        System.out.println("End was called");
         consPower.start();
     }
 

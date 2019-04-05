@@ -93,6 +93,8 @@ public class OI {
 
 		//TODO: Extract these to constants
 
+		co.pov0.whenPressed(new ElevatorFree());
+
 		// co.pov0.whenPressed(new BallArmsSetPos(-90, .15));  //up						-92
 		// co.pov180.whenPressed(new BallArmsSetPos(284, 0.0)); //adown					284
 
@@ -116,7 +118,7 @@ public class OI {
 	}
 	
 	public double getElevatorMove() {
-		double move = VortxMath.handleDeadband(main.getRightY()+ co.getLeftY(),.05);
+		double move = VortxMath.handleDeadband(co.getLeftY(),.1);
 		return  Math.copySign((move*move), move);
 	}
 
@@ -125,7 +127,7 @@ public class OI {
 	}
 
 	public double getArmsMove() {
-		double move = VortxMath.handleDeadband(co.getRightTrigger() - co.getLeftTrigger(), .05);
+		double move = VortxMath.handleDeadband(co.getRightTrigger() - co.getLeftTrigger(), .1);
 		return Math.copySign((move*move), move);
 	}
 	

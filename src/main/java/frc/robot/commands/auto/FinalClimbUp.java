@@ -23,9 +23,9 @@ public class FinalClimbUp extends CommandGroup {
     addSequential(new BackToggle(), 1.5);      //get front wheels on
     addSequential(new DriveExp(-.6, 0), .3);  //get some foward
     addSequential(new FrontToggle(), 1.5);      //push the front up
-    addSequential(new DriveExp(-.65,0),1.1);    //drive foward more
-    addSequential(new FrontToggle(), 1);        //lift up front wheels
-    addSequential(new DriveExp(-.7,0), .7);   //pull foward more
+    // addSequential(new DriveExp(-.65,0),1.10);    //drive foward more
+    // addSequential(new FrontToggle(), 3);        //lift up front wheels
+    // addSequential(new DriveExp(-.5,0), .7);   //pull foward more
 
   }
 }
