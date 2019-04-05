@@ -11,7 +11,7 @@ import frc.robot.commands.hatch.HatchSet;
 public class LeftHab2PlaceHatch extends CommandGroup {
 
     public LeftHab2PlaceHatch() {
-        addSequential(new HatchSet(true),5);
+        addSequential(new HatchSet(true),.5);
         addSequential(new DriveExp(.9, 0),.8);
         addParallel(new CarriageSolenoidSet(true));
         // addSequential(new TurnTo(60),.7);

@@ -52,21 +52,21 @@ public class Constants {
 		public static final double lowRocketHatch = 0;
 		public static final double midRocketHatch = 54;
 		public static final double highRocketHatch = 102;
-		public static final double lowRocketCargo = 4.5;
-		public static final double midRocketCargo = 52.5;
-		public static final double highRocketCargo = 52.5; //TODO: The real heigth
+		public static final double lowRocketCargo = 0;
+		public static final double midRocketCargo = 54;
+		public static final double highRocketCargo = 102; 
 		public static final double cargoHatch = 0;
 		public static final double shipPort = 31.5;
 
 	}
 
 	public class LimeLight {
-		public static final double STEER_K = 0.04;                    // how hard to turn toward the target
+		public static final double STEER_K = 0.05;                    // how hard to turn toward the target
         public static final double DRIVE_K = 0.0075;                   // how hard to drive fwd toward the target
-		public static final double MAX_DRIVE = 0.4;                   // Simple speed limit so we don't drive too fast
+		public static final double MAX_DRIVE = 0.5;                   // Simple speed limit so we don't drive too fast
 		public static final double MAX_TURN = 0.5;
 		public static final double MIN_TURN = -0.5;
-		public static final double ANGLE_OFFSET = 1.8;
+		public static final double ANGLE_OFFSET = 1.0; // was 1.8
 		public static final double DISTANCE_OFFSET = 11.0;
 	}
 }

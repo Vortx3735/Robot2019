@@ -9,32 +9,23 @@ package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.drive.movedistance.DriveExp;
-import frc.robot.commands.intake.BallIntakeMotorSet;
-import frc.robot.commands.ballarms.ArmsDown;
+import frc.robot.commands.shoot.BackToggle;
+import frc.robot.commands.shoot.FrontToggle;
+
 
 public class FinalClimbUp extends CommandGroup {
   /**
    * Add your docs here.
    */
   public FinalClimbUp() {
-    // Add Commands here:
-    // e.g. addSequential(new Command1());
-    // addSequential(new Command2());
-    // these will run in order.
-    addSequential(new ArmsDown(),3);
-    //addSequential(new BallIntakeMotorSet(0.5), 1);
-    // addSequential(new ShootToggle(true));
-     addSequential(new DriveExp(-.3,0),3);
-    // To run multiple commands at the same time,
-    // use addParallel()
-    // e.g. addParallel(new Command1());
-    // addSequential(new Command2());
-    // Command1 and Command2 will run in parallel.
+    addSequential(new BackToggle(), 1.5);       //pushing back up
+    addSequential(new DriveExp(-.7, 0), .8); //drive up
+    addSequential(new BackToggle(), 1.5);      //get front wheels on
+    addSequential(new DriveExp(-.6, 0), .3);  //get some foward
+    addSequential(new FrontToggle(), 1.5);      //push the front up
+    addSequential(new DriveExp(-.65,0),1.1);    //drive foward more
+    addSequential(new FrontToggle(), 1);        //lift up front wheels
+    addSequential(new DriveExp(-.7,0), .7);   //pull foward more
 
-    // A command group will require all of the subsystems that each member
-    // would require.
-    // e.g. if Command1 requires chassis, and Command2 requires arm,
-    // a CommandGroup containing them would require both the chassis and the
-    // arm.
   }
 }

@@ -18,6 +18,7 @@ public class Autonomous {
 			autoChooser.addOption("Right Hab 2 Hatch", new RightHab2PlaceHatch());
 			autoChooser.addOption("Middle Hab 1 Hatch", new MiddleHatch());
 			autoChooser.setDefaultOption("Do Nothing", new DoNothing());
+			//autoChooser.setDefaultOption("Hold Arm", new BallArmsConsPower(.15));
 
 		SmartDashboard.putData(autoChooser);
 

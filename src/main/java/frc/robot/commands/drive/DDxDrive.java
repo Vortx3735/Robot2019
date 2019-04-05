@@ -74,18 +74,18 @@ public class DDxDrive extends Command {
     protected void execute() {
 
     	
-    	moveMotor = Robot.oi.getDriveMove();
-		turnMotor = Robot.oi.getDriveTurn();
+    	// moveMotor = Robot.oi.getDriveMove();
+		// turnMotor = Robot.oi.getDriveTurn();
 		    	
-		moveMotor = moveMotor * Math.pow(Math.abs(moveMotor), Drive.moveExponent.getValue() - 1);
-		turnMotor = turnMotor * Math.pow(Math.abs(turnMotor), Drive.turnExponent.getValue() - 1);
+		// moveMotor = moveMotor * Math.pow(Math.abs(moveMotor), Drive.moveExponent.getValue() - 1);
+		// turnMotor = turnMotor * Math.pow(Math.abs(turnMotor), Drive.turnExponent.getValue() - 1);
 
-		if(Robot.pdp.isBrowningOut()) {
-			moveMotor = 0;
-			turnMotor = 0;
-		}
+		// if(Robot.pdp.isBrowningOut()) {
+		// 	moveMotor = 0;
+		// 	turnMotor = 0;
+		// }
 		
-    	Robot.drive.normalDrive(
+    	Robot.drive.normalDrivePlus(
     			move.feed(Robot.oi.getDriveMove()) * Drive.scaledMaxMove.getValue(), 
     			turn.feed(Robot.oi.getDriveTurn()) * Drive.scaledMaxTurn.getValue()
 		);

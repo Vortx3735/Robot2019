@@ -14,10 +14,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
 import frc.robot.commands.ZeroAll;
 import frc.robot.commands.auto.FinalClimbUp;
+import frc.robot.commands.ballarms.BallArmsSetPos;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.hatch.*;
 import frc.robot.commands.shoot.BackToggle;
 import frc.robot.commands.shoot.FrontToggle;
+import frc.robot.commands.drive.ReverseDrive;
 import frc.robot.commands.drive.profiling.DriveToTargetP;
 import frc.robot.commands.drive.simple.DriveAddSensitiveLeft;
 import frc.robot.commands.drive.simple.DriveAddSensitiveRight;
@@ -56,14 +58,18 @@ public class OI {
 		main.b.whenPressed(new BackToggle());
 		main.y.whenPressed(new FrontToggle());
 
-		//main.start.whenPressed(new FinalClimbUp());
+		main.back.whenPressed(new ReverseDrive());
+
+		main.start.whenPressed(new FinalClimbUp());
 
 		////////////////////////CO CONTROLS////////////////////////////
 
 		co.x.whenPressed(new HatchToggle());
 
-		co.pov0.whenPressed(new CarriageSolenoidSet(true));
-		co.pov180.whenPressed(new CarriageSolenoidSet(false));
+		co.rb.whenPressed(new CarriageSolenoidSet(true));
+		co.lb.whenPressed(new CarriageSolenoidSet(false));
+
+
 
 		co.a.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
@@ -82,9 +88,16 @@ public class OI {
 			public double getValue() {
 				return co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch;
 			}
+			
 		}));
 
-		co.rb.whenPressed(new ElevatorFree());
+		//TODO: Extract these to constants
+
+		// co.pov0.whenPressed(new BallArmsSetPos(-90, .15));  //up						-92
+		// co.pov180.whenPressed(new BallArmsSetPos(284, 0.0)); //adown					284
+
+		// co.pov270.whenPressed(new BallArmsSetPos(40, .1));  //ship height left			57
+		// co.pov90.whenPressed(new BallArmsSetPos(108, .1)); //rocket low height right	138
 
 		SmartDashboard.putData(new ZeroAll());
 		//SmartDashboard.putData(new EndAll());
@@ -108,7 +121,7 @@ public class OI {
 	}
 
 	public double getBallMove() {
-		return VortxMath.handleDeadband(co.getRawAxis(5),.1);
+		return VortxMath.handleDeadband(co.getRawAxis(5),.1) * -1;
 	}
 
 	public double getArmsMove() {

@@ -173,5 +173,16 @@ public class VortxTalon extends WPI_TalonSRX{
 	public double getTemperature() {
 		return 32 + 1.8*super.getTemperature();
 	}
+
+	@Override
+	public void setInverted(boolean isInverted) {
+		super.setInverted(isInverted);
+		if (followers != null) {
+			for (VortxTalon talon: followers) {
+				talon.setInverted(isInverted);
+			}
+		}
+		
+	}
 	
 }

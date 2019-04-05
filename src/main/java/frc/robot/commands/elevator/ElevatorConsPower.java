@@ -27,7 +27,7 @@ public class ElevatorConsPower extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return Robot.elevator.getPosition()<2;
+		return Robot.elevator.getPosition()<2 || (Math.abs(Robot.oi.getElevatorMove()) > 0.05);
 	}
 
 	// Called once after isFinished returns true

@@ -2,37 +2,43 @@ package frc.robot.commands.ballarms;
 
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 /**
  *
  */
+
 public class BallArmsConsPower extends Command {
 
-	public BallArmsConsPower() {
+	double power;
+
+	public BallArmsConsPower(double power) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(Robot.elevator);
+		this.power = power;
+		requires(Robot.ballArms);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.elevator.controller.disable();
+		Robot.ballArms.controller.disable();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-        Robot.elevator.setPOutput(0.00);
+		Robot.ballArms.setMotorSpeed(power);
+		System.out.println("Sending " + power + " percent output to arms");
     }
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return Robot.elevator.getPosition()<2;
+		return Math.abs(Robot.oi.getArmsMove()) > 0.05;
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.elevator.setPOutput(0.0);
+		Robot.ballArms.setMotorSpeed(0.0);
 	}
 
 	// Called when another command which requires one or more of the same

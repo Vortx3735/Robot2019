@@ -11,7 +11,7 @@ public class MiddleHatch extends CommandGroup{
 
 
     public MiddleHatch() {
-        addSequential(new HatchSet(true),5);
+        addSequential(new HatchSet(true),.5);
         addSequential(new CarriageSolenoidSet(true),.2);
         addSequential(new DriveExp(.8,0), .8);
         //addSequential(new DriveToTargetP(), 2);

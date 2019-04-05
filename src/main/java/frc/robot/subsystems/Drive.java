@@ -31,7 +31,7 @@ public class Drive  extends Subsystem {
 	//for controllers
 	public static final double minPct = 0.0944854;
 	
-	
+	public static boolean reversed = false;
 	
 	private double leftAddTurn = 0;
 	private double rightAddTurn = 0;
@@ -75,6 +75,11 @@ public class Drive  extends Subsystem {
 		setDefaultCommand(new DDxDrive());
 	}
 
+	public void reverseDrive() {
+		l1.setInverted(!l1.getInverted());
+		r1.setInverted(!r1.getInverted());
+		reversed = !reversed;
+	}
 	/*******************************
 	 * Setups for Position and Speed
 	 *******************************/
@@ -155,7 +160,7 @@ public class Drive  extends Subsystem {
 		double rightMotorSpeed;
 		
 		double moveValue = move;
-		double rotateValue = rotate + getTurnAdditions();
+		double rotateValue = rotate + getSensitiveTurnAdditions();
 	    if (moveValue > 0.0) {
 	        if (rotateValue < 0.0) {
 	          leftMotorSpeed = moveValue + rotateValue;
@@ -178,19 +183,31 @@ public class Drive  extends Subsystem {
 	
 	
 	public void normalDrive(double move, double rotate){
-		double rotateValue = rotate + getTurnAdditions();
+		double rotateValue = rotate + getSensitiveTurnAdditions();
 		setLeftRight(move + rotateValue, move - rotateValue);
+	}
+
+	public void normalDrivePlus(double move, double rotate) {
+		move += visionMoveAssist;
+		rotate += visionTurnAssist;
+		if(reversed) {
+			rotate*=-1;
+		}
+		normalDrive(move, rotate);
 	}
 
 	public void arcadeDrivePlus(double move, double rotate) {
 		move += visionMoveAssist;
-		rotate += getTurnAdditions();
+		rotate += getSensitiveTurnAdditions();
+		if(reversed) {
+			rotate*=-1;
+		}
 		arcadeDrive(move, rotate);
 	}
 		
 	
-	public double getTurnAdditions() {
-		return leftAddTurn + rightAddTurn + visionTurnAssist;// + visionAssist + navxAssist;
+	public double getSensitiveTurnAdditions() {
+		return leftAddTurn + rightAddTurn;
 	}
 
 	/*******************************
@@ -279,8 +296,8 @@ public class Drive  extends Subsystem {
 	}
 	
 	public void setLeftRightPlus(double left, double right) {
-		l1.set(left + getTurnAdditions());
-		r1.set(right - getTurnAdditions());
+		l1.set(left + getSensitiveTurnAdditions());
+		r1.set(right - getSensitiveTurnAdditions());
 	}
 	
 	public double getLeftPercent() {

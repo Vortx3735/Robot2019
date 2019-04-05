@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.ballarms.BallArmsMoveJoystick;
 import frc.robot.util.PIDCtrl;
+import frc.robot.util.calc.VortxMath;
 import frc.robot.util.hardware.VortxTalon;
 
 public class BallArms extends Subsystem implements PIDSource, PIDOutput {
@@ -23,13 +24,13 @@ public class BallArms extends Subsystem implements PIDSource, PIDOutput {
 //    super("winch","WCH");
     motor = new VortxTalon(RobotMap.BallArms.ballArms, "BallArms");
 
-    motor.initSensor(FeedbackDevice.QuadEncoder, false);
-    motor.setSelectedSensorPosition(0);
+    motor.initSensor(FeedbackDevice.QuadEncoder, true);
+    motor.setSelectedSensorPosition(-92);
 
-    controller = new PIDCtrl(.004,.01,0,0,this,this,2);
+    controller = new PIDCtrl(.008,.0001,0,.000, this,this,2);
 		SmartDashboard.putData(controller);
 		controller.setAbsoluteTolerance(5);
-		controller.setOutputRange(-.7, .7);
+    controller.setOutputRange(-.35, .15);
 		controller.disable();
   }
 
@@ -45,10 +46,24 @@ public class BallArms extends Subsystem implements PIDSource, PIDOutput {
   public double getPosition() {
     return motor.getSelectedSensorPosition();
   }
+
+  public boolean isPastPivot() {
+    return getPosition() < 0;
+  }
+
+  public void setEncoderPos(int pos) {
+    motor.setSelectedSensorPosition(pos);
+  }
   
   @Override
   public void pidWrite(double output) {
+    output*=-1;
+    SmartDashboard.putNumber("PID P Output", output);
+    if(output>0&&isPastPivot()) {
+      output = 0;
+    }
     setMotorSpeed(output);//(ControlMode.PercentOutput, output);
+
   }
 
   @Override

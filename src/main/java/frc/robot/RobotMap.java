@@ -21,12 +21,12 @@ public class RobotMap {
 	}
 
 	public static class Ball {
-		public static int topMotor = 4; //5
+		public static int topMotor = 10;
 
 	}
 	public static class Shoot {
-		public static int frontSolenoid = 3;
-		public static int backSolenoid = 4;
+		public static int frontSolenoid = 2;
+		public static int backSolenoid = 3;
 		
 	}
 

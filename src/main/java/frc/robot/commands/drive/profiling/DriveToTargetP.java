@@ -67,8 +67,9 @@ public class DriveToTargetP extends Command {
         SmartDashboard.putNumber("move", move);
         SmartDashboard.putNumber("turn", turn);
         //add the values to the drive class
-        Robot.drive.setMoveVisionAssist(move);
-        Robot.drive.setTurnVisionAssist(turn);
+        Robot.drive.arcadeDrive(move, turn);
+        // Robot.drive.setMoveVisionAssist(move);
+        // Robot.drive.setTurnVisionAssist(turn);
     }
 
 	// Make this return true when this Command no longer needs to run execute()
