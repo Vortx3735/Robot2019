@@ -22,9 +22,16 @@ public class ArduinoCo extends Subsystem {
   Matcher m;
   String s;
   int count;
+  boolean created;
 
   public ArduinoCo() {
-    sp = new SerialPort(9600, Port.kUSB);
+    try {
+      sp = new SerialPort(9600, Port.kUSB);
+      created = true;
+    } catch( Exception e) {
+      e.printStackTrace();
+      created = false;
+    }
     s = "";
     p = Pattern.compile("[0-9]{3}\\.[0-9]{2}");
   }
@@ -34,6 +41,10 @@ public class ArduinoCo extends Subsystem {
   }
 
   public void update() {
+    if(!created) {
+      distance = 60;
+      return;
+    }
     count++;
     if(!(count%5==0)) {
       return;

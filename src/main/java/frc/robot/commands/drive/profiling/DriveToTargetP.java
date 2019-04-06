@@ -80,8 +80,8 @@ public class DriveToTargetP extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.drive.setMoveVisionAssist(0);
-        Robot.drive.setTurnVisionAssist(0);
+        // Robot.drive.setMoveVisionAssist(0);
+        // Robot.drive.setTurnVisionAssist(0);
         Robot.limelight.setPipeline(1.0); 
     }
 
