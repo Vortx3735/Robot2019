@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.auto.LeftHab2PlaceHatch;
 import frc.robot.commands.auto.MiddleHatch;
 import frc.robot.commands.auto.RightHab2PlaceHatch;
+import frc.robot.commands.ballarms.BallArmsConsPower;
 import frc.robot.util.choosers.DoNothing;
 
 public class Autonomous {
@@ -19,6 +20,7 @@ public class Autonomous {
 			autoChooser.addOption("Middle Hab 1 Hatch", new MiddleHatch());
 			autoChooser.setDefaultOption("Do Nothing", new DoNothing());
 			//autoChooser.setDefaultOption("Hold Arm", new BallArmsConsPower(.15));
+
 
 		SmartDashboard.putData(autoChooser);
 

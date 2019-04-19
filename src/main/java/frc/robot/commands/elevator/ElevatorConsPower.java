@@ -9,11 +9,15 @@ import frc.robot.Robot;
  */
 public class ElevatorConsPower extends Command {
 
-	public ElevatorConsPower() {
+	double consPower;
+
+	public ElevatorConsPower(double consPower) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
+		this.consPower = consPower;
 		requires(Robot.elevator);
 	}
+
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
@@ -23,13 +27,13 @@ public class ElevatorConsPower extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		System.out.println("Giving cos power of .08");	//TODO: Take these out
-        Robot.elevator.setPOutput(0.08);
+//		System.out.println("Giving cos power of .08");
+        Robot.elevator.setPOutput(consPower);
     }
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		System.out.println("elev joy is " + Robot.oi.getElevatorMove());
+//		System.out.println("elev joy is " + Robot.oi.getElevatorMove());
 		return Robot.elevator.getPosition()<2 || (Math.abs(Robot.oi.getElevatorMove()) >= 0.03);
 	}
 

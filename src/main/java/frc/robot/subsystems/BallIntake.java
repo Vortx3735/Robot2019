@@ -19,7 +19,7 @@ public class BallIntake extends Subsystem {
 	int solval = 0;
 	public BallIntake() {
 //		super("ballIntake","BAL");
-		intakeMotor = new VortxTalon(RobotMap.Ball.topMotor);
+		intakeMotor = new VortxTalon(RobotMap.Ball.ballMotor);
 		intakeMotor.setNeutralMode(NeutralMode.Brake);
 		
 	}

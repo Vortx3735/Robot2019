@@ -56,7 +56,8 @@ public class Constants {
 		public static final double midRocketCargo = 51;
 		public static final double highRocketCargo = 102; 
 		public static final double cargoHatch = 0;
-		public static final double shipPort = 31.5;
+		public static final double shipPort = 0;
+		public static final double frameHeight = 10;
 
 	}
 
@@ -68,5 +69,12 @@ public class Constants {
 		public static final double MIN_TURN = -0.5;
 		public static final double ANGLE_OFFSET = .9; // was 1.8
 		public static final double DISTANCE_OFFSET = 11.0;
+	}
+
+	public class BallArms {
+		public static final double INTAKING = 451.0;
+		public static final double STARTING = 0.0;
+		public static final double SCORING = 0.0;
+
 	}
 }

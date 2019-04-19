@@ -37,11 +37,11 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		drive = new Drive();
-//		ballIntake = new BallIntake();
+		ballIntake = new BallIntake();
 		hatchIntake = new HatchIntake();
 		elevator = new Elevator();
 		carriage = new Carriage();
-//		ballArms = new BallArms();
+		ballArms = new BallArms();
 		shoot = new Shoot();
 
 		arduino = new ArduinoCo();
@@ -52,7 +52,6 @@ public class Robot extends TimedRobot {
 		autoLogic = new Autonomous();
 
 		oi = new OI();
-
 	}
 
 	@Override 
@@ -78,27 +77,25 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		autoLogic.startCommand();
+		//TODO: Ball arms
 	}
 
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		arduino.update();
-		//navigation.integrate();
+		log();
 	}
 
 	/************************************ Teleop ******************************************/
 
 	@Override
 	public void teleopInit() {
-//		SmartBoard.setMatchMode();
-		
+		ballArms.startConsPower();
 	}
 
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		//navigation.integrate();
 		log();
 	}
 
@@ -113,14 +110,14 @@ public class Robot extends TimedRobot {
 	public void log() {
 		SmartDashboard.putData(Scheduler.getInstance());
 		drive.log();
-//		ballIntake.log();
+		ballIntake.log();
 		hatchIntake.log();
 		elevator.log();
 		carriage.log();
 		navigation.log();
 		arduino.log();
 		pdp.log();
-//		ballArms.log();
+		ballArms.log();
 	} 
 
 	public void debugLog() {

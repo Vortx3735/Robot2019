@@ -2,7 +2,6 @@ package frc.robot.commands.ballarms;
 
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 /**
@@ -22,18 +21,20 @@ public class BallArmsConsPower extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.ballArms.controller.disable();
+		System.out.println("Init ball arms cons power");
+		Robot.ballArms.controllerUp.disable();
+		Robot.ballArms.controllerDown.disable();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		Robot.ballArms.setMotorSpeed(power);
-		System.out.println("Sending " + power + " percent output to arms");
+		System.out.println("Sending " + power + " percent output to arms and joystick of" +Robot.oi.getArmsMove());
     }
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return Math.abs(Robot.oi.getArmsMove()) > 0.05;
+		return Math.abs(Robot.oi.getArmsMove()) >= 0.03;
 	}
 
 	// Called once after isFinished returns true

@@ -16,6 +16,7 @@ import frc.robot.commands.ZeroAll;
 import frc.robot.commands.auto.FinalClimbUp;
 import frc.robot.commands.ballarms.BallArmsSetPos;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
+import frc.robot.commands.carriage.CarriageToggle;
 import frc.robot.commands.hatch.*;
 import frc.robot.commands.shoot.BackToggle;
 import frc.robot.commands.shoot.FrontToggle;
@@ -49,7 +50,6 @@ public class OI {
 		main.pov0.whenPressed(new CarriageSolenoidSet(true));
 		main.pov180.whenPressed(new CarriageSolenoidSet(false));
 		
-
 		main.pov270.whileHeld(new DriveAddSensitiveLeft());
 		main.pov90.whileHeld(new DriveAddSensitiveRight());
 
@@ -65,11 +65,6 @@ public class OI {
 		////////////////////////CO CONTROLS////////////////////////////
 
 		co.x.whenPressed(new HatchToggle());
-
-		co.rb.whenPressed(new CarriageSolenoidSet(true));
-		co.lb.whenPressed(new CarriageSolenoidSet(false));
-
-
 
 		co.a.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
@@ -91,15 +86,13 @@ public class OI {
 			
 		}));
 
-		//TODO: Extract these to constants
+		co.pov270.whenPressed(new CarriageToggle());
 
-		co.pov0.whenPressed(new ElevatorFree());
+		co.pov0.whenPressed(new BallArmsSetPos(Constants.BallArms.STARTING, 0.2, true));  //up 451		-92 //.1-.15
+		co.pov90.whenPressed(new BallArmsSetPos(Constants.BallArms.SCORING, 0.0, true)); //rocket low height right	138
+		co.pov180.whenPressed(new BallArmsSetPos(Constants.BallArms.INTAKING, 0.2, false)); //adown					284
 
-		// co.pov0.whenPressed(new BallArmsSetPos(-90, .15));  //up						-92
-		// co.pov180.whenPressed(new BallArmsSetPos(284, 0.0)); //adown					284
-
-		// co.pov270.whenPressed(new BallArmsSetPos(40, .1));  //ship height left			57
-		// co.pov90.whenPressed(new BallArmsSetPos(108, .1)); //rocket low height right	138
+		co.start.whenPressed(new ElevatorFree());
 
 		SmartDashboard.putData(new ZeroAll());
 		//SmartDashboard.putData(new EndAll());
@@ -109,7 +102,6 @@ public class OI {
 	public double getDriveMove() {
 		double move = main.getRightTrigger() - main.getLeftTrigger();
 		return Math.copySign((move*move), move);
-		//return main.getRightTrigger() - main.getLeftTrigger();
 	}
 
 	public double getDriveTurn() {
@@ -119,7 +111,7 @@ public class OI {
 	
 	public double getElevatorMove() {
 		double move = VortxMath.handleDeadband(co.getLeftY(),.1);
-		return  Math.copySign((move*move), move);
+		return  Math.copySign((move*move), move) * .7;
 	}
 
 	public double getBallMove() {

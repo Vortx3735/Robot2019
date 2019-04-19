@@ -15,7 +15,7 @@ public class ElevatorSetPos extends Command {
     public ElevatorSetPos(Func inches) {
         this.inches = inches;
         requires(Robot.elevator);
-        consPower = new ElevatorConsPower();
+        consPower = new ElevatorConsPower(.08); //TODO: Maybe extract to variable?
     }
 
     public ElevatorSetPos() {
@@ -42,7 +42,7 @@ public class ElevatorSetPos extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevator.controller.onTarget();
+        return Robot.elevator.controller.onTarget() || (Math.abs(Robot.oi.getElevatorMove()) >= 0.03);
     }
 
     Command consPower;

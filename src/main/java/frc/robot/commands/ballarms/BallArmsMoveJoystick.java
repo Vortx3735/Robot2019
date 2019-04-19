@@ -25,11 +25,7 @@ public class BallArmsMoveJoystick extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {		
 		speed = Robot.oi.getArmsMove();
-		if(Robot.ballArms.isPastPivot()) {
-			speed *= .2;
-		} else {
-			speed *= .4;
-		}
+		speed *= .4;
 		Robot.ballArms.setMotorSpeed(speed);
 	}
 

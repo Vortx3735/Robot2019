@@ -21,7 +21,7 @@ public class RobotMap {
 	}
 
 	public static class Ball {
-		public static int topMotor = 10;
+		public static int ballMotor = 3;
 
 	}
 	public static class Shoot {
@@ -31,11 +31,11 @@ public class RobotMap {
 	}
 
 	public static class Hatch {
-		public static int solenoid = 1;
+		public static int solenoid = 0;
 	}
 	
 	public static class Carriage {
-		public static int solenoid = 0;
+		public static int solenoid = 1;
 	}
 	public static class Elevator {
 		public static int[] elevatorMotors = {-7,6};
