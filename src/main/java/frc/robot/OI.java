@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
 import frc.robot.commands.ZeroAll;
 import frc.robot.commands.auto.FinalClimbUp;
+import frc.robot.commands.ballarms.BallArmsConsPower;
 import frc.robot.commands.ballarms.BallArmsSetPos;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.carriage.CarriageToggle;
@@ -26,6 +27,9 @@ import frc.robot.commands.drive.simple.DriveAddSensitiveLeft;
 import frc.robot.commands.drive.simple.DriveAddSensitiveRight;
 import frc.robot.commands.elevator.ElevatorFree;
 import frc.robot.commands.elevator.ElevatorSetPos;
+import frc.robot.commands.sequences.BringHatchOut;
+import frc.robot.commands.sequences.BringHatchIn;
+import frc.robot.commands.drive.ToggleSickoMode;
 
 
 
@@ -46,9 +50,6 @@ public class OI {
 		co = new XboxController(1);
 		
 		main.x.whenPressed(new HatchToggle());
-
-		main.pov0.whenPressed(new CarriageSolenoidSet(true));
-		main.pov180.whenPressed(new CarriageSolenoidSet(false));
 		
 		main.pov270.whileHeld(new DriveAddSensitiveLeft());
 		main.pov90.whileHeld(new DriveAddSensitiveRight());
@@ -59,6 +60,8 @@ public class OI {
 		main.y.whenPressed(new FrontToggle());
 
 		main.back.whenPressed(new ReverseDrive());
+
+		main.pov0.whenPressed(new ToggleSickoMode());
 
 		main.start.whenPressed(new FinalClimbUp());
 
@@ -71,31 +74,40 @@ public class OI {
 			public double getValue() {
 				return co.lb.get() ? Constants.Elevator.lowRocketCargo : Constants.Elevator.lowRocketHatch;
 			}
-		}));
+		}, true));
 		co.b.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
 			public double getValue() {
 				return co.lb.get() ? Constants.Elevator.midRocketCargo : Constants.Elevator.midRocketHatch;
 			}
-		}));
+		}, true));
 		co.y.whenPressed(new ElevatorSetPos(new Func() {
 			@Override
 			public double getValue() {
 				return co.lb.get() ? Constants.Elevator.highRocketCargo : Constants.Elevator.highRocketHatch;
 			}
 			
-		}));
+		}, true));
 
 		co.pov270.whenPressed(new CarriageToggle());
 
-		co.pov0.whenPressed(new BallArmsSetPos(Constants.BallArms.STARTING, 0.2, true));  //up 451		-92 //.1-.15
-		co.pov90.whenPressed(new BallArmsSetPos(Constants.BallArms.SCORING, 0.0, true)); //rocket low height right	138
-		co.pov180.whenPressed(new BallArmsSetPos(Constants.BallArms.INTAKING, 0.2, false)); //adown					284
+		co.pov0.whenPressed(new BallArmsConsPower(.2));  //up 451		-92 //.1-.15
+	//	co.pov90.whenPressed(new BallArmsSetPos(Constants.BallArms.SCORING, 0.0, true, 2.5)); //rocket low height right	138
+		//co.pov180.whenPressed(new BallArmsSetPos(Constants.BallArms.INTAKING, 0.2, false, 1.5)); //adown					284
 
-		co.start.whenPressed(new ElevatorFree());
+		//co.start.whenPressed(new ElevatorFree());
+
+		co.rb.whenPressed(new ElevatorSetPos(new Func() {
+			@Override
+			public double getValue() {
+				return 0;
+			}
+		}, false));
+
+		co.start.whenPressed(new BringHatchOut());
+		co.back.whenPressed(new BringHatchIn());
 
 		SmartDashboard.putData(new ZeroAll());
-		//SmartDashboard.putData(new EndAll());
 	}
 
 	//

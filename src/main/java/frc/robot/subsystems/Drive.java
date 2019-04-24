@@ -27,7 +27,8 @@ public class Drive  extends Subsystem {
 	
 	private static int iZone = 2;
 	private static double maxV = 160;
-
+	
+	public boolean sickoMode = false;
 	//for controllers
 	public static final double minPct = 0.0944854;
 	
@@ -398,6 +399,8 @@ public class Drive  extends Subsystem {
 		// SmartDashboard.putNumber("Drive Left Position", getLeftPosition());
 		// SmartDashboard.putNumber("Drive Right Position", getRightPosition());
 		// calcSpeeds();
+		SmartDashboard.putBoolean("Sicko Mode", sickoMode);
+
 	}
 
 	public void debugLog() {

@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Constants;
 import frc.robot.RobotMap;
 import frc.robot.commands.ballarms.BallArmsConsPower;
 import frc.robot.commands.ballarms.BallArmsMoveJoystick;
@@ -48,7 +49,7 @@ public class BallArms extends Subsystem implements PIDSource, PIDOutput {
   }
 
   public void startConsPower() {
-    consPower = new BallArmsConsPower(.1);
+    consPower = new BallArmsConsPower(Constants.BallArms.CONSPOWERSTART);
     consPower.start();
 
   }
@@ -57,7 +58,6 @@ public class BallArms extends Subsystem implements PIDSource, PIDOutput {
     motor.set(ControlMode.PercentOutput, d);
   }
 
- 
 
   @Override
   public void initDefaultCommand() {

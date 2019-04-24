@@ -76,8 +76,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
-		autoLogic.startCommand();
-		//TODO: Ball arms
+		ballArms.startConsPower();
 	}
 
 	@Override
@@ -91,6 +90,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 		ballArms.startConsPower();
+		drive.sickoMode = false;
 	}
 
 	@Override

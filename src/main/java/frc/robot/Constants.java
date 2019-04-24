@@ -41,6 +41,9 @@ public class Constants {
 
 		public static final double driveTolerance = 2;
 
+		public static final double fastMaxMove = 1;
+		public static final double fastMaxTurn = .7;
+
 	}
 
 	public class Elevator {
@@ -49,9 +52,9 @@ public class Constants {
 //		0.02192;
 		public static final double tickPerRoatation = 512;
 		//All these are heights and should assume the 0 is the bottom of the elevator
-		public static final double lowRocketHatch = 0;
-		public static final double midRocketHatch = 51;
-		public static final double highRocketHatch = 102;
+		public static final double lowRocketHatch = 11.5;
+		public static final double midRocketHatch = 64;
+		public static final double highRocketHatch = 114;
 		public static final double lowRocketCargo = 0;
 		public static final double midRocketCargo = 51;
 		public static final double highRocketCargo = 102; 
@@ -75,6 +78,7 @@ public class Constants {
 		public static final double INTAKING = 451.0;
 		public static final double STARTING = 0.0;
 		public static final double SCORING = 0.0;
+		public static final double CONSPOWERSTART = .20;
 
 	}
 }

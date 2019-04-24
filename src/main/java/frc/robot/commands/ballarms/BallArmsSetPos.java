@@ -16,10 +16,12 @@ public class BallArmsSetPos extends Command {
     PIDCtrl controller;
 
     double timeOn;
+    double timeOut;
+    double time = 0;
 
-
-    public BallArmsSetPos(double pos, double power, boolean up) {
+    public BallArmsSetPos(double pos, double power, boolean up, double timeOut) {
         this.pos = pos;
+        this.timeOut = timeOut;
         if(up) {
             controller = Robot.ballArms.controllerUp;
         } else {
@@ -33,28 +35,32 @@ public class BallArmsSetPos extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        time = 0;
+        timeOn = 0;
     	controller.setSetpoint(pos);
     	controller.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        time+=.02;
         if(controller.onTarget()) {
             timeOn+=.02;
         } else {
             //System.out.println(-1*controller.getError()*controller.getP());
         }
-        System.out.println("On target for " + timeOn + " arms move" + Robot.oi.getArmsMove() + "Error " + controller.getError());
+        //System.out.println("On target for " + timeOn + " arms move" + Robot.oi.getArmsMove() + "Error " + controller.getError() + " for time " + time);
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return timeOn>1 || Math.abs(Robot.oi.getArmsMove()) >=.05;
+        return timeOn>1 || Math.abs(Robot.oi.getArmsMove()) >=.05 || time>=timeOut;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        //System.out.println("Finished");
         controller.disable();
         consPower.start();
     }

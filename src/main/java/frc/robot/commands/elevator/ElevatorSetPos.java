@@ -11,10 +11,12 @@ import frc.robot.util.settings.Func;
 public class ElevatorSetPos extends Command {
 
     Func inches;
+    boolean power;
 
-    public ElevatorSetPos(Func inches) {
+    public ElevatorSetPos(Func inches, boolean power) {
         this.inches = inches;
         requires(Robot.elevator);
+        this.power = power;
         consPower = new ElevatorConsPower(.08); //TODO: Maybe extract to variable?
     }
 
@@ -50,7 +52,10 @@ public class ElevatorSetPos extends Command {
     protected void end() {
         Robot.elevator.controller.disable();
         System.out.println("End was called");
-        consPower.start();
+        if(power) {
+            consPower.start();
+
+        }
     }
 
     // Called when another command which requires one or more of the same
