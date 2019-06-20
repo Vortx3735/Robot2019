@@ -15,7 +15,6 @@ import frc.robot.Constants;
 import frc.robot.commands.ZeroAll;
 import frc.robot.commands.auto.FinalClimbUp;
 import frc.robot.commands.ballarms.BallArmsConsPower;
-import frc.robot.commands.ballarms.BallArmsSetPos;
 import frc.robot.commands.carriage.CarriageSolenoidSet;
 import frc.robot.commands.carriage.CarriageToggle;
 import frc.robot.commands.hatch.*;

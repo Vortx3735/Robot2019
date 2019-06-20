@@ -16,14 +16,12 @@ import frc.robot.commands.ballarms.BallArmsMoveJoystick;
 import frc.robot.util.PIDCtrl;
 import frc.robot.util.hardware.VortxTalon;
 
-public class BallArms extends Subsystem implements PIDSource, PIDOutput {
+public class BallArms extends Subsystem{
 
   VortxTalon motor;
 
   Command consPower;
 
-  public PIDCtrl controllerDown;
-  public PIDCtrl controllerUp;
 
   public BallArms() {
 //    super("winch","WCH");
@@ -31,20 +29,7 @@ public class BallArms extends Subsystem implements PIDSource, PIDOutput {
 
     motor.initSensor(FeedbackDevice.QuadEncoder, true); //TODO: direction and start
     motor.setSelectedSensorPosition(0);
-    //TODO Redo PID
-    controllerDown = new PIDCtrl(.0008,.000,0.0001,0, this,this,5);
-    controllerDown.sendToDash("BallArmsDown");
-		controllerDown.setAbsoluteTolerance(10);
-    controllerDown.setOutputRange(-.4, .4); //TODO: Outputs
-    controllerDown.disable();
-
-
-    controllerUp = new PIDCtrl(.002,.001,0,0, this,this,5);
-    controllerUp.sendToDash("BallArmsUp");
-		controllerUp.setAbsoluteTolerance(10);
-    controllerUp.setOutputRange(-.8, .2); //TODO: Outputs
-    controllerUp.disable();
-
+  
 
   }
 
@@ -66,30 +51,6 @@ public class BallArms extends Subsystem implements PIDSource, PIDOutput {
 
   public double getPosition() {
     return motor.getSelectedSensorPosition();
-  }
-
-  public void setEncoderPos(int pos) {
-    motor.setSelectedSensorPosition(pos);
-  }
-  
-  @Override
-  public void pidWrite(double output) {
-    SmartDashboard.putNumber("PID P Output", output*-1);
-    setMotorSpeed(output*-1);
-
-  }
-
-  @Override
-  public void setPIDSourceType(PIDSourceType pidSource) {}
-
-  @Override
-  public PIDSourceType getPIDSourceType() {
-    return PIDSourceType.kDisplacement;
-  }
-
-  @Override
-  public double pidGet() {
-    return getPosition();
   }
 
   public void log() {    

@@ -17,7 +17,7 @@ public class ElevatorSetPos extends Command {
         this.inches = inches;
         requires(Robot.elevator);
         this.power = power;
-        consPower = new ElevatorConsPower(.08); //TODO: Maybe extract to variable?
+        consPower = new ElevatorConsPower(.2); //TODO: Maybe extract to variable?
     }
 
     public ElevatorSetPos() {
@@ -54,7 +54,6 @@ public class ElevatorSetPos extends Command {
         System.out.println("End was called");
         if(power) {
             consPower.start();
-
         }
     }
 

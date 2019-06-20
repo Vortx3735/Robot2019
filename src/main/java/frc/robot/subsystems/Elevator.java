@@ -35,8 +35,8 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 		controller = new PIDCtrl(.103,.01,0,0,this,this,2);
 		SmartDashboard.putData(controller);
 		controller.setAbsoluteTolerance(1);
-		controller.setOutputRange(-.35, .55);
-		//controller.sendToDash("Elevator PID");
+		controller.setOutputRange(-.35, .9);
+		controller.sendToDash("Elevator PID");
 		controller.disable();
 		
 		elevator.setInchesPerTick(Constants.Elevator.inchesPerTick);
@@ -59,6 +59,7 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 	}
 
 	public void setPOutput(double speed) {
+		SmartDashboard.putNumber("Output Elevator", speed);
     	elevator.set(ControlMode.PercentOutput, speed);
 	}
 	
@@ -122,6 +123,6 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 
 	@Override
 	public void pidWrite(double output) {
-	  	setPOutput(output);
+		  setPOutput(output);
 	}
 }
