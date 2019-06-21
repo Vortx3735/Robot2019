@@ -35,7 +35,7 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 		controller = new PIDCtrl(.103,.01,0,0,this,this,2);
 		SmartDashboard.putData(controller);
 		controller.setAbsoluteTolerance(1);
-		controller.setOutputRange(-.35, .9);
+		controller.setOutputRange(-.28, .9);
 		controller.sendToDash("Elevator PID");
 		controller.disable();
 		
@@ -44,7 +44,6 @@ public class Elevator extends Subsystem implements PIDSource, PIDOutput {
 		elevator.setNeutralMode(NeutralMode.Brake);
 
 		elevator.initSensor(FeedbackDevice.QuadEncoder, true);//True on final
-
 
 		resetEncoderPositions();
 	}
