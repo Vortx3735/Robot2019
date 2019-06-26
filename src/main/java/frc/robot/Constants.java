@@ -63,7 +63,7 @@ public class Constants {
 		public static final double frameHeight = 10;
 
 	}
-
+	
 	public class LimeLight {
 		public static final double STEER_K = 0.05;                    // how hard to turn toward the target
         public static final double DRIVE_K = 0.0075;                   // how hard to drive fwd toward the target
