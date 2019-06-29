@@ -12,9 +12,9 @@ public class BringHatchOut extends CommandGroup {
         addSequential(new ElevatorSetPos(new Func() {
 			@Override
 			public double getValue() {
-				return 10;
+				return 15;
 			}
-        }, false), 1);
+        }, false), 1.5);
         
         addSequential(new CarriageSolenoidSet(true), .5);
         addSequential(new ElevatorSetPos(new Func() {

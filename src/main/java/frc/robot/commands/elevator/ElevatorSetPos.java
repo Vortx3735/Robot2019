@@ -51,7 +51,9 @@ public class ElevatorSetPos extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.elevator.controller.disable();
-        System.out.println("End was called");
+        if(inches.getValue()==0){
+            Robot.elevator.resetEncoderPositions();
+        }
         if(power) {
             consPower.start();
         }

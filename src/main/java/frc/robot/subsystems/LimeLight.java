@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 
@@ -151,7 +151,7 @@ public class LimeLight extends Subsystem {
 
     public void log() {
         //All these values can be found in network tables
-        // SmartDashboard.putNumber("tx", getTx());
+         SmartDashboard.putNumber("tx", getTx());
         // SmartDashboard.putNumber("ty", getTy());
         // SmartDashboard.putNumber("ta", getTa());
         // SmartDashboard.putNumber("tv" , getTv());

@@ -27,6 +27,7 @@ import frc.robot.commands.drive.simple.DriveAddSensitiveRight;
 import frc.robot.commands.elevator.ElevatorFree;
 import frc.robot.commands.elevator.ElevatorSetPos;
 import frc.robot.commands.sequences.BringHatchOut;
+import frc.robot.commands.sequences.BringElevatorDown;
 import frc.robot.commands.sequences.BringHatchIn;
 import frc.robot.commands.drive.ToggleSickoMode;
 
@@ -96,15 +97,11 @@ public class OI {
 
 		//co.start.whenPressed(new ElevatorFree());
 
-		co.rb.whenPressed(new ElevatorSetPos(new Func() {
-			@Override
-			public double getValue() {
-				return 0;
-			}
-		}, false));
+		co.rb.whenPressed(new BringElevatorDown());
 
-		co.start.whenPressed(new BringHatchOut());
 		co.back.whenPressed(new BringHatchIn());
+		
+		co.start.whenPressed(new BringHatchOut());
 
 		SmartDashboard.putData(new ZeroAll());
 	}

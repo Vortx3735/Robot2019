@@ -66,7 +66,7 @@ public class Constants {
 
 	public class LimeLight {
 		public static final double STEER_K = 0.05;                    // how hard to turn toward the target
-        public static final double DRIVE_K = 0.0075;                   // how hard to drive fwd toward the target
+        public static final double DRIVE_K = 0.01;                   // how hard to drive fwd toward the target
 		public static final double MAX_DRIVE = 0.5;                   // Simple speed limit so we don't drive too fast
 		public static final double MAX_TURN = 0.5;
 		public static final double MIN_TURN = -0.5;

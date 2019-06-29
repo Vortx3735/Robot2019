@@ -76,6 +76,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
+		elevator.resetEncoderPositions();
 		ballArms.startConsPower();
 	}
 
@@ -109,6 +110,7 @@ public class Robot extends TimedRobot {
 
 	public void log() {
 		SmartDashboard.putData(Scheduler.getInstance());
+		limelight.log();
 		drive.log();
 		ballIntake.log();
 		hatchIntake.log();
