@@ -28,7 +28,9 @@ public class VortxTalon extends WPI_TalonSRX{
 		this.name = name;
 		this.setInverted((id < 0) ? true : false);
 	}
-	
+
+
+	//Array of VortxTalons with 1st ->.... follow 0th VortxTalon.
 	public VortxTalon(int[] ids, String name){
 		this(ids[0], name);
 		followers = new VortxTalon[ids.length - 1];
