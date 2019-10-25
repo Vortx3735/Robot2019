@@ -25,7 +25,7 @@ public class Constants {
 		//exp drive
 		public static final double moveReactivity = 1;	//(0,1] (least reactive, most reactive]
 		public static final double turnReactivity = 1;	//(0,1] (least reactive, most reactive]	
-		public static final double scaledMaxMove = .9;
+		public static final double scaledMaxMove = .5;
 		public static final double scaledMaxTurn = .5;	//(0,1] directly to the arcadedrive turn value
 		//these retain the range but shift more of the action towards lower values as the exponent is raised higher
 		//graph y = x * x^(p-1) {-1 < x < 1} for visualization
@@ -53,11 +53,11 @@ public class Constants {
 		public static final double tickPerRoatation = 512;
 		//All these are heights and should assume the 0 is the bottom of the elevator
 		public static final double lowRocketHatch = 11.5;
-		public static final double midRocketHatch = 55;
-		public static final double highRocketHatch = 97;
+		public static final double midRocketHatch = 48;
+		public static final double highRocketHatch = 91;
 		public static final double lowRocketCargo = 0;
-		public static final double midRocketCargo = 53;
-		public static final double highRocketCargo = 98; 
+		public static final double midRocketCargo = 45;
+		public static final double highRocketCargo = 86; 
 		public static final double cargoHatch = 0;
 		public static final double shipPort = 0;
 		public static final double frameHeight = 10;
@@ -66,7 +66,7 @@ public class Constants {
 	
 	public class LimeLight {
 		public static final double STEER_K = 0.05;                    // how hard to turn toward the target
-        public static final double DRIVE_K = 0.01;                   // how hard to drive fwd toward the target
+        public static final double DRIVE_K = 0.025;                   // how hard to drive fwd toward the target
 		public static final double MAX_DRIVE = 0.5;                   // Simple speed limit so we don't drive too fast
 		public static final double MAX_TURN = 0.5;
 		public static final double MIN_TURN = -0.5;

@@ -9,7 +9,8 @@ public class CarriageToggle extends Command {
     @Override
     protected void initialize() {
             Robot.carriage.setSolenoid(!Robot.carriage.solenoid.get());
-    }
+   
+        }
 
     @Override
     protected boolean isFinished() {

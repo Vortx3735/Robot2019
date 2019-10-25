@@ -18,6 +18,8 @@ public class HatchIntake extends Subsystem {
 	public void setSolenoid(boolean b)
 	{
 		solenoid.set(b);
+		System.out.println("setSolenoid Called");
+		System.out.println("Current state is: "+solenoid.get()+"\n");
 	}
 	public void log()  {
       SmartDashboard.putBoolean("Hatch Intake", solenoid.get());

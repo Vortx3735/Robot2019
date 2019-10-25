@@ -7,10 +7,10 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.drive.DDxDrive;
-import frc.robot.Constants;
 import frc.robot.util.hardware.VortxTalon;
 import frc.robot.util.settings.BooleanSetting;
 import frc.robot.util.settings.Setting;
@@ -410,8 +410,8 @@ public class Drive  extends Subsystem {
 		// SmartDashboard.putNumber("Drive Left Speed", getLeftSpeed());
 		// SmartDashboard.putNumber("Drive Right Speed", getRightSpeed());
 
-		SmartDashboard.putNumber("Drive Left P Output", l1.getMotorOutputPercent());
-		SmartDashboard.putNumber("Drive Right P Output", r1.getMotorOutputPercent());
+		// SmartDashboard.putNumber("Drive Left P Output", l1.getMotorOutputPercent());
+		// SmartDashboard.putNumber("Drive Right P Output", r1.getMotorOutputPercent());	
 		
 	//	SmartDashboard.putNumber("Drive avg speed inches", getAverageSpeed());
 	}

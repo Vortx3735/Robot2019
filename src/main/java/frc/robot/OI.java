@@ -51,8 +51,8 @@ public class OI {
 		
 		main.x.whenPressed(new HatchToggle());
 		
-		main.pov270.whileHeld(new DriveAddSensitiveLeft());
-		main.pov90.whileHeld(new DriveAddSensitiveRight());
+		// main.pov270.whileHeld(new DriveAddSensitiveLeft());
+		// main.pov90.whileHeld(new DriveAddSensitiveRight());
 
 		main.a.whileHeld(new DriveToTargetP());
 	

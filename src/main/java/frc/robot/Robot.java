@@ -9,10 +9,17 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.subsystems.*;
+import frc.robot.subsystems.ArduinoCo;
+import frc.robot.subsystems.BallArms;
+import frc.robot.subsystems.BallIntake;
+import frc.robot.subsystems.Carriage;
+import frc.robot.subsystems.Drive;
+import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.HatchIntake;
+import frc.robot.subsystems.LimeLight;
+import frc.robot.subsystems.Navigation;
+import frc.robot.subsystems.Shoot;
 import frc.robot.util.hardware.VortxPDP;
-import frc.robot.OI;
 
 public class Robot extends TimedRobot {
 
@@ -31,8 +38,10 @@ public class Robot extends TimedRobot {
 	public static Navigation navigation;
 	public static OI oi;
 	public static VortxPDP pdp;
-	
-	/************************************ General Robot ******************************************/
+
+	/************************************
+	 * General Robot
+	 ******************************************/
 
 	@Override
 	public void robotInit() {
@@ -48,23 +57,25 @@ public class Robot extends TimedRobot {
 		limelight = new LimeLight();
 		navigation = new Navigation();
 		pdp = new VortxPDP();
-		
+
 		autoLogic = new Autonomous();
 
 		oi = new OI();
 	}
 
-	@Override 
+	@Override
 	public void robotPeriodic() {
-		//only reads and prints the values to smartdashboard
+		// only reads and prints the values to smartdashboard
 		log();
 	}
 
-	/************************************ Disabled Robot ******************************************/
+	/************************************
+	 * Disabled Robot
+	 ******************************************/
 
 	@Override
 	public void disabledInit() {
-//		SmartBoard.setPreMatchMode();
+		// SmartBoard.setPreMatchMode();
 	}
 
 	@Override
@@ -72,7 +83,9 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 	}
 
-	/**************************************Auto********************************************* */
+	/**************************************
+	 * Auto*********************************************
+	 */
 
 	@Override
 	public void autonomousInit() {
@@ -86,7 +99,9 @@ public class Robot extends TimedRobot {
 		log();
 	}
 
-	/************************************ Teleop ******************************************/
+	/************************************
+	 * Teleop
+	 ******************************************/
 
 	@Override
 	public void teleopInit() {
@@ -100,31 +115,35 @@ public class Robot extends TimedRobot {
 		log();
 	}
 
-	/************************************ Test ******************************************/
+	/************************************
+	 * Test
+	 ******************************************/
 
 	@Override
-	public void testInit() {}
+	public void testInit() {
+	}
 
 	@Override
-	public void testPeriodic() {}
+	public void testPeriodic() {
+	}
 
 	public void log() {
-		SmartDashboard.putData(Scheduler.getInstance());
-		limelight.log();
-		drive.log();
-		ballIntake.log();
-		hatchIntake.log();
+		// SmartDashboard.putData(Scheduler.getInstance());
+		// limelight.log();
+		// drive.log();
+		// ballIntake.log();
+		// hatchIntake.log();
 		elevator.log();
-		carriage.log();
-		navigation.log();
-		arduino.log();
-		pdp.log();
-		ballArms.log();
-	} 
+		// carriage.log();
+		// navigation.log();
+		// arduino.log();
+		// pdp.log();
+		// ballArms.log();
+	}
 
 	public void debugLog() {
-		//drive.debugLog();
-//		ballIntake.debugLog();
+		// drive.debugLog();
+		// ballIntake.debugLog();
 		elevator.debugLog();
 	}
 

@@ -42,7 +42,7 @@ public class RobotMap {
 	}
 
 	public static class BallArms {
-		public static int ballArms = 2;
+		public static int ballArms = -2;
 	}
 
 

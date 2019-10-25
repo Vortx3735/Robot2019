@@ -84,12 +84,12 @@ public class DDxDrive extends Command {
 		// }
 		if (!Robot.drive.sickoMode) {
 			Robot.drive.normalDrivePlus(move.feed(Robot.oi.getDriveMove()) * Drive.scaledMaxMove.getValue(),
-					turn.feed(Robot.oi.getDriveTurn()) * Drive.scaledMaxTurn.getValue());
-			//System.out.println();
+					turn.feed(Robot.oi.getDriveTurn())*Drive.scaledMaxTurn.getValue());
+				 
 		} else {
 			Robot.drive.normalDrive(Robot.oi.getDriveMove() * Constants.Drive.fastMaxMove, 
 			Robot.oi.getDriveTurn() * Constants.Drive.fastMaxTurn);
-			//System.out.println("Going fast");
+			System.out.println("Going fast");
 		}
 
 	}
