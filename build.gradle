@@ -39,6 +39,7 @@ def includeDesktopSupport = true
 
 // Maven central needed for JUnit
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -47,6 +48,7 @@ repositories {
 dependencies {
     compile wpi.deps.wpilib()
     compile wpi.deps.vendor.java()
+    compile "org.vortx3735:vorutil:1.0.0"
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
     testCompile 'junit:junit:4.12'
